@@ -57,16 +57,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3"><?php echo lang('data_inventaris') ?></h3>
                 <div class="ml-auto p-2">
-                  <!-- buttons -->
-                  <?php if (hasPermissions('inventaris_print')): ?>
-                    <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#printModal">
-                        <i class="fas fa-print"></i> Print
-                    </a>
-                    <?php endif ?>
-                    <?php if (hasPermissions('inventaris_add')): ?>
-                      <a href="<?php echo url('datainventaris/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Data Inventaris</a>
-                    <?php endif ?>
-                </div>
+                      <!-- buttons -->
+                      <?php if (hasPermissions('inventaris_print')): ?>
+                        <a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#printModal">
+                          <i class="fas fa-print"></i> Print
+                        </a>
+                      <?php endif ?>
+
+                      <?php if (hasPermissions('inventaris_add')): ?>
+                        <a href="<?php echo url('datainventaris/add') ?>" class="btn btn-primary btn-sm mr-2">
+                          <span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Data Inventaris
+                        </a>
+                      <?php endif ?>
+                    </div>
                 </div>
                  
                 <!-- /.card-header -->
@@ -79,11 +82,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th>Merek</th>
                     <th>Jurusan</th>
                     <th>Ruangan</th>
-                    <?php if (hasPermissions('inventaris_kajur')): ?>
                     <th>Asal Usul</th>
                     <th>Tahun Peredaran</th>
                     <th>Harga Alat</th>
-                    <?php endif ?>
                     <th>Total Alat</th>
                     <th>Stock Pinjam</th>
                     <?php if (hasPermissions('inventaris_edit')): ?>
@@ -104,13 +105,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </td>
                       <td><?php echo $row->singkatan_jurusan ?></td>
                       <td><?php echo $row->nama_ruangan ?></td>
-                      <?php if (hasPermissions('inventaris_kajur')): ?>
                       <td><?php echo $row->asal_usul ?></td>
                       <td><?php echo $row->tahun_peredaran ?></td>
                       <td><?php echo $row->harga_barang ?></td>
-                      <?php endif ?>
                       <td><?php echo $row->total_alat?></td>
                       <td><?php echo $row->stock?></td>
+                      <?php if (hasPermissions('inventaris_edit')): ?>
                       <td>
                         <?php if (hasPermissions('inventaris_edit')): ?>
                           <a href="<?php echo url('datainventaris/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_inventaris') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
@@ -126,6 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <?php endif ?>
                         <?php endif ?>
                       </td>
+                      <?php endif ?>
                     </tr>
                   <?php endforeach ?>
                   </tbody>

@@ -28,6 +28,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
   </li>
   <?php endif ?>
 
+  <?php if (hasPermissions('inventaris_peminjam_list')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('datainventarispeminjam') ?>" class="nav-link <?php echo ($page->menu == 'data_inventarispeminjam') ? 'active' : '' ?>">
+      <i class="nav-icon fas fa-list"></i>
+      <p>
+        <?php echo lang('data_inventaris') ?>
+      </p>
+    </a>
+  </li>
+  <?php endif ?>
+
 
   <?php if (hasPermissions('pemeliharaan_list')) : ?>
     <li class="nav-item">

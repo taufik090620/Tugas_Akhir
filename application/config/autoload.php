@@ -155,4 +155,5 @@ $autoload['model'] = array(
 	'accpengajuan_model',
 	'accpengajuankajur_model',
 	'data_peminjam_model',
+	'data_inventarispeminjam_model',
 );

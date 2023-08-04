@@ -45,7 +45,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tr>
                     <th>Nama jurusan</th>
                     <th>Singkatan jurusan</th>
+                    <?php if (hasPermissions('jurusan_edit')): ?>
                     <th></th>
+                    <?php endif ?>
                   </tr>
                   </thead>
                   
@@ -56,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
                          <?php echo $row->singkatan_jurusan ?>
                       </td>
+                      <?php if (hasPermissions('jurusan_edit')): ?>
                       <td class="text-center">
                         <?php if (hasPermissions('jurusan_edit')): ?>
                           <a href="<?php echo url('datajurusan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_jurusan') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
@@ -71,6 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <?php endif ?>
                         <?php endif ?>
                       </td>
+                      <?php endif ?>
                     </tr>
                   <?php endforeach ?>
                   </tbody>

@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
+        <?php if (hasPermissions('inventaris_dashboard')): ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
@@ -37,10 +38,29 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="ion-navicon" style="top: -10px;  width: 60px;"></i>
               </div>
-              <a href="/inventaris/datainventaris" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo url('/datainventaris') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <?php endif ?>
+
+          <?php if (hasPermissions('inventaris_peminjam_dashboard')): ?>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+              <h3><?php echo $inventaris; ?></h3> 
+
+                <p><?php echo lang('dashboard_new_orders');?></p>
+              </div>
+              <div class="icon">
+                <i class="ion-navicon" style="top: -10px;  width: 60px;"></i>
+              </div>
+              <a href="<?php echo url('/datainventarispeminjam') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <?php endif ?>
           <!-- ./col -->
+          <?php if (hasPermissions('jurusan_dashboard')): ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
@@ -52,10 +72,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="nav-icon fas fa-university"></i>
               </div>
-              <a href="/inventaris/datajurusan" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo url('/datajurusan') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <?php endif ?>
           <!-- ./col -->
+          <?php if (hasPermissions('ruangan_dashboard')): ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
@@ -67,9 +89,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="nav-icon fas fa-university"></i>
               </div>
-              <a href="/inventaris/dataruangan" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo url('/dataruangan') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <?php endif ?>
           <!-- ./col -->
           <?php if (hasPermissions('pinjaman_dashboard')): ?>
           <div class="col-lg-3 col-6">
@@ -83,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="ion-person" style="top: -10px;  width: 60px;"></i>
               </div>
-              <a href="/inventaris/datapinjaman" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo url('/datapinjaman') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <?php endif ?>
