@@ -16,7 +16,7 @@ class Login extends CI_Controller {
 		}
 
 		if(is_logged()){
-			redirect('datainventaris','refresh');
+			redirect('dashboard','refresh');
 		}
 
 		$this->data = [
@@ -92,7 +92,7 @@ class Login extends CI_Controller {
 
         }
 
-        redirect('/datainventaris','refresh');
+        redirect('/dashboard','refresh');
 
 	}
 

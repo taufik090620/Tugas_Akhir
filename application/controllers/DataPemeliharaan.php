@@ -10,6 +10,7 @@ class DataPemeliharaan extends MY_Controller
 		// not mandatory, takes default value if not passed
 		$this->page_data['page']->menu = 'datapemeliharaan';
 		$this->load->model(data_pemeliharaan_model);
+		$this->load->model(data_inventaris_model);
 	}
 
 	public function index()
@@ -24,8 +25,16 @@ class DataPemeliharaan extends MY_Controller
 	public function add()
 	{
 		ifPermissions('pemeliharaan_add');
+		$this->page_data['nama_barang_list'] = $this->data_inventaris_model->getListPemeliharaanKosong();
 		$this->load->view('data_pemeliharaan/add', $this->page_data);
 	}
+	
+	public function getNamaBarangByJurusan()
+	{
+		$id_jurusan = $this->input->post('id_jurusan');
+		$nama_barang_list = $this->data_inventaris_model->getListPemeliharaanKosongByJurusan($id_jurusan);
+		echo json_encode($nama_barang_list);
+	}	
 
 	public function save()
 	{
@@ -34,9 +43,9 @@ class DataPemeliharaan extends MY_Controller
 
 		$id = $this->data_pemeliharaan_model->create([
 			'nama_barang' => post('nama_barang'),
-			'id_ruangan' => post('id_ruangan'),
-			'jurusan' => post ('jurusan'),
-			'kondisi' => post('kondisi'),
+			'jumlah_baik' => post('jumlah_baik'),
+			'jumlah_rusak' => post('jumlah_rusak'),
+			'jumlah_hilang' => post('jumlah_hilang'),
 			'tanggal_pemeliharaan' => post('tanggal_pemeliharaan'),
 			'keterangan' => post('keterangan')
 		]);
@@ -49,7 +58,7 @@ class DataPemeliharaan extends MY_Controller
 
 		redirect('datapemeliharaan');
 	}
-
+	
 	public function delete($id)
 	{
 
@@ -60,11 +69,12 @@ class DataPemeliharaan extends MY_Controller
 		$this->activity_model->add(" #$id Deleted by User:".logged('name'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Pemeliharaan has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Data Laporkan Kerusakan has been Deleted Successfully');
 		
 		redirect('datapemeliharaan');
 
 	}
+	
 	
 	public function edit($id)
 	{
@@ -76,15 +86,6 @@ class DataPemeliharaan extends MY_Controller
 
 	}
 
-	public function view($id)
-	{
-
-		ifPermissions('pemeliharaan_view');
-
-		$this->page_data['data_pemeliharaan'] = $this->data_pemeliharaan_model->getById($id);
-		$this->load->view('data_pemeliharaan/view', $this->page_data);
-
-	}
 	
 	public function update($id)
 	{
@@ -95,9 +96,9 @@ class DataPemeliharaan extends MY_Controller
 
 		$data = [
 			'nama_barang' => $this->input->post('nama_barang'),
-			'id_ruangan' => $this->input->post('id_ruangan'),
-			'jurusan' => $this->input->post ('jurusan'),
-			'kondisi' => $this->input->post('kondisi'),
+			'jumlah_baik' => $this->input->post('jumlah_baik'),
+			'jumlah_rusak' => $this->input->post('jumlah_rusak'),
+			'jumlah_hilang' => $this->input->post('jumlah_hilang'),
 			'tanggal_pemeliharaan' => $this->input->post('tanggal_pemeliharaan'),
 			'keterangan' => $this->input->post('keterangan')
 		];
@@ -113,8 +114,18 @@ class DataPemeliharaan extends MY_Controller
 	}
 	public function print()
 	{
+		ifPermissions('pemeliharaan_print');
 		$data['pemeliharaan'] = $this->data_pemeliharaan_model->getPemeliharaanJoin();
 		$this->load->view('data_pemeliharaan/print_pemeliharaan', $data);
 	}
+	public function view($id)
+	{
 
+		ifPermissions('pemeliharaan_view');
+
+		$this->page_data['data_pemeliharaan'] = $this->data_pemeliharaan_model->getById($id);
+		$this->load->view('data_pemeliharaan/view', $this->page_data);
+
+	}
+	
 }

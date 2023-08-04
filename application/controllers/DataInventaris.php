@@ -14,8 +14,8 @@ class DataInventaris extends MY_Controller {
     public function index()
     {
 		ifPermissions('inventaris_list');
-		$this->page_data['inventaris'] = $this->data_inventaris_model->get();
-		$data['inventaris'] = $this->data_inventaris_model->get();
+		$this->page_data['inventaris'] = $this->data_inventaris_model->getInventarisJoin();
+		$data['inventaris'] = $this->data_inventaris_model->getInventarisJoin();
 		$this->load->view('data_inventaris/list', $this->page_data);
     }
     
@@ -34,14 +34,17 @@ class DataInventaris extends MY_Controller {
 			'nama_barang' => post('nama_barang'),
 			'kode_barang' => post('kode_barang'),
 			'merek' => post('merek'),
-			'jurusan' => post('jurusan'),
+			'id_jurusan' => post('id_jurusan'),
 			'asal_usul' => post('asal_usul'),
 			'tahun_peredaran' => post('tahun_peredaran'),
-			'harga_barang' => (int) post('harga_barang'),
+			'harga_barang' => post('harga_barang'),
+			'total_alat' => post('total_alat'),
+			'stock' => post('stock_barang'),
 			'masa_hidup_alat' => post('masa_hidup_alat'),
+			'status_alat' => post('status_alat'),
 			'keterangan' => post('keterangan'),
 			'kategori' => post('kategori'),
-			'kondisi' => post('kondisi')
+			'id_ruangan' => post('id_ruangan')
 		]);
 
 
@@ -102,14 +105,17 @@ class DataInventaris extends MY_Controller {
 			'nama_barang' => $this->input->post('nama_barang'),
 			'kode_barang' => $this->input->post('kode_barang'),
 			'merek' => $this->input->post('merek'),
-			'jurusan' => $this->input->post('jurusan'),
+			'id_jurusan' => $this->input->post('id_jurusan'),
 			'asal_usul' => $this->input->post('asal_usul'),
 			'tahun_peredaran' => $this->input->post('tahun_peredaran'),
 			'harga_barang' => $this->input->post('harga_barang'),
+			'total_alat' => $this->input->post('total_alat'),
+			'stock' => $this->input->post('stock_barang'),
+			'status_alat' => $this->input->post('status_alat'),
 			'masa_hidup_alat' => $this->input->post('masa_hidup_alat'),
 			'keterangan' => $this->input->post('keterangan'),
 			'kategori' => $this->input->post('kategori'),
-			'kondisi' => $this->input->post('kondisi')
+			'id_ruangan' => $this->input->post('id_ruangan')
 		];
 
 		$permission = $this->data_inventaris_model->update($id, $data);
@@ -123,8 +129,21 @@ class DataInventaris extends MY_Controller {
 	}
 	public function print()
 	{
-		$data['inventaris'] = $this->data_inventaris_model->get();
-		$this->load->view('print_inventaris', $data);
+		ifPermissions('inventaris_print');
+
+    // Get the selected "jurusan" parameter from the URL
+    $selectedJurusan = $this->input->get('jurusan');
+
+    // If "all" option is selected, set the "jurusan" parameter to null
+    if ($selectedJurusan === 'all') {
+        $selectedJurusan = null;
+    }
+
+    // Pass the "jurusan" parameter to the model's method
+    $data['inventaris'] = $this->data_inventaris_model->getInventarisJoinByJurusan($selectedJurusan);
+
+    $this->load->view('print_inventaris', $data);
 	}
+
 	
 };

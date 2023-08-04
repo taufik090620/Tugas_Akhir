@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/users') ?>"><?php echo lang('users') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('new_user') ?></li>
+            <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/datapinjaman') ?>"><?php echo lang('data_pinjaman') ?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('tambah_pinjaman') ?></li>
             </ol>
           </div>
         </div>
@@ -32,20 +32,27 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <!-- Default card -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><?php echo lang('user_basic') ?></h3>
+          <h3 class="card-title">Nama Alat</h3>
         </div>
         <div class="card-body">
 
-          <div class="form-group">
-          <label for="formClient-Role">Kode Barang</label>
-            <select name="kode_barang" id="formClient-Role" class="form-control select2" required>
-              <option value="">Pilih Barang</option>
-              <?php foreach ($this->data_pinjaman_model->getListPinjamanKosong() as $row): ?>
-                <?php $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '' ?>
-                <option value="<?php echo $row->kode_barang ?>" <?php echo $sel ?>><?php echo $row->nama_barang ?></option>
-              <?php endforeach ?>
-            </select>
-          </div>
+            <!-- Form fields for Nama Alat and Jumlah Pinjam -->
+            <div class="form-group">
+                <label for="formClient-Role">Nama Alat</label>
+                <select name="nama_barang" id="formClient-Role" class="form-control select2" required>
+                    <option value="">Pilih Alat</option>
+                    <?php foreach ($this->data_pinjaman_model->getInventarisTidakDipasang() as $row): ?>
+                        <option value="<?php echo $row->nama_barang ?>">
+                            <?php echo $row->nama_barang ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+        <div class="form-group">
+            <label for="formClient-Name">Jumlah Pinjam</label>
+            <input type="number" class="form-control" name="stock_barang" id="formClient-Name" required placeholder="jumlah pinjam" />
+        </div>
+
 
         </div>
         <!-- /.card-body -->
@@ -54,28 +61,40 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <!-- /.card -->
 
       <!-- Default card -->
+
+      <!-- /.card -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Ruangan</h3>
+          <h3 class="card-title">Kelas & Jurusan</h3>
         </div>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formClient-Role">ID Ruangan</label>
-            <select name="id_ruangan" id="formClient-Role" class="form-control select2" required>
-              <option value="">Pilih Ruangan</option>
-              <?php foreach ($this->data_ruangan_model->get() as $row): ?>
-                <?php $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '' ?>
-                <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->nama_ruangan ?></option>
+          <label for="formClient-Status">Kelas Peminjam</label>
+            <select name="kelas" id="formClient-Status" class="form-control">
+              <option value="x-a" selected>X-A</option>
+              <option value="x-b">X-B</option>
+              <option value="xi-a">XI-A</option>
+              <option value="xi-b">XI-B</option>
+              <option value="xii-a">XII-A</option>
+              <option value="xii-b">XII-B</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="formClient-Role">Jurusan Peminjam</label>
+            <select name="id_jurusan" id="formClient-Role" class="form-control select2" required>
+              <option value="">Pilih jurusan</option>
+              <?php foreach ($this->data_jurusan_model->get() as $row): ?>
+              <?php $sel = $row->id == $data_inventaris->id_jurusan ? 'selected' : ''; ?>
+              <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->singkatan_jurusan ?></option>
               <?php endforeach ?>
+
             </select>
           </div>
         </div>
         <!-- /.card-body -->
 
       </div>
-      <!-- /.card -->
-      
     </div>
     <div class="col-sm-6">
       <!-- Default card -->
@@ -91,38 +110,37 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <input type="date" class="form-control" name="tanggal_terpakai" id="formClient-Email" required>
           </div>
 
-          <div class="form-group">
-            <label for="formClient-Role">Pengguna</label>
-            <select name="id_pengguna" id="formClient-Role" class="form-control select2" required>
-              <option value="">Pilih Users</option>
-              <?php foreach ($this->users_model->get() as $row): ?>
-                <?php $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '' ?>
-                <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->name ?></option>
-              <?php endforeach ?>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="formClient-Status">Kelas</label>
-            <select name="kelas" id="formClient-Status" class="form-control">
-              <option value="x-a" selected>X-A</option>
-              <option value="x-b">X-B</option>
-              <option value="xi-a">XI-A</option>
-              <option value="xi-b">XI-B</option>
-              <option value="xii-a">XII-A</option>
-              <option value="xii-a">XII-B</option>
-            </select>
-          </div>
-
         </div>
         <!-- /.card-body -->
 
       </div>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Nama Peminjam</h3>
+        </div>
+        <div class="card-body">
+          <!-- Dropdown untuk memilih peminjam -->
+          <div class="form-group">
+              <label for="formClient-Role">Peminjam</label>
+              <select name="id_pengguna" id="formClient-Role" class="form-control select2" required>
+                  <option value="">Pilih Users</option>
+                  <?php foreach ($users_list as $user): ?>
+                      <?php $sel = !empty(get('role')) && get('role') == $user->id ? 'selected' : ''; ?>
+                      <option value="<?php echo $user->id ?>" <?php echo $sel ?>><?php echo $user->name ?></option>
+                  <?php endforeach ?>
+              </select>
+          </div>
+          <div class="form-group">
+          <label for="formClient-Address">Alasan Pinjam Alat</label>
+            <textarea type="text" class="form-control" name="alasan_pinjam" id="formClient-Address" placeholder="Alasan Meminjam Alat" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
       <!-- /.card -->
       <!-- /.card -->
-
     </div>
+    
   </div>
-
   <!-- Default card -->
   <div class="card">
     <div class="card-footer">
@@ -140,8 +158,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 </section>
 <!-- /.content -->
-
-
+<script>
+function validateForm() {
+    var stock_barang = document.getElementById("formClient-Name").value;
+    if (stock_barang === "" || stock_barang === "0") {
+        alert("Jumlah pinjam tidak boleh kosong atau 0.");
+        return false; // Prevent form submission
+    }
+    return true; // Allow form submission
+}
+</script>
 <script>
   $(document).ready(function() {
     $('.form-validate').validate();

@@ -146,6 +146,14 @@ class Users_model extends MY_Model {
 	public function whereClauseArray(){
 		return NULL;
 	}
+	public function getUsersByRole($role_id)
+    {
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('role', $role_id);
+        $query = $this->db->get();
+        return $query->result();
+    }
 
 }
 

@@ -96,4 +96,34 @@ class DataRuangan extends MY_Controller
 		$this->session->set_flashdata('alert', 'Data Inventaris has been Deleted Successfully');
 		redirect('dataruangan');
 	}
+
+	public function pindah_inventaris()
+	{
+
+		ifPermissions('ruangan_edit');
+
+		$this->page_data['ruangan'] = $this->data_ruangan_model->get();
+		$this->load->view('data_ruangan/pindah_inventaris', $this->page_data);
+	}
+
+	public function save_pindah_inventaris()
+	{
+
+		postAllowed();
+
+		ifPermissions('ruangan_edit');
+
+		$data = [
+			'id_ruangan' => $this->input->post('id_ruangan'),
+		];
+
+		$permission = $this->data_inventaris_model->update($this->input->post('barang'), $data);
+
+		$this->activity_model->add("Data Inventaris Dipindahkan Ke Ruangan #$id Updated by User: #" . logged('id'));
+
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Ruangan has been Updated Successfully');
+
+		redirect('dataruangan');
+	}
 }

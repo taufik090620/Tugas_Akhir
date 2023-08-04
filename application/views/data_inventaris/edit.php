@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/users') ?>"><?php echo lang('users') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('new_user') ?></li>
+            <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/datainventaris') ?>"><?php echo lang('data_inventaris') ?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('edit_inventaris') ?></li>
             </ol>
           </div>
         </div>
@@ -51,7 +51,39 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
       </div>
       <!-- /.card -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Ruangan & Jurusan</h3>
+        </div>
+        <div class="card-body">
 
+        <div class="form-group">
+            <label for="formClient-Role">ID Jurusan</label>
+            <select name="id_jurusan" id="formClient-Role" class="form-control select2" required>
+              <option value="">Pilih Jurusan</option>
+              <?php foreach ($this->data_jurusan_model->get() as $row): ?>
+              <?php $sel = $row->id == $data_inventaris->id_jurusan ? 'selected' : ''; ?>
+              <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->singkatan_jurusan ?></option>
+              <?php endforeach ?>
+
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="formClient-Role">ID Ruangan</label>
+            <select name="id_ruangan" id="formClient-Role" class="form-control select2" required>
+              <option value="">Pilih Ruangan</option>
+              <?php foreach ($this->data_ruangan_model->get() as $row): ?>
+              <?php $sel = $row->id == $data_inventaris->id_ruangan ? 'selected' : ''; ?>
+              <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->nama_ruangan ?></option>
+              <?php endforeach ?>
+
+            </select>
+          </div>
+        </div>
+        <!-- /.card-body -->
+
+      </div>
       <!-- Default card -->
       <div class="card">
         <div class="card-header">
@@ -88,7 +120,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <h3 class="card-title">Keterangan Lain</h3>
         </div>
         <div class="card-body">
-
+        <div class="form-group">
+            <label for="formClient-Status">Status Alat</label>
+            <select name="status_alat" id="formClient-Status" class="form-control">
+              <option value="Di Pasang" selected>Di Pasang</option>
+              <option value="Tidak Di Pasang">Tidak Di Pasang</option>
+            </select>
+          </div>
           <div class="form-group">
             <label for="formClient-Status">Masa Hidup Alat</label>
             <select name="masa_hidup_alat" id="formClient-Status" class="form-control">
@@ -107,7 +145,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="form-group">
             <label for="formClient-ConfirmPassword">Harga Barang</label>
-            <input type="number" class="form-control" name="harga_barang" placeholder="5000"  value="<?php echo $data_inventaris->harga_barang ?>">
+            <input type="text" class="form-control" name="harga_barang" id="harga_barang" placeholder="Rp. 5.000"  value="<?php echo $data_inventaris->harga_barang ?>">
+          </div>
+
+          <div class="form-group">
+            <label for="formClient-Name">Total Jumlah Alat</label>
+            <input type="text" class="form-control" name="total_alat" id="formClient-Name"  value="<?php echo $data_inventaris->total_alat ?>" required placeholder="total jumlah alat" />
+          </div>
+          <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Yang Bisa Dipinjam</label>
+            <input type="text" class="form-control" name="stock_barang" id="formClient-Name"  value="<?php echo $data_inventaris->stock ?>" required placeholder="jumlah alat yang bisa dipinjam" />
           </div>
 
           <div class="form-group">
@@ -152,7 +199,52 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 </section>
 <!-- /.content -->
+<script>
+  // Mencari elemen input
+  const inputHarga = document.getElementById('harga_barang');
 
+  // Fungsi untuk mengubah format ke format mata uang Rupiah
+  function formatCurrency(input) {
+    return "Rp. " + input.toLocaleString("id-ID");
+  }
+
+  // Fungsi untuk menghilangkan format "Rp." sebelum mengirim data
+  function removeCurrencyFormat(input) {
+    return parseInt(input.replace(/\D/g, ''));
+  }
+
+  // Event listener untuk memformat nilai saat input kehilangan fokus
+  inputHarga.addEventListener('blur', function() {
+    if (inputHarga.value.trim() === "") {
+      // Jika input kosong, tidak perlu diubah
+      return;
+    }
+    const value = removeCurrencyFormat(inputHarga.value);
+    inputHarga.value = formatCurrency(value);
+  });
+</script>
+<script>
+  var masa_hidup_alatValue = "<?php echo $data_inventaris->masa_hidup_alat ?>"; // Ganti dengan nilai yang diberikan saat edit
+
+  var selectElement = document.getElementById("formClient-Status");
+  for (var i = 0; i < selectElement.options.length; i++) {
+    if (selectElement.options[i].value === masa_hidup_alatValue) {
+      selectElement.options[i].selected = true;
+      break;
+    }
+  }
+</script>
+<script>
+  var status_alatValue = "<?php echo $data_inventaris->status_alat ?>"; // Ganti dengan nilai yang diberikan saat edit
+
+  var selectElement = document.getElementById("formClient-Status");
+  for (var i = 0; i < selectElement.options.length; i++) {
+    if (selectElement.options[i].value === status_alatValue) {
+      selectElement.options[i].selected = true;
+      break;
+    }
+  }
+</script>
 
 <script>
   $(document).ready(function() {

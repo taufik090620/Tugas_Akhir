@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
+        <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
             <li class="breadcrumb-item active">Data Ruangan</li>
         </ol>
         </div>
@@ -57,14 +57,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </td>
                       <td class="text-center">
                         <?php if (hasPermissions('ruangan_edit')): ?>
-                          <a href="<?php echo url('dataruangan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_user') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                          <a href="<?php echo url('dataruangan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_ruangan') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                         <?php endif ?>
                         <?php if (hasPermissions('ruangan_view')): ?>
-                          <a href="<?php echo url('dataruangan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="<?php echo lang('view_user') ?>" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                          <a href="<?php echo url('dataruangan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="<?php echo lang('view_ruangan') ?>" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <?php endif ?>
                         <?php if (hasPermissions('ruangan_delete')): ?>
                           <?php if ($row->id!=1 && logged('id')!=$row->id): ?>
-                            <a href="<?php echo url('dataruangan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_user') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                            <a href="<?php echo url('dataruangan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this ruangan ?')" title="<?php echo lang('delete_ruangan') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
                           <?php else: ?>
                             <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
                           <?php endif ?>

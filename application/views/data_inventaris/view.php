@@ -13,9 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/datainventaris') ?>">Data Inventaris</a></li>
-              <li class="breadcrumb-item active"><?php echo $User->id ?></li>
+			<li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/datainventaris') ?>"><?php echo lang('data_inventaris') ?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('view_inventaris') ?></li>
             </ol>
           </div>
         </div>
@@ -32,8 +32,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">View Data Inventaris</h3>
                 <ul class="nav nav-pills ml-auto p-2">
-
-					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab"><?php echo lang('overview') ?></a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -55,6 +53,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       						<td width="160"><strong>Merek</strong>:</td>
       						<td><?php echo $data_inventaris->merek ?></td>
       					</tr>
+						  <tr>
+      						<td width="160"><strong>Kategori</strong>:</td>
+      						<td><?php echo $data_inventaris->kategori ?></td>
+      					</tr>
       					<tr>
       						<td width="160"><strong>Asal Usul</strong>:</td>
       						<td><?php echo $data_inventaris->asal_usul ?></td>
@@ -63,12 +65,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       						<td width="160"><strong>Tahun Peredaran</strong>:</td>
       						<td><?php echo $data_inventaris->tahun_peredaran ?></td>
       					</tr>
-                          
-      					<tr>
-      						<td width="160"><strong>Kondisi</strong>:</td>
-      						<td><?php echo $data_inventaris->kondisi ?></td>
+						  <tr>
+      						<td width="160"><strong>Masa Hidup Alat</strong>:</td>
+      						<td><?php echo $data_inventaris->masa_hidup_alat ?></td>
       					</tr>
-                          
+						  <tr>
+      						<td width="160"><strong>Status Alat</strong>:</td>
+      						<td><?php echo $data_inventaris->status_alat ?></td>
+      					</tr>
       					<tr>
       						<td width="160"><strong>Harga Barang</strong>:</td>
       						<td><?php echo $data_inventaris->harga_barang ?></td>
@@ -77,11 +81,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       					<tr>
       						<td width="160"><strong>Keterangan</strong>:</td>
       						<td><?php echo $data_inventaris->keterangan ?></td>
-      					</tr>
-                          
-      					<tr>
-      						<td width="160"><strong>Masa Hidup Alat</strong>:</td>
-      						<td><?php echo $data_inventaris->masa_hidup_alat ?></td>
       					</tr>
       				</tbody>
       			</table>

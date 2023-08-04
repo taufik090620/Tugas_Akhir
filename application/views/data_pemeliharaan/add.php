@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/users') ?>"><?php echo lang('users') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('new_user') ?></li>
+            <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/datapemeliharaan') ?>"><?php echo lang('data_pemeliharaan') ?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('tambah_pemeliharaan') ?></li>
             </ol>
           </div>
         </div>
@@ -27,88 +27,34 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php echo form_open_multipart('datapemeliharaan/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 
-  <div class="row">
+<div class="row">
     <div class="col-sm-6">
       <!-- Default card -->
+
+
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><?php echo lang('user_basic') ?></h3>
+          <h3 class="card-title">Nama Alat</h3>
         </div>
         <div class="card-body">
-
           <div class="form-group">
-          <label for="formClient-Role">Nama Barang</label>
-            <select name="nama_barang" id="formClient-Role" class="form-control select2" required>
-              <option value="">Pilih Barang</option>
-              <?php foreach ($this->data_pemeliharaan_model->getListpemeliharaanKosong() as $row): ?>
+          <label for="formClient-Role">Nama Alat</label>
+            <select name="nama_barang" id="formClient-Role" class="form-control select2" required >
+              <option value="">Pilih Alat</option>
+              <?php foreach ($this->data_inventaris_model->getListPemeliharaanKosong() as $row): ?>
                 <?php $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '' ?>
-                <option value="<?php echo $row->nama_barang ?>" <?php echo $sel ?>><?php echo $row->nama_barang ?></option>
+                <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->nama_barang ?></option>
               <?php endforeach ?>
             </select>
           </div>
 
+
         </div>
+        
         <!-- /.card-body -->
-
-      </div>
-      <!-- /.card -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Kondisi</h3>
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <label for="formClient-Status">Kondisi</label>
-            <select name="kondisi" id="formClient-Status" class="form-control">
-              <option value="baik" selected>Baik</option>
-              <option value="rusak">Rusak</option>
-              <option value="hilang">Hilang</option>
-            </select>
-          </div>
-          </div>
-        </div>
-      <!-- Default card -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">ruangan</h3>
-        </div>
-        <div class="card-body">
-
-          <div class="form-group">
-            <label for="formClient-Role">ID Ruangan</label>
-            <select name="id_ruangan" id="formClient-Role" class="form-control select2" required>
-              <option value="">Pilih Ruangan</option>
-              <?php foreach ($this->data_ruangan_model->get() as $row): ?>
-                <?php $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '' ?>
-                <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->nama_ruangan ?></option>
-              <?php endforeach ?>
-            </select>
-          </div>
-        </div>
-        <!-- /.card-body -->
-
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Jurusan</h3>
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <label for="formClient-Status">Jurusan</label>
-            <select name="jurusan" id="formClient-Status" class="form-control">
-              <option value="RPL" selected>RPL</option>
-              <option value="SIJA">SIJA</option>
-              <option value="TEI">TEI</option>
-            </select>
-          </div>
-          </div>
-        </div>
-      <!-- /.card -->
-      
-    </div>
-    <div class="col-sm-6">
-      <!-- Default card -->
-      <div class="card">
+  <!-- /.card-body -->
+            </div>
+            <div class="card">
         <div class="card-header">
           <h3 class="card-title">Tanggal</h3>
         </div>
@@ -127,6 +73,33 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <!-- /.card-body -->
 
       </div>
+      <!-- /.card -->
+
+      <!-- Default card -->
+      <!-- /.card -->
+      
+    </div>
+    <div class="col-sm-6">
+      <!-- Default card -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Kondisi</h3>
+        </div>
+        <div class="card-body">
+        <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Baik</label>
+            <input type="text" class="form-control" name="jumlah_baik" id="formClient-Name" required placeholder="jumlah alat baik" />
+          </div>
+          <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Rusak</label>
+            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" />
+          </div>
+          <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Hilang</label>
+            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" />
+          </div>
+          </div>
+        </div>
       <!-- /.card -->
       <!-- /.card -->
 

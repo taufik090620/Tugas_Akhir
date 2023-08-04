@@ -150,10 +150,10 @@ $lang['signout'] = "Sign out";
 
 
 
-$lang['dashboard_new_orders'] = "New Orders";
-$lang['dashboard_bounce_rate'] = "Bounce Rate";
-$lang['dashboard_user_register'] = "User Registrations";
-$lang['dashboard_unique_visitor'] = "Unique Visitors";
+$lang['dashboard_new_orders'] = "Data Inventaris";
+$lang['dashboard_bounce_rate'] = "Data Jurusan";
+$lang['dashboard_user_register'] = "Data Ruangan";
+$lang['dashboard_unique_visitor'] = "Data Pinjaman";
 $lang['dashboard_sales'] = "Sales";
 $lang['dashboard_sales_area'] = "Area";
 $lang['dashboard_sales_donut'] = "Donut";

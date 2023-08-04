@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/users') ?>"><?php echo lang('users') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('new_user') ?></li>
+            <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/datapemeliharaan') ?>"><?php echo lang('data_pemeliharaan') ?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('edit_pemeliharaan') ?></li>
             </ol>
           </div>
         </div>
@@ -30,83 +30,69 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="row">
     <div class="col-sm-6">
       <!-- Default card -->
+            <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Pengguna</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="formClient-Role">Pengguna</label>
+            <input type="text" class="form-control" value="<?php echo logged('name') ?>" readonly>
+          </div>
+        </div>
+      </div>
+
+
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title"><?php echo lang('user_basic') ?></h3>
+          <h3 class="card-title">Nama Alat</h3>
         </div>
         <div class="card-body">
 
           <div class="form-group">
-          <label for="formClient-Role">Nama Barang</label>
-            <select name="nama_barang" id="formClient-Role" class="form-control select2" readonly>
-              <?php foreach ($this->data_pemeliharaan_model->getListPemeliharaanEdit($nama_barang) as $row): ?>
-              <?php $selected = $row->nama_barang == $data_pemeliharaan->nama_barang ? 'selected' : ''; ?>
-              <option value="<?php echo $row->nama_barang ?>" <?php echo $selected ?>><?php echo $row->nama_barang ?></option>
-              <?php endforeach ?>
+          <label for="formClient-Role">Nama Alat</label>
+          <select name="nama_barang" id="nama_barang" class="form-control select2" required onchange="getJurusanRuangan(this)">
+            <?php $selected = ''; ?>
+            <?php foreach ($this->data_pemeliharaan_model->getListPemeliharaanEdit() as $row): ?>
+              <?php if (!empty($_GET['role']) && $_GET['role'] == $row->id): ?>
+                <?php $selected = 'selected'; ?>
+              <?php endif; ?>
+              <option value="<?php echo $row->id ?>" data-jurusan="<?php echo $row->id_jurusan ?>" data-ruangan="<?php echo $row->id_ruangan ?>" <?php echo $selected ?>><?php echo $row->nama_barang ?></option>
+              <?php $selected = ''; ?>
+            <?php endforeach ?>
+          </select>
 
-            </select>
+
           </div>
 
         </div>
-        <!-- /.card-body -->
 
-      </div>
+        <!-- /.card-body -->
+  <!-- /.card-body -->
+            </div>
       <!-- /.card -->
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Kondisi</h3>
         </div>
         <div class="card-body">
+        <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Baik</label>
+            <input type="text" class="form-control" name="jumlah_baik" id="formClient-Name" required placeholder="jumlah alat baik" required value="<?php echo $data_pemeliharaan->jumlah_baik ?>">
+          </div>
           <div class="form-group">
-            <label for="formClient-Status">Kondisi</label>
-            <select name="kondisi" id="formClient-Status" class="form-control">
-            <option value="<?php echo $data_pemeliharaan->kondisi ?>" selected disabled><?php echo $data_pemeliharaan->kondisi ?></option>
-              <option value="baik" selected>Baik</option>
-              <option value="rusak">Rusak</option>
-              <option value="hilang">Hilang</option>
-            </select>
+            <label for="formClient-Name">Jumlah Alat Rusak</label>
+            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" required value="<?php echo $data_pemeliharaan->jumlah_rusak ?>">
+          </div>
+          <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Hilang</label>
+            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" required value="<?php echo $data_pemeliharaan->jumlah_hilang ?>">
           </div>
           </div>
         </div>
 
-        <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Jurusan</h3>
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <label for="formClient-Status">Jurusan</label>
-            <select name="jurusan" id="formClient-Status" class="form-control">
-            <option value="<?php echo $data_pemeliharaan->jurusan ?>" selected disabled><?php echo $data_pemeliharaan->jurusan ?></option>
-              <option value="RPL" selected>RPL</option>
-              <option value="SIJA">SIJA</option>
-              <option value="TEI">TEI</option>
-            </select>
-          </div>
-          </div>
-        </div>
+
       <!-- Default card -->
-     <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Ruangan</h3>
-        </div>
-        <div class="card-body">
-
-          <div class="form-group">
-            <label for="formClient-Role">ID Ruangan</label>
-            <select name="id_ruangan" id="formClient-Role" class="form-control select2" required>
-              <option value="">Pilih Ruangan</option>
-              <?php foreach ($this->data_ruangan_model->get() as $row): ?>
-              <?php $sel = $row->id == $data_pemeliharaan->id_ruangan ? 'selected' : ''; ?>
-              <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->nama_ruangan ?></option>
-              <?php endforeach ?>
-
-            </select>
-          </div>
-        </div>
-        <!-- /.card-body -->
-
-      </div>
       <!-- /.card -->
       
     </div>
@@ -121,21 +107,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           
         <div class="form-group">
             <label for="formClient-Email">Tanggal Pemeliharaan</label>
-            <input type="date" class="form-control" name="tanggal_pemeliharaan" minlength="6" id="formClient-Password" required placeholder="2019-01-20"  value="<?php echo $data_pemeliharaan->tanggal_pemeliharaan ?>">
+            <input type="date" class="form-control" name="tanggal_pemeliharaan" id="formClient-Email" required value="<?php echo $data_pemeliharaan->tanggal_pemeliharaan ?>">
           </div>
           <div class="form-group">
             <label for="formClient-Address">Keterangan</label>
             <textarea type="text" class="form-control" name="keterangan" id="formClient-Address" placeholder="Keterangan" rows="3"><?php echo $data_pemeliharaan->keterangan ?></textarea>
           </div>
-        </div>
-        <!-- /.card-body -->
-
-      </div>
-      <!-- /.card -->
-      
-    </div>
-
-
         </div>
         <!-- /.card-body -->
 
@@ -150,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('/datapemeliharaan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+        <div class="col"><a href="<?php echo url('datapemeliharaan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>
@@ -163,7 +140,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 </section>
 <!-- /.content -->
+<script>
+  function getJurusanRuangan(select) {
+    var selectedOption = select.options[select.selectedIndex];
+    var jurusanId = selectedOption.getAttribute('data-jurusan');
+    var ruanganId = selectedOption.getAttribute('data-ruangan');
 
+    // Isi nilai id_jurusan dan id_ruangan dengan data yang diterima
+    $('select[name="id_jurusan"]').val(jurusanId).prop('disabled', true).trigger('change');
+    $('select[name="id_ruangan"]').val(ruanganId).prop('disabled', true).trigger('change');
+  }
+</script>
 
 <script>
   $(document).ready(function() {

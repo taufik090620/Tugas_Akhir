@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/users') ?>"><?php echo lang('users') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('new_user') ?></li>
+            <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/dataruangan') ?>"><?php echo lang('data_ruangan') ?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('tambah_ruangan') ?></li>
             </ol>
           </div>
         </div>

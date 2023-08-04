@@ -13,14 +13,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
             <li class="breadcrumb-item active"><?php echo lang('data_pemeliharaan') ?></li>
         </ol>
         </div>
     </div>
     </div><!-- /.container-fluid -->
 </section>
- 
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -31,8 +31,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <h3 class="card-title p-3"><?php echo lang('data_pemeliharaan') ?></h3>
                 <div class="ml-auto p-2">
                   <!-- buttons -->
-                    <a href="<?= base_url('datapemeliharaan/print') ?>" class="btn btn-info btnsm"><i class="fas fa-print"></i>Print</a>
-                    <?php if (hasPermissions('users_add')): ?>
+                  <?php if (hasPermissions('pemeliharaan_print')): ?>
+                    <a href="<?= base_url('datapemeliharaan/print') ?>" class="btn btn-primary btn-sm btn btn-primary btn-sm"><i class="fas fa-print"></i>Print</a>
+                    <?php endif ?>
+                    <?php if (hasPermissions('pemeliharaan_add')): ?>
                       <a href="<?php echo url('datapemeliharaan/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Data Pemeliharaan</a>
                     <?php endif ?>
                 </div>
@@ -43,13 +45,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th>Nama Barang</th>
-                    <th>Ruangan</th>
-                    <th>Jurusan</th>
-                    <th>Kondisi</th>
+                    <th>Nama Alat</th>
+                    <th>Kode Alat</th>
+                    <th>Total Alat</th>
+                    <th>Jumlah Alat Baik</th>
+                    <th>Jumlah Alat Rusak</th>
+                    <th>Jumlah Alat Hilang</th>
+                    <th>Tahun Peredaran</th>
                     <th>Tanggal pemeliharaan</th>
-                    <th>Keterangan</th>
-                    <th><?php echo lang('action') ?></th>
+                    <?php if (hasPermissions('pemeliharaan_edit')): ?>
+                    <th>
+                      <?php echo lang('action') ?>
+                    </th>
+                    <?php endif ?>
                   </tr>
                   </thead>
                   
@@ -60,30 +68,37 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php echo $row->nama_barang ?>
                       </td>
                       <td>
-                      <?php echo $row->nama_ruangan ?>
+                      <?php echo $row->kode_barang ?>
                       </td>
-                      <td>
-                      <?php echo $row->jurusan ?>
-                      </td>
-                      <td>
-                      <?php echo $row->kondisi ?>
-                      </td>
+                      <td><?php echo $row->total_alat ?></td>
+                      <td><?php echo $row->jumlah_baik ?></td>
+                      <td><?php echo $row->jumlah_rusak?></td>
+                      <td><?php echo $row->jumlah_hilang?></td>
+                      <td><?php echo $row->tahun_peredaran ?></td>
                       <td><?php echo $row->tanggal_pemeliharaan ?></td>
-                      <td>
-                      <?php echo $row->keterangan ?>
-                      </td>
-                      <td>
-                        <?php if (hasPermissions('users_edit')): ?>
-                          <a href="<?php echo url('datapemeliharaan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_user') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <?php endif ?>
-                        <?php if (hasPermissions('users_delete')): ?>
-                          <?php if ($row->id!=1 && logged('id')!=$row->id): ?>
-                            <a href="<?php echo url('datapemeliharaan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_user') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                          <?php else: ?>
-                            <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
-                          <?php endif ?>
-                        <?php endif ?>
-                      </td>
+                      <?php if (hasPermissions('pemeliharaan_edit')): ?>
+                        <td>
+                          <div class="btn-group mt-1" role="group" aria-label="Button Group">
+                            <?php if (hasPermissions('pemeliharaan_edit')): ?>
+                              <a href="<?php echo url('datapemeliharaan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_pemeliharaan') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                            <?php endif ?>
+
+                            <?php if (hasPermissions('pemeliharaan_delete')): ?>
+                              <?php if ($row->id != 1 && logged('id') != $row->id): ?>
+                                <a href="<?php echo url('datapemeliharaan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger ml-1" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_pemeliharaan') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                              <?php else: ?>
+                                <a href="#" class="btn btn-sm btn-danger ml-1" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
+                              <?php endif ?>
+                            <?php endif ?>
+                          </div>
+
+                          <div class="btn-group mt-1" role="group" aria-label="Button Group">
+                            <?php if (hasPermissions('pemeliharaan_view')): ?>
+                              <a href="<?php echo url('datapemeliharaan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="<?php echo lang('view_pemeliharaan') ?>" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                            <?php endif ?>
+                          </div>
+                        </td>
+                      <?php endif ?>
                     </tr>
                   <?php endforeach ?>
                   </tbody>

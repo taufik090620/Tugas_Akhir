@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/users') ?>"><?php echo lang('users') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('new_user') ?></li>
+            <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/datapinjaman') ?>"><?php echo lang('data_pinjaman') ?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('data_pengembalian') ?></li>
             </ol>
           </div>
         </div>
@@ -36,22 +36,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
         <div class="card-body">
 
-         
+        <div class="form-group">
+          <label for="formClient-Role">Pengguna</label>
+            <input type="text" class="form-control" name="nama_pemindah_barang" id="formClient-Name" required placeholder="<?php echo lang('user_enter_name') ?>" value="<?php echo $Pinjam[0]->name?>" readonly="readonly" />
+          </div>
+
           <div class="form-group">
-            <label for="formClient-Name">Kode Barang</label>
+            <label for="formClient-Name">Nama Alat</label>
+            <input type="text" class="form-control" name="nama_barang" id="formClient-Name" required value="<?php echo $Pinjam[0]->nama_barang ?>" readonly="readonly" />
+          </div>
+
+          <div class="form-group">
+            <label for="formClient-Name">Kode Alat</label>
             <input type="text" class="form-control" name="kode_barang" id="formClient-Name" required value="<?php echo $Pinjam[0]->kode_barang ?>" readonly="readonly" />
           </div>
 
-          <div class="form-group">
-            <label for="formClient-Name">Tahun Peredaran</label>
-            <input type="date" class="form-control" name="tahun_peredaran" id="formClient-Name" required value="<?php echo $Pinjam[0]->tahun_peredaran ?>" readonly="readonly" />
-          </div>
 
-          <div class="form-group">
-            <label for="formClient-Name">Keterangan</label>
-            <textarea type="text" class="form-control" name="keterangan" id="formClient-Address" rows="3"></textarea>
-          </div>
-            
+
 
         </div>
         <!-- /.card-body -->
@@ -62,14 +63,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <!-- Default card -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Ruangan</h3>
+          <h3 class="card-title">Jurusan Peminjam</h3>
         </div>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formClient-Role">Ruangan</label>
-            <input type="text" class="form-control" name="ruangan" id="formClient-Name" required placeholder="<?php echo lang('user_enter_name') ?>" value="<?php echo $Pinjam[0]->nama_ruangan ?>" readonly="readonly" />
-         
+            <label for="formClient-Role">Jurusan</label>
+            <input type="text" class="form-control" name="jurusan" id="formClient-Name" required placeholder="<?php echo lang('user_enter_name') ?>" value="<?php echo $Pinjam[0]->singkatan_jurusan ?>" readonly="readonly" />
+          </div>
+          <div class="form-group">
+            <label for="formClient-Role">Kelas</label>
+            <input type="text" class="form-control" name="kelas" id="formClient-Name" required placeholder="<?php echo lang('user_enter_name') ?>" value="<?php echo $Pinjam[0]->kelas ?>" readonly="readonly" />
           </div>
           
         <div class="form-group">
@@ -103,16 +107,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group">
             <label for="formClient-Email">Tanggal Pengembalian</label>
             <input type="date" class="form-control" name="tanggal_keluar" id="formClient-Email" required>
-          </div>
-          <div class="form-group">
-            <label for="formClient-Role">Pengguna</label>
-            <select name="nama_pemindah_barang" id="formClient-Role" class="form-control select2" required>
-              <option value="">Pilih Users</option>
-              <?php foreach ($this->users_model->get() as $row): ?>
-                <?php $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '' ?>
-                <option value="<?php echo $row->name ?>" <?php echo $sel ?>><?php echo $row->name ?></option>
-              <?php endforeach ?>
-            </select>
           </div>
 
         </div>

@@ -35,6 +35,7 @@ class DataLaporkanKerusakan extends MY_Controller
 		$id = $this->data_laporkan_kerusakan_model->create([
 			'id_pengguna' => logged('id'),
 			'nama_barang' => post('nama_barang'),
+			'tanggal_laporan' => post('tanggal_laporan'),
 			'tingkat_kerusakan' => post('tingkat_kerusakan'),
 			'keterangan' => post('keterangan'),
 			'status' => 'Menunggu Di Cek Oleh Teknisi'
@@ -95,6 +96,7 @@ class DataLaporkanKerusakan extends MY_Controller
 		$data = [
 			'id_pengguna' => logged('id'),
 			'nama_barang' =>  $this->input->post('nama_barang'),
+			'tanggal_laporan' => $this->input->post('tanggal_laporan'),
 			'tingkat_kerusakan' =>  $this->input->post('tingkat_kerusakan'),
 			'keterangan' =>  $this->input->post('keterangan'),
 			'status' => 'Menunggu Di Cek Oleh Teknisi'
@@ -109,24 +111,38 @@ class DataLaporkanKerusakan extends MY_Controller
 
 		redirect('datalaporkankerusakan');
 	}
-	public function konfirmasi ($id) {
-		ifPermissions('kerusakan_confirmation');
 
-		$data = [
-			'status' => 'Alat Sudah Di Cek Oleh Teknisi'
+	public function konfirmasi($id) {
+		ifPermissions('konfirmasi_add');
 			
+		$this->page_data['user_login'] = logged('name');
+		$this->page_data['Laporan'] = $this->data_laporkan_kerusakan_model->getLaporkanKerusakanJoinByID($id);
+		$this->load->view('konfirmasi/add', $this->page_data);
+	} 
+	
+	public function savekonfirmasi($id) {
+		ifPermissions('konfirmasi_add');
+		postAllowed();
+	
+		$newData = [
+			'nama_barang' => post('nama_barang'),
+			'tingkat_kerusakan' => post('tingkat_kerusakan'),
+			'tanggal_laporan' => post('tanggal_laporan'),
+			'keterangan_perbaikan' => post('keterangan_perbaikan'),
+			'nama_pelapor' => post('nama_pelapor'),
+			'keterangan' => post('keterangan'),
+			'statuss' => 'Sudah Dicek Oleh Teknisi'
 		];
-		
-
-
-		$id = $this->data_laporkan_kerusakan_model->update($id, $data);
-
-		$this->activity_model->add("Data Lapor Kerusakan #$id Dikonfirmasi Oleh Teknisi :".logged('name'));
-
+	
+		$this->perbaikan_model->create($newData);
+		$this->data_laporkan_kerusakan_model->update($id, $newData);
+		$this->activity_model->add('Data Laporan Sudah Dicek ' . $id . ' Created by User:' . logged('name'), logged('id'));
+		$this->data_laporkan_kerusakan_model->delete($id);
+	
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Teknisi menngkonfirmasi laporan kerusakan');
+		$this->session->set_flashdata('alert', 'Data Laporan Sudah Dicek');
 		
-		redirect('datalaporkankerusakan');
+		redirect('datalaporkankerusakan', 'refresh');
 	}
-
+	
 }

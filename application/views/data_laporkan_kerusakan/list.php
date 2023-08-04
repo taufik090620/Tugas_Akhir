@@ -43,7 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <thead>
                   <tr>
                     <th>Nama Pelapor</th>
-                    <th>Nama Barang</th>
+                    <th>Nama Alat</th>
+                    <th>Tanggal Lapor</th>
                     <th>Tingkat Kerusakan</th>
                     <th>Keterangan</th>
                     <th>Status</th>
@@ -59,6 +60,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php echo $row->nama_barang ?>
                       </td>
                       <td>
+                      <?php echo $row->tanggal_laporan ?>
+                      </td>
+                      <td>
                       <?php echo $row->tingkat_kerusakan ?>
                       </td>
                       <td>
@@ -67,19 +71,24 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td><?php echo $row->status ?></td>
                       <td>
                         <?php if (hasPermissions('laporkan_kerusakan_edit')): ?>
-                          <a href="<?php echo url('datalaporkankerusakan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_user') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                          <div class="btn-group">
+                            <a href="<?php echo url('datalaporkankerusakan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_kerusakan') ?>" data-toggle="tooltip" style="margin-right: 5px;"><i class="fas fa-edit"></i></a>
+                            <?php if (hasPermissions('laporkan_kerusakan_delete')): ?>
+                              <?php if ($row->id!=1 && logged('id')!=$row->id): ?>
+                                <a href="<?php echo url('datalaporkankerusakan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_kerusakan') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                              <?php else: ?>
+                                <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
+                              <?php endif ?>
+                            <?php endif ?>
+                          </div>
                         <?php endif ?>
-                        <?php if (hasPermissions('laporkan_kerusakan_delete')): ?>
-                          <?php if ($row->id!=1 && logged('id')!=$row->id): ?>
-                            <a href="<?php echo url('datalaporkankerusakan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_user') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                          <?php else: ?>
-                            <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
-                          <?php endif ?>
-                        <?php endif ?>
-                        <?php if (hasPermissions('kerusakan_confirmation')): ?>
-                            <?php echo form_open_multipart('datalaporkankerusakan/konfirmasi/'.$row->id); ?>
-                              <button type="submit" class="btn btn-flat btn-success"><i class="fas fa-check"></i>Konfirmasi</button>
-                            <?php echo form_close(); ?>
+
+                        <?php if (hasPermissions('konfirmasi_add')): ?>
+                          <div style="text-align: center; margin-top: 10px;">
+                            <a href="<?php echo url('datalaporkankerusakan/konfirmasi/'.$row->id) ?>" class="btn btn-sm btn-success" title="<?php echo lang('konfirmasi_kerusakan') ?>" data-toggle="tooltip">
+                              <i class="fas fa-check"></i>
+                            </a>
+                          </div>
                         <?php endif ?>
                       </td>
                     </tr>

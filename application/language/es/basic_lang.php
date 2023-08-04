@@ -149,10 +149,10 @@ $lang['signout'] = "Sign out";
 
 
 
-$lang['dashboard_new_orders'] = "New Orders";
-$lang['dashboard_bounce_rate'] = "Bounce Rate";
-$lang['dashboard_user_register'] = "User Registrations";
-$lang['dashboard_unique_visitor'] = "Unique Visitors";
+$lang['dashboard_new_orders'] = "Data Inventaris";
+$lang['dashboard_bounce_rate'] = "Data Jurusan";
+$lang['dashboard_user_register'] = "Data Ruangan";
+$lang['dashboard_unique_visitor'] = "Data Pinjaman";
 $lang['dashboard_sales'] = "Sales";
 $lang['dashboard_sales_area'] = "Area";
 $lang['dashboard_sales_donut'] = "Donut";
@@ -300,4 +300,22 @@ $lang['settings_timezone'] = "Timezone";
 $lang['language'] = "Language";
 $lang['default_lang'] = "Default Language";
 $lang['blank_page'] = "Blank Page";
+
+$lang['edit_pinjaman'] = "Edit Pinjaman";
+$lang['delete_pinjaman'] = "Delete Pinjaman";
+$lang['konfirmasi_pinjaman'] = "Konfirmasi Pinjaman";
+$lang['pengembalian_pinjaman'] = "Pengembalian Pinjaman";
+
+$lang['edit_inventaris'] = "Edit Inventaris";
+$lang['delete_inventaris'] = "Delete Inventaris";
+$lang['view_inventaris'] = "View Inventaris";
+
+$lang['data_Prasarana'] = "Data Prasarana";
+$lang['data_pindah_inventaris'] = "Pindah Inventaris";
+
+$lang['edit_ruangan'] = "Edit Ruangan";
+$lang['delete_ruangan'] = "Delete Ruangan";
+$lang['edit_jurusan'] = "Edit Jurusan";
+$lang['delete_jurusan'] = "Delete Jurusan";
+
 

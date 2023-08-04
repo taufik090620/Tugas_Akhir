@@ -20,9 +20,10 @@
                     <th>Kode Barang</th>
                     <th>Nama Barang</th>
                     <th>Merek</th>
+                    <th>Jurusan</th>
+                    <th>Ruangan </th>
                     <th>Asal Usul</th>
                     <th>Tahun Peredaran</th>
-                    <th>Kondisi</th>
                     <th>Harga Barang</th>
             </tr>
             <?php $no = 1;
@@ -32,9 +33,10 @@
                     <td><?= $inv->kode_barang ?></td>
                     <td><?= $inv->nama_barang ?></td>
                     <td><?= $inv->merek ?></td>
+                    <td><?= $inv->singkatan_jurusan ?></td>
+                    <td><?= $inv->nama_ruangan ?></td>
                     <td><?= $inv->asal_usul ?></td>
                     <td><?= $inv->tahun_peredaran ?></td>
-                    <td><?= $inv->kondisi ?></td>
                     <td><?= $inv->harga_barang ?></td>
                 </tr>
                 <?php endforeach ?>

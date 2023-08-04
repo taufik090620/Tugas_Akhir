@@ -72,6 +72,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $("#example1").DataTable({
       "responsive": true,
       "autoWidth": false,
+      
+      
     });
 
     $("input[data-bootstrap-switch]").each(function(){

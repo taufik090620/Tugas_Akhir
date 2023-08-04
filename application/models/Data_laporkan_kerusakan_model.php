@@ -12,7 +12,7 @@ class Data_laporkan_kerusakan_model extends MY_Model {
 
     public function getLaporkanKerusakanJoin()
 	{
-        $this->db->select('lapor_kerusakan.id, lapor_kerusakan.status, lapor_kerusakan.nama_barang, lapor_kerusakan.tingkat_kerusakan, lapor_kerusakan.keterangan, data_inventaris.nama_barang, data_inventaris.nama_barang, users.name, users.email');    
+        $this->db->select('lapor_kerusakan.id, lapor_kerusakan.status, lapor_kerusakan.nama_barang, lapor_kerusakan.tingkat_kerusakan, lapor_kerusakan.keterangan, lapor_kerusakan.tanggal_laporan, data_inventaris.nama_barang, data_inventaris.nama_barang, users.name, users.email');    
         $this->db->from('lapor_kerusakan');
         $this->db->join('data_inventaris', 'lapor_kerusakan.nama_barang = data_inventaris.id');
         $this->db->join('users', 'lapor_kerusakan.id_pengguna = users.id');
@@ -22,7 +22,7 @@ class Data_laporkan_kerusakan_model extends MY_Model {
 
     public function getLaporkanKerusakanJoinByID($id)
 	{
-        $this->db->select('lapor_kerusakan.id, lapor_kerusakan.nama_barang, lapor_kerusakan.tingkat_kerusakan, lapor_kerusakan.keterangan, data_inventaris.nama_barang, data_inventaris.nama_barang, users.name, users.email');      
+        $this->db->select('lapor_kerusakan.id, lapor_kerusakan.nama_barang, lapor_kerusakan.tingkat_kerusakan, lapor_kerusakan.keterangan, lapor_kerusakan.tanggal_laporan, data_inventaris.nama_barang, data_inventaris.nama_barang, users.name, users.email');      
         $this->db->from('lapor_kerusakan');
         $this->db->join('data_inventaris', 'lapor_kerusakan.nama_barang = data_inventaris.id');
         $this->db->join('users', 'lapor_kerusakan.id_pengguna = users.id');
@@ -48,6 +48,15 @@ class Data_laporkan_kerusakan_model extends MY_Model {
         $this->db->from('lapor_kerusakan');
         $this->db->join('data_inventaris', 'lapor_kerusakan.nama_barang = data_inventaris.nama_barang', 'left');
         $this->db->where('lapor_kerusakan.nama_barang IS NOT NULL');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function getListLaporEdit()
+    {
+        $this->db->select('data_inventaris.id, data_inventaris.nama_barang');  
+        $this->db->from('data_inventaris');
+        $this->db->join('lapor_kerusakan', 'lapor_kerusakan.nama_barang = data_inventaris.id', 'left');
         $query = $this->db->get();
         return $query->result();
     }

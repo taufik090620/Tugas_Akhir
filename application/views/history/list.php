@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
-            <li class="breadcrumb-item active"><?php echo lang('data_inventaris') ?></li>
+            <li class="breadcrumb-item active"><?php echo lang('history_pinjaman') ?></li>
         </ol>
         </div>
     </div>
@@ -38,45 +38,44 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th>Kode Barang</th>
-                    <th>Tahun</th>
-                    <th>Keterangan</th>
+                    <th>Nama Peminjam</th>
+                    <th>Jurusan</th>
+                    <th>Kelas</th>
+                    <th>Nama Alat</th>
+                    <th>Kode Alat</th>
+                    <th>Kondisi Alat</th>
+                    <th>Status</th>
                     <th>Tanggal Masuk</th>
                     <th>Tanggal Keluar</th>
-                    <th>Status</th>
-                    <th>Nama Pemindah</th>
-                    <th>Kondisi Barang</th>
                   </tr>
                   </thead>
                   
                   <tbody>
                   <?php foreach ($history as $row): ?>
                     <tr>
-                      <td><?php echo $row->kode_barang ?></td>
-                      <td class="text-center">
-                         <?php echo $row->tahun ?>
+                      <td>
+                         <?php echo $row->nama_pemindah_barang ?>
                       </td>
-                      <td class="text-center">
-                         <?php echo $row->keterangan ?>
+                      <td><?php echo $row->jurusan ?></td> 
+                      <td><?php echo $row->kelas?></td>
+                      <td><?php echo $row->nama_barang ?></td>   
+                      <td>
+                         <?php echo $row->kode_barang ?>
+                      </td>           
+                      <td>
+                         <?php echo $row->kondisi_barang ?>
                       </td>
-                      <td class="text-center">
+                      <td>
+                         <?php echo $row->statuss ?>
+                      </td>
+                      <td>
                          <?php echo $row->tanggal_masuk ?>
                       </td>
-                      <td class="text-center">
+                      <td>
                          <?php echo $row->tanggal_keluar ?>
                       </td>
                       
-                      <td class="text-center">
-                         <?php echo $row->keterangan ?>
-                      </td>
                       
-                      <td class="text-center">
-                         <?php echo $row->nama_pemindah_barang ?>
-                      </td>
-                      
-                      <td class="text-center">
-                         <?php echo $row->kondisi_barang ?>
-                      </td>
                     </tr>
                   <?php endforeach ?>
                   </tbody>

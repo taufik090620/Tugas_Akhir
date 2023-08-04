@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Data Laporkan Kerusakan</h1>
+            <h1>Tambah Data Kerusakan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php echo form_open_multipart('datalaporkankerusakan/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 
-  <div class="row">
+<div class="row">
     <div class="col-sm-6">
       <!-- Default card -->
             <div class="card">
@@ -45,15 +45,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Nama Barang</h3>
+          <h3 class="card-title">Nama Alat</h3>
         </div>
         <div class="card-body">
 
           <div class="form-group">
-          <label for="formClient-Role">Nama Barang</label>
-            <select name="nama_barang" id="formClient-Role" class="form-control select2" required>
-              <option value="">Pilih Barang</option>
-              <?php foreach ($this->data_inventaris_model->get() as $row): ?>
+          <label for="formClient-Role">Nama Alat</label>
+           <select name="nama_barang" id="formClient-Role" class="form-control select2" required >
+              <option value="">Pilih Alat</option>
+              <?php foreach ($this->data_inventaris_model->getListLaporKosong() as $row): ?>
                 <?php $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '' ?>
                 <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->nama_barang ?></option>
               <?php endforeach ?>
@@ -62,8 +62,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         </div>
         <!-- /.card-body -->
-
-      </div>
+  <!-- /.card-body -->
+            </div>
       <!-- /.card -->
       <div class="card">
         <div class="card-header">
@@ -77,19 +77,27 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <option value="Komponen Alat Rusak">Komponen Alat Rusak</option>
             </select>
           </div>
+          <div class="form-group">
+            <label for="formClient-Password">Tanggal Laporan</label>
+            <input type="date" class="form-control" name="tanggal_laporan" minlength="6" id="formClient-Password" required placeholder="2019-01-20">
+          </div>
           </div>
         </div>
-
-        <div class="card">
+      <!-- Default card -->
+      <!-- /.card -->
+      
+    </div>
+    <div class="col-sm-6">
+      <!-- Default card -->
+      <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Keterangan</h3>
+          <h3 class="card-title">Keterangan Alat Rusak</h3>
         </div>
-         <div class="card-body">
+        <div class="card-body">
           <div class="form-group">
             <label for="formClient-Address">Keterangan</label>
             <textarea type="text" class="form-control" name="keterangan" id="formClient-Address" placeholder="Keterangan" rows="3"></textarea>
           </div>
-        </div>
         </div>
         <!-- /.card-body -->
 
@@ -117,7 +125,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 </section>
 <!-- /.content -->
-
 
 <script>
   $(document).ready(function() {
