@@ -15,7 +15,6 @@ class DataInventaris extends MY_Controller {
     {
 		ifPermissions('inventaris_list');
 		$this->page_data['inventaris'] = $this->data_inventaris_model->getInventarisJoin();
-		$data['inventaris'] = $this->data_inventaris_model->getInventarisJoin();
 		$this->load->view('data_inventaris/list', $this->page_data);
     }
     
