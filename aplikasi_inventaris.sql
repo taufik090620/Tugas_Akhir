@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Agu 2023 pada 10.38
+-- Waktu pembuatan: 05 Agu 2023 pada 07.10
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -1710,7 +1710,51 @@ INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, 
 (1637, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-04 04:12:12', '0000-00-00 00:00:00'),
 (1638, 'Agus Rahmawan (agus rahmawan) Logged in', '4', '::1', '2023-08-04 04:12:29', '0000-00-00 00:00:00'),
 (1639, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-04 05:48:59', '0000-00-00 00:00:00'),
-(1640, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-04 08:18:12', '0000-00-00 00:00:00');
+(1640, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-04 08:18:12', '0000-00-00 00:00:00'),
+(1641, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-04 08:55:54', '0000-00-00 00:00:00'),
+(1642, 'Agus Rahmawan (agus rahmawan) Logged in', '4', '::1', '2023-08-04 08:56:14', '0000-00-00 00:00:00'),
+(1643, 'User: Agus Rahmawan Logged Out', '4', '::1', '2023-08-04 09:14:26', '0000-00-00 00:00:00'),
+(1644, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-04 09:14:33', '0000-00-00 00:00:00'),
+(1645, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-04 09:16:49', '0000-00-00 00:00:00'),
+(1646, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-04 09:16:54', '0000-00-00 00:00:00'),
+(1647, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-04 09:17:38', '0000-00-00 00:00:00'),
+(1648, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-04 09:17:45', '0000-00-00 00:00:00'),
+(1649, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-04 09:23:55', '0000-00-00 00:00:00'),
+(1650, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-04 09:34:54', '0000-00-00 00:00:00'),
+(1651, 'Role #4 Updated by User: #1', '1', '::1', '2023-08-04 09:36:42', '0000-00-00 00:00:00'),
+(1652, 'New Permission #92 Created by User: #1', '1', '::1', '2023-08-04 09:36:58', '0000-00-00 00:00:00'),
+(1653, 'Role #4 Updated by User: #1', '1', '::1', '2023-08-04 09:37:12', '0000-00-00 00:00:00'),
+(1654, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-04 09:37:17', '0000-00-00 00:00:00'),
+(1655, 'Asep (asepp) Logged in', '8', '::1', '2023-08-04 09:37:24', '0000-00-00 00:00:00'),
+(1656, 'User: Asep Logged Out', '8', '::1', '2023-08-04 11:10:32', '0000-00-00 00:00:00'),
+(1657, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-04 11:10:38', '0000-00-00 00:00:00'),
+(1658, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-04 11:13:08', '0000-00-00 00:00:00'),
+(1659, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-04 11:13:28', '0000-00-00 00:00:00'),
+(1660, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-04 11:14:21', '0000-00-00 00:00:00'),
+(1661, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-04 11:14:30', '0000-00-00 00:00:00'),
+(1662, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-04 11:15:39', '0000-00-00 00:00:00'),
+(1663, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-04 11:15:49', '0000-00-00 00:00:00'),
+(1664, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-04 11:38:42', '0000-00-00 00:00:00'),
+(1665, 'Asep (asepp) Logged in', '8', '::1', '2023-08-04 11:38:48', '0000-00-00 00:00:00'),
+(1666, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-04 11:42:38', '0000-00-00 00:00:00'),
+(1667, 'New Permission #93 Created by User: #1', '1', '::1', '2023-08-04 11:43:00', '0000-00-00 00:00:00'),
+(1668, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-04 11:43:10', '0000-00-00 00:00:00'),
+(1669, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-04 11:43:38', '0000-00-00 00:00:00'),
+(1670, 'Role #4 Updated by User: #1', '1', '::1', '2023-08-04 11:45:16', '0000-00-00 00:00:00'),
+(1671, 'New Permission #94 Created by User: #1', '1', '::1', '2023-08-04 11:46:40', '0000-00-00 00:00:00'),
+(1672, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-04 11:47:00', '0000-00-00 00:00:00'),
+(1673, 'Role #2 Updated by User: #1', '1', '::1', '2023-08-04 11:47:10', '0000-00-00 00:00:00'),
+(1674, 'Role #3 Updated by User: #1', '1', '::1', '2023-08-04 11:47:20', '0000-00-00 00:00:00'),
+(1675, 'New Permission #95 Created by User: #1', '1', '::1', '2023-08-04 11:49:21', '0000-00-00 00:00:00'),
+(1676, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-04 11:49:31', '0000-00-00 00:00:00'),
+(1677, 'Role #2 Updated by User: #1', '1', '::1', '2023-08-04 11:49:39', '0000-00-00 00:00:00'),
+(1678, 'Role #3 Updated by User: #1', '1', '::1', '2023-08-04 11:49:46', '0000-00-00 00:00:00'),
+(1679, 'New Permission #96 Created by User: #1', '1', '::1', '2023-08-04 11:50:52', '0000-00-00 00:00:00'),
+(1680, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-04 11:51:12', '0000-00-00 00:00:00'),
+(1681, 'Role #2 Updated by User: #1', '1', '::1', '2023-08-04 11:51:18', '0000-00-00 00:00:00'),
+(1682, 'Role #3 Updated by User: #1', '1', '::1', '2023-08-04 11:51:25', '0000-00-00 00:00:00'),
+(1683, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-05 03:17:01', '0000-00-00 00:00:00'),
+(1684, 'Data Pemeliharaan Ditambahkan 106 Created by User:Taufik Hidayat', '5', '::1', '2023-08-05 05:09:58', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1925,7 +1969,8 @@ CREATE TABLE `pemeliharaan` (
 --
 
 INSERT INTO `pemeliharaan` (`id`, `nama_barang`, `tanggal_pemeliharaan`, `keterangan`, `jumlah_baik`, `jumlah_rusak`, `jumlah_hilang`) VALUES
-(105, '26', '2023-08-04', 'PC No.2 Layar mati', 11, 1, 0);
+(105, '26', '2023-08-04', 'PC No.2 Layar mati', 11, 1, 0),
+(106, '36', '2023-08-05', 'vbj', 10, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -2046,7 +2091,12 @@ INSERT INTO `permissions` (`id`, `title`, `code`) VALUES
 (88, 'konfirmasi pengajuan add', 'konfirmasi_pengajuan_add'),
 (89, 'pengajuan kajur list', 'pengajuan_kajur_list'),
 (90, 'acc pengajuan kajur list', 'acc_pengajuan_kajur_list'),
-(91, 'inventaris kajur', 'inventaris_kajur');
+(91, 'inventaris kajur', 'inventaris_kajur'),
+(92, 'inventaris peminjam list', 'inventaris_peminjam_list'),
+(93, 'inventaris peminjam dashboard', 'inventaris_peminjam_dashboard'),
+(94, 'inventaris dashboard', 'inventaris_dashboard'),
+(95, 'jurusan dashboard', 'jurusan_dashboard'),
+(96, 'ruangan dashboard', 'ruangan_dashboard');
 
 -- --------------------------------------------------------
 
@@ -2110,7 +2160,6 @@ INSERT INTO `role_permissions` (`id`, `role`, `permission`) VALUES
 (37, 1, 'fasilitas_add'),
 (38, 1, 'fasilitas_edit'),
 (39, 1, 'fasilitas_delete'),
-(40, 4, 'inventaris_list'),
 (41, 1, 'pinjaman_list'),
 (45, 4, 'fasilitas_list'),
 (49, 1, 'pengembalian_list'),
@@ -2199,7 +2248,19 @@ INSERT INTO `role_permissions` (`id`, `role`, `permission`) VALUES
 (216, 2, 'acc_pengajuan_kajur_list'),
 (217, 2, 'pinjaman_dashboard'),
 (218, 2, 'inventaris_kajur'),
-(220, 1, 'inventaris_kajur');
+(220, 1, 'inventaris_kajur'),
+(221, 4, 'inventaris_peminjam_list'),
+(223, 4, 'pinjaman_dashboard'),
+(224, 4, 'inventaris_peminjam_dashboard'),
+(225, 1, 'inventaris_dashboard'),
+(226, 2, 'inventaris_dashboard'),
+(227, 3, 'inventaris_dashboard'),
+(228, 1, 'jurusan_dashboard'),
+(229, 2, 'jurusan_dashboard'),
+(230, 3, 'jurusan_dashboard'),
+(231, 1, 'ruangan_dashboard'),
+(232, 2, 'ruangan_dashboard'),
+(233, 3, 'ruangan_dashboard');
 
 -- --------------------------------------------------------
 
@@ -2280,11 +2341,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`, `last_login`, `role`, `reset_token`, `status`, `img_type`, `created_at`, `updated_at`) VALUES
-(1, 'Admin Sarana', 'admin', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '081312589637', 'Cibodas Campaka', '2023-08-04 06:08:48', 1, '', 1, 'jpg', '2018-06-27 06:00:16', '0000-00-00 00:00:00'),
-(4, 'Agus Rahmawan', 'agus rahmawan', 'kajur@gmail.com', '1baedd25059490937a8f7a52dbaf5a7c168bc49f5bac0d7bc48bd6b58a84a421', '081312589637', 'cimahi', '2023-08-04 02:08:42', 2, '', 1, 'png', '2023-05-03 01:46:07', '0000-00-00 00:00:00'),
-(5, 'Taufik Hidayat', 'taufik', 'taufik78964@gmail.com', '96eab8aec7841ecc477465c904f0ddcf5a556c95701f12de82b227aa81af5209', '081312589637', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-04 02:08:29', 3, '', 1, 'png', '2023-05-03 01:47:29', '0000-00-00 00:00:00'),
+(1, 'Admin Sarana', 'admin', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '081312589637', 'Cibodas Campaka', '2023-08-04 10:08:12', 1, '', 1, 'jpg', '2018-06-27 06:00:16', '0000-00-00 00:00:00'),
+(4, 'Agus Rahmawan', 'agus rahmawan', 'kajur@gmail.com', '1baedd25059490937a8f7a52dbaf5a7c168bc49f5bac0d7bc48bd6b58a84a421', '081312589637', 'cimahi', '2023-08-04 07:08:26', 2, '', 1, 'png', '2023-05-03 01:46:07', '0000-00-00 00:00:00'),
+(5, 'Taufik Hidayat', 'taufik', 'taufik78964@gmail.com', '96eab8aec7841ecc477465c904f0ddcf5a556c95701f12de82b227aa81af5209', '081312589637', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-05 01:08:47', 3, '', 1, 'png', '2023-05-03 01:47:29', '0000-00-00 00:00:00'),
 (6, 'Wahyu Saepudin', 'wahyu', 'wahyu123@gmail.com', 'b36c0e9c1331c8ec00d7ddb7a798fed43a9f845503a009cdc0b9280c08329220', '08765361568', 'cimahi', '2023-08-04 02:08:41', 4, '$2y$10$2VWBvggnlzfFcVLapqFKgOb0zaJVHDb6NbVyDLs18pilh9d72AXne', 1, 'png', '2023-05-03 01:48:36', '0000-00-00 00:00:00'),
-(8, 'Asep', 'asepp', 'asep@gmail.com', 'bc9122817c69bad28db7c97f5ee45e2ea94108fd95f00463352f81053ae0311b', '0895422526', 'cimahi', '2023-08-04 02:08:27', 4, '', 1, 'jpg', '2023-07-16 01:26:36', '0000-00-00 00:00:00'),
+(8, 'Asep', 'asepp', 'asep@gmail.com', 'bc9122817c69bad28db7c97f5ee45e2ea94108fd95f00463352f81053ae0311b', '0895422526', 'cimahi', '2023-08-04 10:08:08', 4, '', 1, 'jpg', '2023-07-16 01:26:36', '0000-00-00 00:00:00'),
 (9, 'Rifki', 'rifki', 'rifki@gmail.com', 'def5969afd6d4ac89feff40b68c9c6dde08c010ab9ed4a990c24de3e635b8adc', '08921273912819', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-01 02:08:10', 3, '', 1, 'png', '2023-08-01 03:39:46', '0000-00-00 00:00:00'),
 (10, 'Muhidin', 'muhidin', 'muhidin@gmail', '07b5c1e12bf7c84d7a3f10cd6cdac72cf5ee1801fc17d1067b4368ff933964b2', '08976546970', 'SMKN 1 CIMAHI, Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-03 12:20:05', 2, '', 1, 'png', '2023-08-03 12:20:05', '0000-00-00 00:00:00');
 
@@ -2414,7 +2475,7 @@ ALTER TABLE `acc_pengajuan`
 -- AUTO_INCREMENT untuk tabel `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1641;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1685;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_inventaris`
@@ -2462,7 +2523,7 @@ ALTER TABLE `lapor_kerusakan`
 -- AUTO_INCREMENT untuk tabel `pemeliharaan`
 --
 ALTER TABLE `pemeliharaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT untuk tabel `perbaikan`
@@ -2474,7 +2535,7 @@ ALTER TABLE `perbaikan`
 -- AUTO_INCREMENT untuk tabel `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT untuk tabel `roles`
@@ -2486,7 +2547,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `role_permissions`
 --
 ALTER TABLE `role_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=234;
 
 --
 -- AUTO_INCREMENT untuk tabel `ruangan`
