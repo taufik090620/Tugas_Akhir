@@ -54,10 +54,11 @@ class DataPemeliharaan extends MY_Controller
 
 		$this->activity_model->add('Data Pemeliharaan Ditambahkan ' . $id . ' Created by User:' . logged('name'), logged('id'));
 
-		$this->session->set_flashdata('alert-tyPe', 'success');
+		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Data Pemeliharaan Created Successfully');
 
 		redirect('datapemeliharaan');
+		
 	}
 	
 	public function delete($id)
