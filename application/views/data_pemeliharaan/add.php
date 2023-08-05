@@ -55,6 +55,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <!-- /.card-body -->
             </div>
             <div class="card">
+            <div class="card-header">
+          <h3 class="card-title">Jumlah Alat</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+          <label for="formClient-Jumlah">Jumlah Alat</label>
+            <input type="number" name="jumlah_alat" id="formClient-Jumlah" class="form-control" required disabled>
+          </div>
+              </div>
+
+        </div>
+            <div class="card">
         <div class="card-header">
           <h3 class="card-title">Tanggal</h3>
         </div>
@@ -160,6 +172,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         ;;
   }
 
+  $('#formClient-Role').on('change', function () {
+            var idbarang = $(this).val();
+            console.log(idbarang)
+            // Fetch the corresponding data for "Jumlah Alat" dropdown using AJAX
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url('datapemeliharaan/getJumlahAlatByNamaBarang') ?>',
+                data: { id: idbarang },
+                dataType: 'json',
+                success: function (response) {
+                  var jumlahAlatInput = $('#formClient-Jumlah');
+                  console.log(response)
+                  jumlahAlatInput.val(response.total_alat);
+                },
+                error: function () {
+                    // Handle error if needed
+                }
+            });
+        });
+    
 </script>
 
 <?php include viewPath('includes/footer'); ?>

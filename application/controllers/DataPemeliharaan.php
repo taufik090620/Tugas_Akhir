@@ -16,6 +16,7 @@ class DataPemeliharaan extends MY_Controller
 	public function index()
     {
 		ifPermissions('pemeliharaan_list');
+		
 		$this->page_data['data_pemeliharaan'] = $this->data_pemeliharaan_model->getPemeliharaanJoin();
         
 		$this->load->view('data_pemeliharaan/list', $this->page_data);
@@ -123,9 +124,23 @@ class DataPemeliharaan extends MY_Controller
 
 		ifPermissions('pemeliharaan_view');
 
+		
 		$this->page_data['data_pemeliharaan'] = $this->data_pemeliharaan_model->getById($id);
 		$this->load->view('data_pemeliharaan/view', $this->page_data);
 
+	}
+	public function getJumlahAlatByNamaBarang()
+	{
+		$idbarang = $this->input->post('id');
+
+		// Load the model (if not already autoloaded)
+		$this->load->model('Data_pemeliharaan_model');
+	
+		// Call the model method to get data by ID
+		$data = $this->Data_pemeliharaan_model->getJumlahAlatByNamaBarang($idbarang);
+	
+		// Return the data as JSON
+		echo json_encode($data);
 	}
 	
 }

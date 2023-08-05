@@ -62,6 +62,19 @@ class Data_pemeliharaan_model extends MY_Model {
 		return $response;
     }
 
-    
+    public function getJumlahAlatByNamaBarang($idbarang)
+{
+    // Assuming you have a database table that contains the jumlah_alat information for each nama_barang
+    $this->db->select('id, total_alat');
+    $this->db->from('data_inventaris');
+    $this->db->where('id', $idbarang); // Use 'id' as the column name to match the primary key in the "data_inventaris" table
+    $query = $this->db->get();
+
+    if ($query->num_rows() > 0) {
+        return $query->row(); // Return a single row as an object
+    } else {
+        return null; // Return null if no data is found for the given ID
+    }
+}
 
 }
