@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
         <div class="form-group">
             <label for="formClient-Name">Nama Alat</label>
-            <input type="text" class="form-control" name="nama_alat_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->nama_alat ?>" readonly="readonly" />
+            <input type="text" class="form-control" name="nama_alat_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->nama_alat ?>" />
           </div>
           
         <div class="form-group">
@@ -46,11 +46,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="form-group">
             <label for="formClient-Name">Satuan Alat</label>
-            <input type="text" class="form-control" name="satuan_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->satuan ?>" readonly="readonly" />
+            <input type="text" class="form-control" name="satuan_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->satuan ?>" />
           </div>
           <div class="form-group">
             <label for="formClient-Name">Harga Satuan Alat</label>
-            <input type="text" class="form-control" name="harga_satuan_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->harga_satuan ?>" readonly="readonly" />
+            <input type="text" class="form-control" name="harga_satuan_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->harga_satuan ?>" />
           </div>
           <div class="form-group">
             <label for="formClient-Name">Harga Satuan Alat</label>
@@ -102,10 +102,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="form-group">
         <div class="form-group">
             <label for="formClient-Name">Spesifikasi</label>
-            <input type="text" class="form-control" name="spesifikasi_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->spesifikasi ?>" readonly="readonly" />
+            <input type="text" class="form-control" name="spesifikasi_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->spesifikasi ?>" />
           </div>
             <label for="formClient-Name">Link Pembelian</label>
-            <input type="text" class="form-control" name="link_beli_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->link_beli ?>" readonly="readonly" />
+            <input type="text" class="form-control" name="link_beli_acc" id="formClient-Name" required value="<?php echo $Pengajuan[0]->link_beli ?>" />
           </div>
 
         </div>
