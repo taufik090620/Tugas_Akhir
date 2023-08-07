@@ -41,25 +41,44 @@ class DataPemeliharaan extends MY_Controller
 	{
 		ifPermissions('pemeliharaan_add');
 		postAllowed();
-
+	
+		$nama_barang = post('nama_barang');
+		$jumlah_baik = post('jumlah_baik');
+		$jumlah_rusak = post('jumlah_rusak');
+		$jumlah_hilang = post('jumlah_hilang');
+		$tanggal_pemeliharaan = post('tanggal_pemeliharaan');
+		$keterangan = post('keterangan');
+		$dipasang = post('dipasang');
+		$stock = post('stock');
+	
+		// Menyimpan data pemeliharaan baru
 		$id = $this->data_pemeliharaan_model->create([
-			'nama_barang' => post('nama_barang'),
-			'jumlah_baik' => post('jumlah_baik'),
-			'jumlah_rusak' => post('jumlah_rusak'),
-			'jumlah_hilang' => post('jumlah_hilang'),
-			'tanggal_pemeliharaan' => post('tanggal_pemeliharaan'),
-			'keterangan' => post('keterangan')
+			'nama_barang' => $nama_barang,
+			'jumlah_baik' => $jumlah_baik,
+			'jumlah_rusak' => $jumlah_rusak,
+			'jumlah_hilang' => $jumlah_hilang,
+			'tanggal_pemeliharaan' => $tanggal_pemeliharaan,
+			'keterangan' => $keterangan
 		]);
-
-
+	
+		// Mengurangi nilai 'dipasang' berdasarkan jumlah rusak dan hilang
+		if ($dipasang && ($jumlah_rusak > 0 || $jumlah_hilang > 0)) {
+			$this->data_inventaris_model->reduceDipasang($nama_barang, $jumlah_rusak + $jumlah_hilang);
+		}
+	
+		// Mengurangi nilai 'stock' berdasarkan jumlah rusak dan hilang
+		if ($stock && ($jumlah_rusak > 0 || $jumlah_hilang > 0)) {
+			$this->data_inventaris_model->reduceStock($nama_barang, $jumlah_rusak + $jumlah_hilang);
+		}
+	
+		// Catat aktivitas dan set pesan flash
 		$this->activity_model->add('Data Pemeliharaan Ditambahkan ' . $id . ' Created by User:' . logged('name'), logged('id'));
-
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Data Pemeliharaan Created Successfully');
-
+	
 		redirect('datapemeliharaan');
-		
 	}
+	
 	
 	public function delete($id)
 	{

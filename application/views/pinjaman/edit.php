@@ -50,6 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </select>
           </div>
           <div class="form-group">
+          <label for="formClient-Stock">Jumlah Alat Yang Bisa Dipinjam</label>
+            <input type="number" name="stock_alat" id="formClient-Stock" class="form-control" required disabled>
+          </div>
+          <div class="form-group">
             <label for="formClient-Name">Jumlah Pinjam</label>
             <input type="number" class="form-control" name="stock_barang" id="formClient-Name" required placeholder="jumlah pinjam" value="<?php echo $data_pinjaman->stock ?>" />
         </div>
@@ -159,7 +163,41 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 </section>
 <!-- /.content -->
+<script>
+  $(document).ready(function() {
+    $('.form-validate').validate();
 
+    //Initialize Select2 Elements
+    $('.select2').select2();
+
+    // Function to update formClient-Stock when the page is loaded or the select value changes
+    function updateFormClientStock() {
+      var namabarang = $('#formClient-Role').val();
+      if (namabarang) {
+        // Fetch the corresponding data for "Jumlah Alat" dropdown using AJAX
+        $.ajax({
+          type: 'POST',
+          url: '<?php echo base_url('datapinjaman/getStockByNamaBarang') ?>',
+          data: { nama_barang: namabarang },
+          dataType: 'json',
+          success: function(response) {
+            var stockAlatInput = $('#formClient-Stock');
+            stockAlatInput.val(response.stock);
+          },
+          error: function() {
+            // Handle error if needed
+          }
+        });
+      } else {
+        $('#formClient-Stock').val('');
+      }
+    }
+
+    // Trigger updateFormClientStock on page load or when select value changes
+    $('#formClient-Role').on('change', updateFormClientStock);
+    $(document).ready(updateFormClientStock);
+  });
+</script>
 <script>
   var kelasValue = "<?php echo $data_pinjaman->kelas ?>"; // Ganti dengan nilai yang diberikan saat edit
 

@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3"><?php echo lang('data_peminjam') ?></h3>
+                <h3 class="card-title p-3"><?php echo lang('data_pinjaman') ?></h3>
                 <div class="ml-auto p-2">
 <!-- buttons -->
                     <?php if (hasPermissions('peminjam_add')): ?>

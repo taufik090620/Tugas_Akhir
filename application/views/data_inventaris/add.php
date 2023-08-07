@@ -117,14 +117,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <h3 class="card-title">Keterangan Lain</h3>
         </div>
         <div class="card-body">
-
-        <div class="form-group">
-            <label for="formClient-Status">Status Alat</label>
-            <select name="status_alat" id="formClient-Status" class="form-control">
-              <option value="Di Pasang" selected>Di Pasang</option>
-              <option value="Tidak Di Pasang">Tidak Di Pasang</option>
-            </select>
-          </div>
           
           <div class="form-group">
             <label for="formClient-Status">Masa Hidup Alat</label>
@@ -150,6 +142,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group">
             <label for="formClient-Name">Total Jumlah Alat </label>
             <input type="text" class="form-control" name="total_alat" id="formClient-Name" required placeholder="total jumlah alat" />
+          </div>
+          <div class="form-group">
+            <label for="formClient-Name">Total Jumlah Alat Dipasang </label>
+            <input type="text" class="form-control" name="dipasang" id="formClient-Name" required placeholder="jumlah alat yang dipasang" />
           </div>
 
           <div class="form-group">

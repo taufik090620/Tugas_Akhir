@@ -64,15 +64,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <input type="number" name="jumlah_alat" id="formClient-Jumlah" class="form-control" required disabled>
           </div>
               </div>
-
         </div>
+
             <div class="card">
         <div class="card-header">
           <h3 class="card-title">Tanggal</h3>
         </div>
         <div class="card-body">
 
-          
         <div class="form-group">
             <label for="formClient-Email">Tanggal Pemeliharaan</label>
             <input type="date" class="form-control" name="tanggal_pemeliharaan" id="formClient-Email" required>
@@ -95,6 +94,29 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <!-- Default card -->
       <div class="card">
         <div class="card-header">
+          <h5 class="card-title">Pilih Salah Satu Status Alat</h5>
+          <p></p>
+        </div>
+        <div class="card-body">
+        <div class="form-group">
+      <label for="formClient-Name">Dipasang</label>
+      <select name="dipasang" id="formClient-Dipasang" class="form-control">
+        <option value="0">Abaikan jika alat tidak dipasang</option>
+        <option value="1">Dipasang Permanen</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="formClient-Name">Alat Yang Bisa Dipinjam</label>
+      <select name="stock" id="formClient-Stock" class="form-control">
+        <option value="0">Abaikan jika alat bukan untuk dipinjam</option>
+        <option value="1">Alat Khusus Peminjaman</option>
+      </select>
+    </div>
+          </div>
+        </div>
+
+        <div class="card">
+        <div class="card-header">
           <h3 class="card-title">Kondisi</h3>
         </div>
         <div class="card-body">
@@ -114,9 +136,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
       <!-- /.card -->
       <!-- /.card -->
-
     </div>
   </div>
+
+  
+  
 
   <!-- Default card -->
   <div class="card">

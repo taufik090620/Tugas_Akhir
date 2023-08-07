@@ -70,8 +70,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       						<td><?php echo $data_inventaris->masa_hidup_alat ?></td>
       					</tr>
 						  <tr>
-      						<td width="160"><strong>Status Alat</strong>:</td>
-      						<td><?php echo $data_inventaris->status_alat ?></td>
+      						<td width="160"><strong>Total Alat</strong>:</td>
+      						<td><?php echo $data_inventaris->total_alat ?></td>
+      					</tr>
+						  <tr>
+      						<td width="160"><strong>Stock Pinjam</strong>:</td>
+      						<td><?php echo $data_inventaris->stock ?></td>
+      					</tr>
+						  <tr>
+      						<td width="160"><strong>Jumlah Alat Yang Dipasang</strong>:</td>
+      						<td><?php echo $data_inventaris->dipasang ?></td>
       					</tr>
       					<tr>
       						<td width="160"><strong>Harga Barang</strong>:</td>

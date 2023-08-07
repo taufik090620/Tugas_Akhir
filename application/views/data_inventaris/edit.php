@@ -153,6 +153,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <input type="text" class="form-control" name="total_alat" id="formClient-Name"  value="<?php echo $data_inventaris->total_alat ?>" required placeholder="total jumlah alat" />
           </div>
           <div class="form-group">
+            <label for="formClient-Name">Total Jumlah Alat Dipasang </label>
+            <input type="text" class="form-control" name="dipasang" id="formClient-Name" value="<?php echo $data_inventaris->dipasang ?>" required placeholder="jumlah alat yang dipasang" />
+          </div>
+          <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Yang Bisa Dipinjam</label>
             <input type="text" class="form-control" name="stock_barang" id="formClient-Name"  value="<?php echo $data_inventaris->stock ?>" required placeholder="jumlah alat yang bisa dipinjam" />
           </div>

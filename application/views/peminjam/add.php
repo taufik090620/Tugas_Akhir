@@ -8,13 +8,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Data Pinjaman</h1>
+            <h1>Tambah Data Peminjam</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/datapeminjam') ?>"><?php echo lang('data_pinjaman') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('tambah_peminjam') ?></li>
+              <li class="breadcrumb-item active"><?php echo lang('tambah_pinjaman') ?></li>
             </ol>
           </div>
         </div>
@@ -41,18 +41,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <label for="formClient-Role">Nama Alat</label>
                 <select name="nama_barang" id="formClient-Role" class="form-control select2" required>
                     <option value="">Pilih Alat</option>
-                    <?php foreach ($this->data_pinjaman_model->getInventarisTidakDipasang() as $row): ?>
+                    <?php foreach ($this->data_peminjam_model->getInventarisTidakDipasang() as $row): ?>
                         <option value="<?php echo $row->nama_barang ?>">
                             <?php echo $row->nama_barang ?>
                         </option>
                     <?php endforeach ?>
                 </select>
             </div>
+            
+            <div class="form-group">
+          <label for="formClient-Stock">Jumlah Alat Yang Bisa Dipinjam</label>
+            <input type="number" name="stock_alat" id="formClient-Stock" class="form-control" required disabled>
+          </div>
+          
         <div class="form-group">
             <label for="formClient-Name">Jumlah Pinjam</label>
             <input type="number" class="form-control" name="stock_barang" id="formClient-Name" required placeholder="jumlah pinjam" />
         </div>
-
 
         </div>
         <!-- /.card-body -->
@@ -121,8 +126,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
           <!-- Dropdown untuk memilih peminjam -->
           <div class="form-group">
-          <label for="formClient-Role">Nama Peminjam</label>
-            <input type="text" class="form-control" value="<?php echo logged('name') ?>" readonly>
+              <label for="formClient-Role">Peminjam</label>
+              <input type="text" class="form-control" value="<?php echo logged('name') ?>" readonly>
           </div>
           <div class="form-group">
           <label for="formClient-Address">Alasan Pinjam Alat</label>
@@ -153,10 +158,68 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </section>
 <!-- /.content -->
 <script>
+  $(document).ready(function() {
+    $('.form-validate').validate();
+
+      //Initialize Select2 Elements
+    $('.select2').select2()
+
+  })
+
+  function previewImage(input, previewDom) {
+
+    if (input.files && input.files[0]) {
+
+      $(previewDom).show();
+
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        $(previewDom).find('img').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }else{
+      $(previewDom).hide();
+    }
+
+  }
+
+  function createUsername(name) {
+      return name.toLowerCase()
+        .replace(/ /g,'_')
+        .replace(/[^\w-]+/g,'')
+        ;;
+  }
+
+  $('#formClient-Role').on('change', function () {
+            var namabarang = $(this).val();
+            console.log(namabarang)
+            // Fetch the corresponding data for "Jumlah Alat" dropdown using AJAX
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url('datapeminjam/getStockByNamaBarang') ?>',
+                data: { nama_barang: namabarang },
+                dataType: 'json',
+                success: function (response) {
+                  var stockAlatInput = $('#formClient-Stock');
+                  console.log(response)
+                  stockAlatInput.val(response.stock);
+                },
+                error: function () {
+                    // Handle error if needed
+                }
+            });
+        });
+    
+</script>
+
+
+<script>
 function validateForm() {
     var stock_barang = document.getElementById("formClient-Name").value;
     if (stock_barang === "" || stock_barang === "0") {
-        alert("Jumlah pinjam tidak boleh kosong atau 0.");
+        alert("jumlah pinjam tidak boleh kosong atau 0.");
         return false; // Prevent form submission
     }
     return true; // Allow form submission

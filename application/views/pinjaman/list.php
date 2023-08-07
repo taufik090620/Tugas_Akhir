@@ -77,6 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </td>
                       <td><?php echo $row->alasan_pinjam ?></td>
                       <td><?php echo $row->status ?></td>
+                      <?php if (hasPermissions('pinjaman_edit')): ?>
                       <td>
                             <div class="btn-group mt-1" role="group" aria-label="Button Group">
                                 <?php if (hasPermissions('pinjaman_edit')): ?>
@@ -105,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <?php endif ?>
                             </div>
                         </td>
-
+                        <?php endif ?>
                     </tr>
                   <?php endforeach ?>
                   </tbody>

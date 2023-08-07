@@ -30,9 +30,6 @@ class DataPeminjam extends MY_Controller {
 		$this->load->model('users_model');
 		$this->page_data['users_list'] = $this->users_model->getUsersByRole(4);
 		 // Get data inventaris with status "Tidak Dipasang"
-		 $this->load->model('data_peminjam_model');
-		 $this->page_data['inventaris_list'] = $this->data_peminjam_model->getInventarisTidakDipasang();
-	
 		$this->load->view('peminjam/add', $this->page_data);
 	}
 	
@@ -70,7 +67,7 @@ class DataPeminjam extends MY_Controller {
 	
 		// Create a new entry in 'data_pinjam' table
 		$peminjam_id = $this->data_peminjam_model->create([
-			'id_pengguna' => $id_pengguna,
+			'id_pengguna' => logged('id'),
 			'nama_barang' => $nama_barang,
 			'stock' => $stock_barang,
 			'id_jurusan' => $id_jurusan,
@@ -85,9 +82,9 @@ class DataPeminjam extends MY_Controller {
 	
 		// Log the activity and set success flashdata before redirecting to 'datapeminjam' page.
 		// Note: The 'activity_model' and other helper functions (ifPermissions, postAllowed) are not shown in the provided code.
-		$this->activity_model->add('Data Peminjam Ditambahkan ' . $peminjam_id . ' Created by User:' . logged('name'), logged('id'));
+		$this->activity_model->add('Data peminjam Ditambahkan ' . $peminjam_id . ' Created by User:' . logged('name'), logged('id'));
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Peminjam Created Successfully');
+		$this->session->set_flashdata('alert', 'Data peminjam Created Successfully');
 		redirect('datapeminjam');
 	}
 	
@@ -95,8 +92,8 @@ class DataPeminjam extends MY_Controller {
 		ifPermissions('pengembalian_add');
 		
 		$this->page_Data['user_login'] = logged('name');
-		$this->page_data['Peminjam'] = $this->data_peminjam_model->getPeminjamJoinByIDD($id);
-    	$this->load->view('pengembalian/add_peminjam', $this->page_data);
+		$this->page_data['Pinjam'] = $this->data_peminjam_model->getPeminjamJoinByIDD($id);
+    	$this->load->view('pengembalian/add', $this->page_data);
 	}
 	
 	
@@ -119,15 +116,15 @@ class DataPeminjam extends MY_Controller {
 		]);
 	
 		// Get the pinjaman data
-		$peminjam = $this->data_peminjam_model->getById($id);
+		$pinjaman = $this->data_peminjam_model->getById($id);
 	
 		// Update the stok data inventaris
 		$this->data_peminjam_model->updateInventoryStockOnDelete($peminjam->nama_barang, $peminjam->stock);
 	
-		// Delete the pinjaman entry from the database
+		// Delete the peminjam entry from the database
 		$this->data_peminjam_model->delete($id);
 	
-		$this->activity_model->add('Data Pinjaman Dikembalikan ' . $id . ' Created by User:' . logged('name'), logged('id'));
+		$this->activity_model->add('Data peminjam Dikembalikan ' . $id . ' Created by User:' . logged('name'), logged('id'));
 	
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Data Inventaris Dikembalikan');
@@ -165,7 +162,7 @@ class DataPeminjam extends MY_Controller {
 	
 
 	public function konfirmasi ($id) {
-		ifPermissions('pinjaman_confirmation');
+		ifPermissions('peminjam_confirmation');
 
 		$data = [
 			'status' => 'Dikonfirmasi - Belum Dikembalikan'
@@ -174,14 +171,14 @@ class DataPeminjam extends MY_Controller {
 		
 
 
-		$id = $this->data_pinjaman_model->update($id, $data);
+		$id = $this->data_peminjam_model->update($id, $data);
 
-		$this->activity_model->add("Data Pinjaman Inventaris #$id Dikonfirmasi Oleh Operator :".logged('name'));
+		$this->activity_model->add("Data peminjam Inventaris #$id Dikonfirmasi Oleh Operator :".logged('name'));
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Operator menngkonfirmasi peminjaman barang inventaris');
 		
-		redirect('datapinjaman');
+		redirect('datapeminjam');
 	}
 
 	public function edit($id)
@@ -193,9 +190,6 @@ class DataPeminjam extends MY_Controller {
 		// Get users with role ID 4 (ganti 4 dengan ID peran yang diinginkan)
 		$this->load->model('users_model');
 		$this->page_data['users_list'] = $this->users_model->getUsersByRole(4);
-		 // Get data inventaris with status "Tidak Dipasang"
-		 $this->load->model('data_peminjam_model');
-		 $this->page_data['inventaris_list'] = $this->data_peminjam_model->getInventarisTidakDipasang();
 		$this->load->view('peminjam/edit', $this->page_data);
 
 	}
@@ -206,7 +200,7 @@ class DataPeminjam extends MY_Controller {
 		ifPermissions('peminjam_edit');
 		postAllowed();
 	
-		// Get the existing pinjaman entry from the database
+		// Get the existing peminjam entry from the database
 		$existing_peminjam = $this->data_peminjam_model->getById($id);
 	
 		if (!$existing_peminjam) {
@@ -218,7 +212,7 @@ class DataPeminjam extends MY_Controller {
 	
 		// Extract data from the POST request and create an array with the updated peminjam information
 		$data = [
-			'id_pengguna' => post('id_pengguna'),
+			'id_pengguna' => logged('id'),
 			'nama_barang' => post('nama_barang'),
 			'id_jurusan' => post('id_jurusan'),
 			'tanggal_terpakai' => post('tanggal_terpakai'),
@@ -272,6 +266,19 @@ class DataPeminjam extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'peminjam has been Updated Successfully');
 		redirect('datapeminjam');
+	}
+	public function getStockByNamaBarang()
+	{
+		$namabarang = $this->input->post('nama_barang');
+
+		// Load the model (if not already autoloaded)
+		$this->load->model('Data_peminjam_model');
+	
+		// Call the model method to get data by ID
+		$data = $this->Data_peminjam_model->getStockByNamaBarang($namabarang);
+	
+		// Return the data as JSON
+		echo json_encode($data);
 	}
 	
 	

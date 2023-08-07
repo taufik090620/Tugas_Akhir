@@ -61,11 +61,10 @@ class Data_peminjam_model extends MY_Model {
         $this->db->select('data_pinjam.id, data_pinjam.nama_barang, data_pinjam.stock, data_pinjam.alasan_pinjam, data_pinjam.tanggal_terpakai, data_inventaris.nama_barang, data_inventaris.nama_barang');    
         $this->db->from('data_inventaris');
         $this->db->join('data_pinjam', 'data_pinjam.nama_barang = data_inventaris.nama_barang', 'left');
-        $this->db->where('status_alat', 'Tidak Di Pasang');
         $query = $this->db->get();
 		return $query->result();
 	}
-    function Peminjam_dashboard(){
+    function pinjaman_dashboard(){
         $this->db->select('*');
         $this->db->from('data_pinjam');
         return $this->db->get()->num_rows();
@@ -137,7 +136,6 @@ public function getInventarisTidakDipasang()
 {
     $this->db->select('*');
     $this->db->from('data_inventaris');
-    $this->db->where('status_alat', 'Tidak Di Pasang');
     $query = $this->db->get();
     return $query->result();
 }
@@ -146,6 +144,20 @@ public function getInventarisTidakDipasang()
     public function test () {
         $response[] = "Model_2 fun1";
 		return $response;
+    }
+    public function getStockByNamaBarang($namabarang)
+    {
+        // Assuming you have a database table that contains the jumlah_alat information for each nama_barang
+        $this->db->select('nama_barang, stock');
+        $this->db->from('data_inventaris');
+        $this->db->where('nama_barang', $namabarang); // Use 'id' as the column name to match the primary key in the "data_inventaris" table
+        $query = $this->db->get();
+    
+        if ($query->num_rows() > 0) {
+            return $query->row(); // Return a single row as an object
+        } else {
+            return null; // Return null if no data is found for the given ID
+        }
     }
 
 }

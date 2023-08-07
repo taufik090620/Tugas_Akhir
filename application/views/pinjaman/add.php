@@ -48,6 +48,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php endforeach ?>
                 </select>
             </div>
+            <div class="form-group">
+          <label for="formClient-Stock">Jumlah Alat Yang Bisa Dipinjam</label>
+            <input type="number" name="stock_alat" id="formClient-Stock" class="form-control" required disabled>
+          </div>
         <div class="form-group">
             <label for="formClient-Name">Jumlah Pinjam</label>
             <input type="number" class="form-control" name="stock_barang" id="formClient-Name" required placeholder="jumlah pinjam" />
@@ -158,6 +162,62 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 </section>
 <!-- /.content -->
+<script>
+  $(document).ready(function() {
+    $('.form-validate').validate();
+
+      //Initialize Select2 Elements
+    $('.select2').select2()
+
+  })
+
+  function previewImage(input, previewDom) {
+
+    if (input.files && input.files[0]) {
+
+      $(previewDom).show();
+
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        $(previewDom).find('img').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }else{
+      $(previewDom).hide();
+    }
+
+  }
+
+  function createUsername(name) {
+      return name.toLowerCase()
+        .replace(/ /g,'_')
+        .replace(/[^\w-]+/g,'')
+        ;;
+  }
+
+  $('#formClient-Role').on('change', function () {
+            var namabarang = $(this).val();
+            console.log(namabarang)
+            // Fetch the corresponding data for "Jumlah Alat" dropdown using AJAX
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo base_url('datapinjaman/getStockByNamaBarang') ?>',
+                data: { nama_barang: namabarang },
+                dataType: 'json',
+                success: function (response) {
+                  var stockAlatInput = $('#formClient-Stock');
+                  console.log(response)
+                  stockAlatInput.val(response.stock);
+                },
+                error: function () {
+                    // Handle error if needed
+                }
+            });
+        });
+    
+</script>
 <script>
 function validateForm() {
     var stock_barang = document.getElementById("formClient-Name").value;

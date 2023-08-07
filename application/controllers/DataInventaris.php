@@ -40,7 +40,7 @@ class DataInventaris extends MY_Controller {
 			'total_alat' => post('total_alat'),
 			'stock' => post('stock_barang'),
 			'masa_hidup_alat' => post('masa_hidup_alat'),
-			'status_alat' => post('status_alat'),
+			'dipasang' => post('dipasang'),
 			'keterangan' => post('keterangan'),
 			'kategori' => post('kategori'),
 			'id_ruangan' => post('id_ruangan')
@@ -110,7 +110,7 @@ class DataInventaris extends MY_Controller {
 			'harga_barang' => $this->input->post('harga_barang'),
 			'total_alat' => $this->input->post('total_alat'),
 			'stock' => $this->input->post('stock_barang'),
-			'status_alat' => $this->input->post('status_alat'),
+			'dipasang' => $this->input->post('dipasang'),
 			'masa_hidup_alat' => $this->input->post('masa_hidup_alat'),
 			'keterangan' => $this->input->post('keterangan'),
 			'kategori' => $this->input->post('kategori'),

@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th>Jurusan</th>
                     <th>Ruangan</th>
                     <th>Total Alat</th>
+                    <th>Dipasang</th>
                     <th>Stock Pinjam</th>
                   </tr>
                   </thead>
@@ -69,6 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td><?php echo $row->singkatan_jurusan ?></td>
                       <td><?php echo $row->nama_ruangan ?></td>
                       <td><?php echo $row->total_alat?></td>
+                      <td><?php echo $row->dipasang?></td>
                       <td><?php echo $row->stock?></td>
                     </tr>
                   <?php endforeach ?>

@@ -273,5 +273,17 @@ class DataPinjaman extends MY_Controller {
 		redirect('datapinjaman');
 	}
 	
+	public function getStockByNamaBarang()
+	{
+		$namabarang = $this->input->post('nama_barang');
+
+		// Load the model (if not already autoloaded)
+		$this->load->model('Data_pinjaman_model');
 	
+		// Call the model method to get data by ID
+		$data = $this->Data_pinjaman_model->getStockByNamaBarang($namabarang);
+	
+		// Return the data as JSON
+		echo json_encode($data);
+	}
 };
