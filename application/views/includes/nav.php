@@ -50,6 +50,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
       </a>
     </li>
   <?php endif ?>
+  <?php if (hasPermissions('pemeliharaan_list')) : ?>
+    <li class="nav-item">
+      <a href="<?php echo url('datapemeliharaanpinjam') ?>" class="nav-link <?php echo ($page->menu == 'datapemeliharaanpinjam') ? 'active' : '' ?>">
+      <i class="nav-icon fas fas fa-wrench"></i>
+        <p>
+          <?php echo lang('data_pemeliharaan_button2') ?>
+        </p>
+      </a>
+    </li>
+  <?php endif ?>
 
   <?php if (hasPermissions('pengajuan_list') || hasPermissions('acc_pengajuan_list')) : ?>
   <li class="nav-item has-treeview <?php echo ($page->menu == 'datapengajuan' || $page->menu == 'datariwayatpengajuan') ? 'menu-open' : ''; ?>">

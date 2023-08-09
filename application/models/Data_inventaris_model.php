@@ -153,6 +153,31 @@ class Data_inventaris_model extends MY_Model {
             return null; // Return null if no data is found for the given ID
         }
     }
+    public function getJumlahAlatByStock($idbarang)
+    {
+        $this->db->select('id, stock');
+        $this->db->from('data_inventaris');
+        $this->db->where('id', $idbarang);
+        $query = $this->db->get();
 
+        if ($query->num_rows() > 0) {
+            return $query->row(); // Return a single row as an object
+        } else {
+            return null; // Return null if no data is found for the given ID
+        }
+    }
+
+    public function reduceStock($nama_barang, $jumlah)
+    {
+        $this->db->set('stock', 'stock - ' . $jumlah, false);
+        $this->db->where('id', $nama_barang);
+        $this->db->update('data_inventaris');
+    }
+    public function increaseStock($nama_barang, $jumlah)
+    {
+        $this->db->set('stock', 'stock + ' . $jumlah, false);
+        $this->db->where('id', $nama_barang);
+        $this->db->update('data_inventaris');
+    }
     
 }

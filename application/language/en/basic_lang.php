@@ -313,6 +313,7 @@ $lang['tambah_pinjaman'] = "Tambah Pinjaman";
 $lang['data_pindahan'] = "Data Pindah Inventaris";
 $lang['data_pemeliharaan_dipasang'] = "Pemeliharaan Alat Dipasang";
 $lang['data_pemeliharaan_button1'] = "Alat Dipasang";
+$lang['data_pemeliharaan_button2'] = "Alat Pinjam";
 $lang['daftar_pinjaman'] = "Daftar Pinjaman";
 $lang['history_laporan'] = "History Kerusakan";
 $lang['daftar_laporan'] = "Laporkan Kerusakan";

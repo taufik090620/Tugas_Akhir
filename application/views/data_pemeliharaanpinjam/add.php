@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <section class="content">
 
-<?php echo form_open_multipart('datapemeliharaan/update', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+<?php echo form_open_multipart('datapemeliharaanpinjam/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 
 <div class="row">
@@ -43,8 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <option value="">Pilih Alat</option>
                 <?php foreach ($this->data_inventaris_model->getListPemeliharaanKosong() as $row): ?>
                     <?php
-                    $dipasangValue = $this->data_inventaris_model->getJumlahAlatByDipasang($row->id)->dipasang;
-                    if ($dipasangValue > 0) { // Check if dipasang is greater than 0
+                    $stockValue = $this->data_inventaris_model->getJumlahAlatByStock($row->id)->stock;
+                    if ($stockValue > 0) { // Check if stock is greater than 0
                         $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '';
                         ?>
                         <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->nama_barang ?></option>
@@ -69,8 +69,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group">
           <label for="formClient-Jumlah">Total Alat</label>
             <input type="number" name="jumlah_alat" id="formClient-Jumlah" class="form-control" required disabled>
-          <label for="formClient-Jumlah">Jumlah Alat Yang Dipasang</label>
-          <input type="number" name="dipasang" id="formClient-Dipasang" class="form-control" required disabled>
+          <label for="formClient-Jumlah">Jumlah Alat Yang Dipinjamkan</label>
+          <input type="number" name="stock" id="formClient-Stock" class="form-control" required disabled>
           </div>
           </div>
         </div>
@@ -82,12 +82,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
 
         <div class="form-group">
-        <label for="formClient-Email">Tanggal Pemeliharaan</label>
-            <input type="date" class="form-control" name="tanggal_pemeliharaan" id="formClient-Email" required value="<?php echo $data_pemeliharaan->tanggal_pemeliharaan ?>">
+            <label for="formClient-Email">Tanggal Pemeliharaan</label>
+            <input type="date" class="form-control" name="tanggal_pemeliharaan" id="formClient-Email" required>
           </div>
           <div class="form-group">
             <label for="formClient-Address">Keterangan</label>
-            <textarea type="text" class="form-control" name="keterangan" id="formClient-Address" placeholder="Keterangan" rows="3"><?php echo $data_pemeliharaan->keterangan ?></textarea>
+            <textarea type="text" class="form-control" name="keterangan" id="formClient-Address" placeholder="Keterangan" rows="3"></textarea>
           </div>
         </div>
         <!-- /.card-body -->
@@ -108,9 +108,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
         <div class="card-body">
         <div class="form-group">
-      <label for="formClient-Name">Dipasang</label>
-      <select name="dipasang" id="formClient-Dipasang" class="form-control">
-        <option value="1" selected>Dipasang Permanen</option>
+      <label for="formClient-Name">Alat Untuk Dipinjam</label>
+      <select name="stock" id="formClient-Stock" class="form-control">
+        <option value="1" selected>Alat Untuk Dipinjam</option>
       </select>
     </div>
     </div>
@@ -119,23 +119,22 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Kondisi</h3>
+          <h3 class="card-title">Kondisi Alat Yang Dipasang</h3>
         </div>
         <div class="card-body">
-        <div class="form-group">
-        <label for="formClient-Name">Jumlah Alat Baik</label>
-            <input type="text" class="form-control" name="jumlah_baik" id="formClient-Name" required placeholder="jumlah alat baik" required value="<?php echo $data_pemeliharaan->jumlah_baik ?>">
-          </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Rusak</label>
-            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" required value="<?php echo $data_pemeliharaan->jumlah_rusak ?>">
+            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" />
           </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Hilang</label>
-            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" required value="<?php echo $data_pemeliharaan->jumlah_hilang ?>">
-          </div>
+            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" />
+          </div><br>
+          <p><b>Keterangan :</b></p>
+          <p>Jika alat tidak rusak dan hilang, isi kolom kondisi alat dengan angka 0</p>
           </div>
         </div>
+        
       <!-- /.card -->
       <!-- /.card -->
     </div>
@@ -148,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('datapemeliharaan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+        <div class="col"><a href="<?php echo url('datapemeliharaanpinjam') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>
@@ -204,7 +203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             // Fetch the corresponding data for "Jumlah Alat" dropdown using AJAX
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url('datapemeliharaan/getJumlahAlatByNamaBarang') ?>',
+                url: '<?php echo base_url('datapemeliharaanpinjam/getJumlahAlatByNamaBarang') ?>',
                 data: { id: idbarang },
                 dataType: 'json',
                 success: function (response) {
@@ -261,13 +260,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             // Fetch the corresponding data for "Jumlah Alat" dropdown using AJAX
             $.ajax({
                 type: 'POST',
-                url: '<?php echo base_url('datapemeliharaan/getJumlahAlatByDipasang') ?>',
+                url: '<?php echo base_url('datapemeliharaanpinjam/getJumlahAlatByStock') ?>',
                 data: { id: idbarang },
                 dataType: 'json',
                 success: function (response) {
-                  var jumlahAlatInput = $('#formClient-Dipasang');
+                  var jumlahAlatInput = $('#formClient-Stock');
                   console.log(response)
-                  jumlahAlatInput.val(response.dipasang);
+                  jumlahAlatInput.val(response.stock);
                 },
                 error: function () {
                     // Handle error if needed

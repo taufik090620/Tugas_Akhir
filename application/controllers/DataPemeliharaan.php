@@ -17,9 +17,10 @@ class DataPemeliharaan extends MY_Controller
     {
 		ifPermissions('pemeliharaan_list');
 		
-		$this->page_data['data_pemeliharaan'] = $this->data_pemeliharaan_model->getPemeliharaanJoin();
-        
-		$this->load->view('data_pemeliharaan/list', $this->page_data);
+        $conditions = ['status_alat' => 'Dipasang']; // Define the filter conditions
+        $this->page_data['data_pemeliharaan'] = $this->data_pemeliharaan_model->getPemeliharaanJoin($conditions);
+    
+        $this->load->view('data_pemeliharaan/list', $this->page_data);
     }
 
 	

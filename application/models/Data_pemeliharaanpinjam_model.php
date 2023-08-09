@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class Data_pemeliharaan_model extends MY_Model {
+class Data_pemeliharaanpinjam_model extends MY_Model {
  
     public $table = 'pemeliharaan';
  
@@ -10,17 +10,17 @@ class Data_pemeliharaan_model extends MY_Model {
         parent::__construct();
     }
 
-    public function getPemeliharaanJoin($conditions = [])
-	{
-        $this->db->select('pemeliharaan.id, pemeliharaan.nama_barang, pemeliharaan.tanggal_pemeliharaan, pemeliharaan.keterangan, pemeliharaan.jumlah_rusak, pemeliharaan.status_alat, pemeliharaan.jumlah_hilang, data_inventaris.nama_barang, data_inventaris.total_alat, data_inventaris.kode_barang, data_inventaris.tahun_peredaran, data_inventaris.dipasang');    
+    public function getPemeliharaanpinjamJoin($conditions = [])
+    {
+        $this->db->select('pemeliharaan.id, pemeliharaan.nama_barang, pemeliharaan.tanggal_pemeliharaan, pemeliharaan.keterangan, pemeliharaan.jumlah_rusak, pemeliharaan.status_alat, pemeliharaan.jumlah_hilang, data_inventaris.nama_barang, data_inventaris.total_alat, data_inventaris.kode_barang, data_inventaris.tahun_peredaran, data_inventaris.dipasang');
         $this->db->from('pemeliharaan');
         $this->db->join('data_inventaris', 'pemeliharaan.nama_barang = data_inventaris.id');
         $this->db->where($conditions); // Apply the conditions
         $query = $this->db->get();
         return $query->result();
-	}
-
-    public function getPemeliharaanJoinByID($id)
+    }
+    
+    public function getPemeliharaanpinjamJoinByID($id)
     {
         $this->db->select('pemeliharaan.id, pemeliharaan.nama_barang, pemeliharaan.tanggal_pemeliharaan, pemeliharaan.keterangan, pemeliharaan.jumlah_rusak, pemeliharaan.status_alat, pemeliharaan.jumlah_hilang, data_inventaris.nama_barang, data_inventaris.nama_barang, data_inventaris.total_alat, data_inventaris.stock, data_inventaris.dipasang');      
         $this->db->from('data_inventaris');
@@ -30,8 +30,6 @@ class Data_pemeliharaan_model extends MY_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    
-    
 
     public function getListPemeliharaanKosong()
     {
@@ -80,10 +78,10 @@ class Data_pemeliharaan_model extends MY_Model {
     }
 }
 
-public function getJumlahAlatByDipasang($idbarang)
+public function getJumlahAlatByStock($idbarang)
 {
     // Assuming you have a database table that contains the jumlah_alat information for each nama_barang
-    $this->db->select('id, dipasang');
+    $this->db->select('id, stock');
     $this->db->from('data_inventaris');
     $this->db->where('id', $idbarang); // Use 'id' as the column name to match the primary key in the "data_inventaris" table
     $query = $this->db->get();
