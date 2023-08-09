@@ -9,12 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-        <h1><?php echo lang('data_pemeliharaan') ?></h1>
+        <h1><?php echo lang('data_pemeliharaan_dipasang') ?></h1>
         </div>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
-            <li class="breadcrumb-item active"><?php echo lang('data_pemeliharaan') ?></li>
+            <li class="breadcrumb-item active"><?php echo lang('data_pemeliharaan_dipasang') ?></li>
         </ol>
         </div>
     </div>
@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="col-12">
             <div class="card">
                 <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3"><?php echo lang('data_pemeliharaan') ?></h3>
+                <h3 class="card-title p-3"><?php echo lang('data_pemeliharaan_dipasang') ?></h3>
                 <div class="ml-auto p-2">
                   <!-- buttons -->
                   <?php if (hasPermissions('pemeliharaan_print')): ?>
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php echo $row->kode_barang ?>
                       </td>
                       <td><?php echo $row->total_alat ?></td>
-                      <td><?php echo $row->jumlah_baik ?></td>
+                      <td><?php echo $row->dipasang ?></td>
                       <td><?php echo $row->jumlah_rusak?></td>
                       <td><?php echo $row->jumlah_hilang?></td>
                       <td><?php echo $row->tahun_peredaran ?></td>

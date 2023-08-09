@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <section class="content">
 
-<?php echo form_open_multipart('datapemeliharaan/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+<?php echo form_open_multipart('datapemeliharaan/update', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 
 <div class="row">
@@ -82,12 +82,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
 
         <div class="form-group">
-            <label for="formClient-Email">Tanggal Pemeliharaan</label>
-            <input type="date" class="form-control" name="tanggal_pemeliharaan" id="formClient-Email" required>
+        <label for="formClient-Email">Tanggal Pemeliharaan</label>
+            <input type="date" class="form-control" name="tanggal_pemeliharaan" id="formClient-Email" required value="<?php echo $data_pemeliharaan->tanggal_pemeliharaan ?>">
           </div>
           <div class="form-group">
             <label for="formClient-Address">Keterangan</label>
-            <textarea type="text" class="form-control" name="keterangan" id="formClient-Address" placeholder="Keterangan" rows="3"></textarea>
+            <textarea type="text" class="form-control" name="keterangan" id="formClient-Address" placeholder="Keterangan" rows="3"><?php echo $data_pemeliharaan->keterangan ?></textarea>
           </div>
         </div>
         <!-- /.card-body -->
@@ -119,22 +119,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Kondisi Alat Yang Dipasang</h3>
+          <h3 class="card-title">Kondisi</h3>
         </div>
         <div class="card-body">
+        <div class="form-group">
+        <label for="formClient-Name">Jumlah Alat Baik</label>
+            <input type="text" class="form-control" name="jumlah_baik" id="formClient-Name" required placeholder="jumlah alat baik" required value="<?php echo $data_pemeliharaan->jumlah_baik ?>">
+          </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Rusak</label>
-            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" />
+            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" required value="<?php echo $data_pemeliharaan->jumlah_rusak ?>">
           </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Hilang</label>
-            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" />
-          </div><br>
-          <p><b>Keterangan :</b></p>
-          <p>Jika alat tidak rusak dan hilang, isi kolom kondisi alat dengan angka 0</p>
+            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" required value="<?php echo $data_pemeliharaan->jumlah_hilang ?>">
+          </div>
           </div>
         </div>
-        
       <!-- /.card -->
       <!-- /.card -->
     </div>

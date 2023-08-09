@@ -57,6 +57,14 @@ class Data_inventaris_model extends MY_Model {
         $query = $this->db->get();
         return $query->result();
     }
+    public function getListPemeliharaanEdit()
+    {
+        $this->db->select('data_inventaris.id, data_inventaris.nama_barang');  
+        $this->db->from('data_inventaris');
+        $this->db->join('pemeliharaan', 'pemeliharaan.nama_barang = data_inventaris.id', 'left');
+        $query = $this->db->get();
+        return $query->result();
+    }
 
     public function getListLaporKosong()
     {
@@ -90,19 +98,61 @@ class Data_inventaris_model extends MY_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    public function reduceDipasang($nama_barang, $jumlah)
-{
-    $this->db->set('dipasang', 'dipasang - ' . $jumlah, false);
-    $this->db->where('id', $nama_barang);
-    $this->db->update('data_inventaris');
-}
 
-public function reduceStock($nama_barang, $jumlah)
-{
-    $this->db->set('stock', 'stock - ' . $jumlah, false);
-    $this->db->where('id', $nama_barang);
-    $this->db->update('data_inventaris');
-}
+    public function reduceDipasang($nama_barang, $jumlah)
+    {
+        $this->db->set('dipasang', 'dipasang - ' . $jumlah, false);
+        $this->db->where('id', $nama_barang);
+        $this->db->update('data_inventaris');
+    }
+
+    public function increaseDipasang($nama_barang, $jumlah)
+    {
+        $this->db->set('dipasang', 'dipasang + ' . $jumlah, false);
+        $this->db->where('id', $nama_barang);
+        $this->db->update('data_inventaris');
+    }
+
+    public function getJumlahAlatByDipasang($idbarang)
+    {
+        $this->db->select('id, dipasang');
+        $this->db->from('data_inventaris');
+        $this->db->where('id', $idbarang);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row(); // Return a single row as an object
+        } else {
+            return null; // Return null if no data is found for the given ID
+        }
+    }
+
+    public function getNamaAlatById($id)
+    {
+        $this->db->select('id, nama_barang');
+        $this->db->from('data_inventaris');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row(); // Return a single row as an object
+        } else {
+            return null; // Return null if no data is found for the given ID
+        }
+    }
+    public function getJumlahAlatByNamaBarang($idbarang)
+    {
+        $this->db->select('id, total_alat');
+        $this->db->from('data_inventaris');
+        $this->db->where('id', $idbarang);
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->row(); // Return a single row as an object
+        } else {
+            return null; // Return null if no data is found for the given ID
+        }
+    }
 
     
 }

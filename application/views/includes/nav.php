@@ -45,7 +45,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       <a href="<?php echo url('datapemeliharaan') ?>" class="nav-link <?php echo ($page->menu == 'datapemeliharaan') ? 'active' : '' ?>">
       <i class="nav-icon fas fas fa-wrench"></i>
         <p>
-          <?php echo lang('data_pemeliharaan') ?>
+          <?php echo lang('data_pemeliharaan_button1') ?>
         </p>
       </a>
     </li>
