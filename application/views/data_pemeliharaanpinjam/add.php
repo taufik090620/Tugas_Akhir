@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/datapemeliharaan') ?>"><?php echo lang('data_pemeliharaan') ?></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/datapemeliharaanpinjam') ?>"><?php echo lang('tambah_pemeliharaan') ?></a></li>
               <li class="breadcrumb-item active"><?php echo lang('tambah_pemeliharaan') ?></li>
             </ol>
           </div>

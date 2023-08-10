@@ -200,9 +200,11 @@ class DataPemeliharaan extends MY_Controller
 	public function print()
 	{
 		ifPermissions('pemeliharaan_print');
-		$data['pemeliharaan'] = $this->data_pemeliharaan_model->getPemeliharaanJoin();
+		$conditions = ['status_alat' => 'Dipasang']; // Define the filter conditions
+		$data['pemeliharaan'] = $this->data_pemeliharaan_model->getPemeliharaanJoin($conditions);
 		$this->load->view('data_pemeliharaan/print_pemeliharaan', $data);
 	}
+	
 	public function view($id)
 	{
 

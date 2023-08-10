@@ -41,25 +41,37 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
   <?php if (hasPermissions('pemeliharaan_list')) : ?>
-    <li class="nav-item">
-      <a href="<?php echo url('datapemeliharaan') ?>" class="nav-link <?php echo ($page->menu == 'datapemeliharaan') ? 'active' : '' ?>">
+  <li class="nav-item has-treeview <?php echo ($page->menu == 'datapemeliharaan' || $page->menu == 'datapemeliharaanpinjam' || $page->menu == 'datapemeliharaanrekap') ? 'menu-open' : ''; ?>">
+    <a href="#" class="nav-link <?php echo ($page->menu == 'datapemeliharaan' || $page->menu == 'datapemeliharaanpinjam' || $page->menu == 'datapemeliharaanrekap') ? 'active' : ''; ?>">
       <i class="nav-icon fas fas fa-wrench"></i>
-        <p>
-          <?php echo lang('data_pemeliharaan_button1') ?>
-        </p>
-      </a>
-    </li>
-  <?php endif ?>
-  <?php if (hasPermissions('pemeliharaan_list')) : ?>
-    <li class="nav-item">
-      <a href="<?php echo url('datapemeliharaanpinjam') ?>" class="nav-link <?php echo ($page->menu == 'datapemeliharaanpinjam') ? 'active' : '' ?>">
-      <i class="nav-icon fas fas fa-wrench"></i>
-        <p>
-          <?php echo lang('data_pemeliharaan_button2') ?>
-        </p>
-      </a>
-    </li>
-  <?php endif ?>
+      <p>
+        <?php echo lang('data_pemeliharaan_button') ?>
+        <i class="right fas fa-angle-left"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="<?php echo url('datapemeliharaan') ?>" class="nav-link <?php echo ($page->menu == 'datapemeliharaan') ? 'active' : '' ?>">
+          <i class="far fa-circle nav-icon"></i>
+          <p><?php echo lang('data_pemeliharaan_button1') ?></p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="<?php echo url('datapemeliharaanpinjam') ?>" class="nav-link <?php echo ($page->menu == 'datapemeliharaanpinjam') ? 'active' : '' ?>">
+          <i class="far fa-circle nav-icon"></i>
+          <p><?php echo lang('data_pemeliharaan_button2') ?></p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="<?php echo url('datapemeliharaanrekap') ?>" class="nav-link <?php echo ($page->menu == 'datapemeliharaanrekap') ? 'active' : '' ?>">
+          <i class="far fa-circle nav-icon"></i>
+          <p><?php echo lang('data_pemeliharaan_button3') ?></p>
+        </a>
+      </li>
+    </ul>
+  </li>
+<?php endif ?>
+
 
   <?php if (hasPermissions('pengajuan_list') || hasPermissions('acc_pengajuan_list')) : ?>
   <li class="nav-item has-treeview <?php echo ($page->menu == 'datapengajuan' || $page->menu == 'datariwayatpengajuan') ? 'menu-open' : ''; ?>">

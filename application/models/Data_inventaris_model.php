@@ -16,7 +16,7 @@ class Data_inventaris_model extends MY_Model {
 
     public function getInventarisJoin()
     {
-        $this->db->select('data_inventaris.id, data_inventaris.kode_barang, data_inventaris.total_alat, data_inventaris.nama_barang, data_inventaris.merek, data_inventaris.id_jurusan, data_inventaris.asal_usul, data_inventaris.tahun_peredaran, data_inventaris.harga_barang, data_inventaris.keterangan, data_inventaris.stock, data_inventaris.dipasang, data_inventaris.masa_hidup_alat, data_inventaris.kategori, data_inventaris.id_ruangan, jurusan.nama_jurusan, jurusan.singkatan_jurusan, ruangan.nama_ruangan, ruangan.kapasitas_ruangan');
+        $this->db->select('data_inventaris.id, data_inventaris.kode_barang, data_inventaris.total_alat, data_inventaris.total_alat_pinjam, data_inventaris.nama_barang, data_inventaris.merek, data_inventaris.id_jurusan, data_inventaris.asal_usul, data_inventaris.tahun_peredaran, data_inventaris.harga_barang, data_inventaris.keterangan, data_inventaris.stock, data_inventaris.dipasang, data_inventaris.masa_hidup_alat, data_inventaris.kategori, data_inventaris.id_ruangan, jurusan.nama_jurusan, jurusan.singkatan_jurusan, ruangan.nama_ruangan, ruangan.kapasitas_ruangan');
         $this->db->from('data_inventaris');
         $this->db->join('ruangan', 'data_inventaris.id_ruangan = ruangan.id', 'left');
         $this->db->join('jurusan', 'data_inventaris.id_jurusan = jurusan.id', 'left');
@@ -26,7 +26,7 @@ class Data_inventaris_model extends MY_Model {
     
     public function getInventarisJoinByID($id)
     {
-        $this->db->select('data_inventaris.id, data_inventaris.kode_barang, data_inventaris.total_alat, data_inventaris.nama_barang, data_inventaris.merek, data_inventaris.asal_usul, data_inventaris.tahun_peredaran, data_inventaris.harga_barang, data_inventaris.masa_hidup_alat, data_inventaris.kategori, data_inventaris.ruangan, data_inventaris.keterangan, data_inventaris.stock, data_inventaris.dipasang, jurusan.nama_jurusan, jurusan.singkatan_jurusan, ruangan.nama_ruangan, ruangan.kapasitas_ruangan');
+        $this->db->select('data_inventaris.id, data_inventaris.kode_barang, data_inventaris.total_alat, data_inventaris.total_alat_pinjam, data_inventaris.nama_barang, data_inventaris.merek, data_inventaris.asal_usul, data_inventaris.tahun_peredaran, data_inventaris.harga_barang, data_inventaris.masa_hidup_alat, data_inventaris.kategori, data_inventaris.ruangan, data_inventaris.keterangan, data_inventaris.stock, data_inventaris.dipasang, jurusan.nama_jurusan, jurusan.singkatan_jurusan, ruangan.nama_ruangan, ruangan.kapasitas_ruangan');
         $this->db->from('data_inventaris');
         $this->db->join('ruangan', 'data_inventaris.id_ruangan = ruangan.id', 'left');
         $this->db->join('jurusan', 'data_inventaris.id_jurusan = jurusan.id', 'left');
@@ -37,7 +37,7 @@ class Data_inventaris_model extends MY_Model {
 
     public function getInventarisJoinByJurusan($id = null)
     {
-        $this->db->select('data_inventaris.id, data_inventaris.kode_barang, data_inventaris.total_alat, data_inventaris.nama_barang, data_inventaris.merek, data_inventaris.asal_usul, data_inventaris.tahun_peredaran, data_inventaris.harga_barang, data_inventaris.masa_hidup_alat, data_inventaris.kategori, data_inventaris.keterangan, data_inventaris.stock, data_inventaris.dipasang, jurusan.nama_jurusan, jurusan.singkatan_jurusan, ruangan.nama_ruangan, ruangan.kapasitas_ruangan');
+        $this->db->select('data_inventaris.id, data_inventaris.kode_barang, data_inventaris.total_alat, data_inventaris.total_alat_pinjam, data_inventaris.nama_barang, data_inventaris.merek, data_inventaris.asal_usul, data_inventaris.tahun_peredaran, data_inventaris.harga_barang, data_inventaris.masa_hidup_alat, data_inventaris.kategori, data_inventaris.keterangan, data_inventaris.stock, data_inventaris.dipasang, jurusan.nama_jurusan, jurusan.singkatan_jurusan, ruangan.nama_ruangan, ruangan.kapasitas_ruangan');
         $this->db->from('data_inventaris');
         $this->db->join('ruangan', 'data_inventaris.id_ruangan = ruangan.id', 'left');
         $this->db->join('jurusan', 'data_inventaris.id_jurusan = jurusan.id', 'left');
@@ -53,10 +53,10 @@ class Data_inventaris_model extends MY_Model {
         $this->db->select('data_inventaris.id, data_inventaris.nama_barang');  
         $this->db->from('data_inventaris');
         $this->db->join('pemeliharaan', 'pemeliharaan.nama_barang = data_inventaris.id', 'left');
-        $this->db->where("data_inventaris.id NOT IN (SELECT nama_barang FROM pemeliharaan)", null, false);
         $query = $this->db->get();
         return $query->result();
     }
+
     public function getListPemeliharaanEdit()
     {
         $this->db->select('data_inventaris.id, data_inventaris.nama_barang');  
@@ -82,13 +82,15 @@ class Data_inventaris_model extends MY_Model {
         return $this->db->get()->num_rows();
 
     }
+
     public function getById($nama_barang)
     {
         $this->db->where('id', $nama_barang);
         $query = $this->db->get($this->table);
 
         return $query->row();
-    }    
+    }
+
     public function getListPemeliharaanKosongByJurusan($id_jurusan)
     {
         $this->db->select('id, nama_barang');
@@ -140,6 +142,7 @@ class Data_inventaris_model extends MY_Model {
             return null; // Return null if no data is found for the given ID
         }
     }
+    
     public function getJumlahAlatByNamaBarang($idbarang)
     {
         $this->db->select('id, total_alat');
@@ -169,15 +172,33 @@ class Data_inventaris_model extends MY_Model {
 
     public function reduceStock($nama_barang, $jumlah)
     {
+        $this->db->trans_start(); // Start a transaction
+        
+        // Update stock
         $this->db->set('stock', 'stock - ' . $jumlah, false);
         $this->db->where('id', $nama_barang);
         $this->db->update('data_inventaris');
+        
+        // Update total_alat_pinjam
+        $this->db->set('total_alat_pinjam', 'total_alat_pinjam - ' . $jumlah, false);
+        $this->db->where('id', $nama_barang);
+        $this->db->update('data_inventaris');
+    
+        $this->db->trans_complete(); // Complete the transaction
     }
+    
     public function increaseStock($nama_barang, $jumlah)
     {
         $this->db->set('stock', 'stock + ' . $jumlah, false);
         $this->db->where('id', $nama_barang);
         $this->db->update('data_inventaris');
+
+        // Update total_alat_pinjam
+        $this->db->set('total_alat_pinjam', 'total_alat_pinjam + ' . $jumlah, false);
+        $this->db->where('id', $nama_barang);
+        $this->db->update('data_inventaris');
+    
+        $this->db->trans_complete(); // Complete the transaction
     }
     
 }

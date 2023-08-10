@@ -28,7 +28,7 @@
                     <th>Status Alat</th>
             </tr>
             <?php $no = 1;
-             foreach($pemeliharaan as $inv) : ?>
+             foreach($pemeliharaanpinjam as $inv) : ?>
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $inv->nama_barang ?></td>

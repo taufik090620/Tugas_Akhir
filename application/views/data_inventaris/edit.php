@@ -150,15 +150,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Name">Total Jumlah Alat</label>
-            <input type="text" class="form-control" name="total_alat" id="formClient-Name"  value="<?php echo $data_inventaris->total_alat ?>" required placeholder="total jumlah alat" />
+            <input type="number" class="form-control" name="total_alat" id="formClient-Name"  value="<?php echo $data_inventaris->total_alat ?>" required placeholder="total jumlah alat" />
           </div>
           <div class="form-group">
             <label for="formClient-Name">Total Jumlah Alat Dipasang </label>
-            <input type="text" class="form-control" name="dipasang" id="formClient-Name" value="<?php echo $data_inventaris->dipasang ?>" required placeholder="jumlah alat yang dipasang" />
+            <input type="number" class="form-control" name="dipasang" id="formClient-Name" value="<?php echo $data_inventaris->dipasang ?>" required placeholder="jumlah alat yang dipasang" />
           </div>
           <div class="form-group">
-            <label for="formClient-Name">Jumlah Alat Yang Bisa Dipinjam</label>
-            <input type="text" class="form-control" name="stock_barang" id="formClient-Name"  value="<?php echo $data_inventaris->stock ?>" required placeholder="jumlah alat yang bisa dipinjam" />
+          <label for="formClient-Name">Jumlah Alat Yang Bisa Dipinjam</label>
+            <input type="number" class="form-control" name="stock_barang" id="stock_barang" value="<?php echo $data_inventaris->stock ?>" required placeholder="jumlah alat yang bisa dipinjam" />
+          </div>
+
+          <div class="form-group">
+            <label for="formClient-Name">Total Jumlah Alat Dipinjam</label>
+            <input type="number" class="form-control" name="total_alat_pinjam" id="total_alat_pinjam" required placeholder="total jumlah alat yang bisa dipinjam" readonly/>
           </div>
 
           <div class="form-group">
@@ -202,6 +207,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php echo form_close(); ?>
 
 </section>
+<script>
+  $(document).ready(function() {
+    // Mengeksekusi fungsi saat nilai input stock_barang berubah
+    $('#stock_barang').on('input', function() {
+      // Mendapatkan nilai dari stock_barang input
+      var stockValue = parseInt($(this).val());
+
+      // Mengisi nilai total_alat_pinjam dengan nilai stockValue
+      $('#total_alat_pinjam').val(stockValue);
+    });
+
+    // Mendapatkan nilai stock_barang dari data_inventaris yang ada dalam form
+    var stockValue = parseInt($('#stock_barang').val());
+
+    // Mengisi nilai total_alat_pinjam dengan nilai stockValue
+    $('#total_alat_pinjam').val(stockValue);
+  });
+</script>
+
 <!-- /.content -->
 <script>
   // Mencari elemen input

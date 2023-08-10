@@ -37,7 +37,7 @@ class Data_peminjam_model extends MY_Model {
 	}
     public function getPeminjamJoinByIDD($id)
 	{
-        $this->db->select('data_pinjam.id, data_pinjam.nama_barang, data_pinjam.tanggal_terpakai, data_pinjam.kelas, data_pinjam.stock, jurusan.singkatan_jurusan, users.name, users.email, data_inventaris.kode_barang    ');    
+        $this->db->select('data_pinjam.id, data_pinjam.nama_barang, data_pinjam.tanggal_terpakai, data_pinjam.kelas, data_pinjam.stock, jurusan.singkatan_jurusan, users.name, users.email, data_inventaris.kode_barang');    
         $this->db->from('data_pinjam');
         $this->db->join('jurusan', 'data_pinjam.id_jurusan = jurusan.id');
         $this->db->join('users', 'data_pinjam.id_pengguna = users.id');

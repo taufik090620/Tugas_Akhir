@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class Data_pemeliharaanpinjam_model extends MY_Model {
+class Data_pemeliharaanrekap_model extends MY_Model {
  
     public $table = 'pemeliharaan';
  
@@ -10,17 +10,16 @@ class Data_pemeliharaanpinjam_model extends MY_Model {
         parent::__construct();
     }
 
-    public function getPemeliharaanpinjamJoin($conditions = [])
+    public function getPemeliharaanrekapJoin()
     {
         $this->db->select('pemeliharaan.id, pemeliharaan.nama_barang, pemeliharaan.tanggal_pemeliharaan, pemeliharaan.keterangan, pemeliharaan.jumlah_rusak, pemeliharaan.status_alat, pemeliharaan.jumlah_hilang, data_inventaris.nama_barang, data_inventaris.total_alat, data_inventaris.kode_barang, data_inventaris.tahun_peredaran, data_inventaris.dipasang, data_inventaris.total_alat_pinjam');
         $this->db->from('pemeliharaan');
         $this->db->join('data_inventaris', 'pemeliharaan.nama_barang = data_inventaris.id');
-        $this->db->where($conditions); // Apply the conditions
         $query = $this->db->get();
         return $query->result();
     }
     
-    public function getPemeliharaanpinjamJoinByID($id)
+    public function getPemeliharaanrekapJoinByID($id)
     {
         $this->db->select('pemeliharaan.id, pemeliharaan.nama_barang, pemeliharaan.tanggal_pemeliharaan, pemeliharaan.keterangan, pemeliharaan.jumlah_rusak, pemeliharaan.status_alat, pemeliharaan.jumlah_hilang, data_inventaris.nama_barang, data_inventaris.nama_barang, data_inventaris.total_alat, data_inventaris.stock, data_inventaris.dipasang, data_inventaris.total_alat_pinjam');      
         $this->db->from('data_inventaris');

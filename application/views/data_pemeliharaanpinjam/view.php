@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <?php include viewPath('includes/header'); ?>
-
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
@@ -13,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
 			<li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
-            <li class="breadcrumb-item"><a href="<?php echo url('/datapemeliharaan') ?>"><?php echo lang('data_pemeliharaan') ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo url('/datapemeliharaanpinjam') ?>"><?php echo lang('data_pemeliharaan') ?></a></li>
               <li class="breadcrumb-item active"><?php echo lang('view_pemeliharaan') ?></li>
             </ol>
           </div>
@@ -38,31 +37,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <tbody>
                                             <tr>
                                                 <td width="160"><strong>Nama Barang</strong>:</td>
-                                                <td><?php echo $data_pemeliharaan->nama_barang ?></td>
+                                                <td><?php echo $data_pemeliharaanpinjam->nama_barang ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="160"><strong>Jumlah Alat Baik</strong>:</td>
-                                                <td><?php echo $data_pemeliharaan->dipasang ?></td>
+                                                <td><?php echo $data_pemeliharaanpinjam->total_alat_pinjam ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="160"><strong>Jumlah Alat Rusak</strong>:</td>
-                                                <td><?php echo $data_pemeliharaan->jumlah_rusak ?></td>
+                                                <td><?php echo $data_pemeliharaanpinjam->jumlah_rusak ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="160"><strong>Jumlah Alat Hilang</strong>:</td>
-                                                <td><?php echo $data_pemeliharaan->jumlah_hilang ?></td>
+                                                <td><?php echo $data_pemeliharaanpinjam->jumlah_hilang ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="160"><strong>Tanggal Pemeliharaan</strong>:</td>
-                                                <td><?php echo $data_pemeliharaan->tanggal_pemeliharaan ?></td>
+                                                <td><?php echo $data_pemeliharaanpinjam->tanggal_pemeliharaan ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="160"><strong>Keterangan</strong>:</td>
-                                                <td><?php echo $data_pemeliharaan->keterangan ?></td>
+                                                <td><?php echo $data_pemeliharaanpinjam->keterangan ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="160"><strong>Status Alat</strong>:</td>
-                                                <td><?php echo $data_pemeliharaan->status_alat ?></td>
+                                                <td><?php echo $data_pemeliharaanpinjam->status_alat ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
