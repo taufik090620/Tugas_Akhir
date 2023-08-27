@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <input type="number" name="jumlah_alat" id="formClient-Jumlah" class="form-control" required disabled value="<?php echo $this->data_inventaris_model->getJumlahAlatByNamaBarang($data_pemeliharaanpinjam->nama_barang)->total_alat ?>">
           </div>
           <div class="form-group">
-              <label for="formClient-Jumlah">Jumlah Alat Yang Dipasang</label>
+              <label for="formClient-Jumlah">Jumlah Alat Pinjam</label>
               <input type="number" name="stock" id="formClient-Stock" class="form-control" required disabled value="<?php echo $this->data_inventaris_model->getJumlahAlatByStock($data_pemeliharaanpinjam->nama_barang)->stock?>">
           </div>
           </div>
@@ -122,13 +122,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <h3 class="card-title">Kondisi</h3>
         </div>
         <div class="card-body">
+        <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Baik</label>
+            <input type="number" class="form-control" name="jumlah_baik" id="formClient-Name" required placeholder="jumlah alat baik" required value="<?php echo $data_pemeliharaanpinjam->jumlah_baik ?>">
+          </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Rusak</label>
-            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" required value="<?php echo $data_pemeliharaanpinjam->jumlah_rusak ?>">
+            <input type="number" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" required value="<?php echo $data_pemeliharaanpinjam->jumlah_rusak ?>">
           </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Hilang</label>
-            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" required value="<?php echo $data_pemeliharaanpinjam->jumlah_hilang ?>">
+            <input type="number" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" required value="<?php echo $data_pemeliharaanpinjam->jumlah_hilang ?>">
           </div><br>
           <p><b>Keterangan :</b></p>
           <p>Jika alat tidak rusak dan hilang, isi kolom kondisi alat dengan angka 0</p>

@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>View Data Inventaris</h1>
+            <h1>Detail Data Inventaris</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <!-- Custom Tabs -->
             <div class="card">
               <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">View Data Inventaris</h3>
+                <h3 class="card-title p-3">Detail Data Inventaris</h3>
                 <ul class="nav nav-pills ml-auto p-2">
                 </ul>
               </div><!-- /.card-header -->
@@ -126,8 +126,68 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					</tbody>
 				</table>
                   </div>
-				  
+				  <!-- NEW TAB PANE -->
+				  <br>
+				  <br>
+                  <!-- ... Previous code ... -->
+
+		<div class="col-sm-10" style="padding-left: 50px;">
+			<h4>Kode Alat Pinjam</h4>
+				<table id="dataTable1" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th style="width: 10%;">No</th>
+							<th>Kode Alat</th>
+						</tr>
+					</thead>
+					<tbody>
+            <?php
+            for ($i = 1; $i <= $data_inventaris->stock; $i++) {
+                // Construct the kode_alat with the format "xxx.xxx.xxx-Px"
+                $kode_alat = $data_inventaris->kode_barang . '-' . $i . '-P' . $i;
+            ?>
+                <tr>
+                    <td><?php echo $i ?></td>
+                    <td><?php echo $kode_alat ?></td>
+                </tr>
+            <?php
+            }
+            ?>
+			
+        </tbody>
+		</table>
+		</div>
+		<br>
+		<br>
+		<div class="col-sm-10" style="padding-left: 50px;">
+			<h4>Kode Alat Dipasang</h4>
+				<table id="dataTable1" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th style="width: 10%;">No</th>
+							<th>Kode Alat</th>
+						</tr>
+					</thead>
+					<tbody>
+            <?php
+            for ($i = 1; $i <= $data_inventaris->dipasang; $i++) {
+                // Construct the kode_alat with the format "xxx.xxx.xxx-Px"
+                $kode_alat = $data_inventaris->kode_barang . '-' . $i . '-D' . $i;
+            ?>
+                <tr>
+                    <td><?php echo $i ?></td>
+                    <td><?php echo $kode_alat ?></td>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+		</table>
+		</div>
+<!-- ... Rest of the code ... -->
+
                 </div>
+				
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
             </div>

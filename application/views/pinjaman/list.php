@@ -42,6 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
+                    <th>No</th>
                     <th>Nama Peminjam</th>
                     <th>Nama Alat</th>
                     <th>Kode Alat</th>
@@ -49,8 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th>Jurusan Peminjam</th>
                     <th>Kelas Peminjam</th>
                     <th>Tanggal Terpakai</th>
-                    <th>Alasan Pinjam</th>
                     <th>Status</th>
+                    <th>Alasan Pinjam</th>
                     <?php if (hasPermissions('pinjaman_edit')): ?>
                     <th><?php echo lang('action') ?></th>
                     <?php endif ?>
@@ -58,8 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </thead>
                   
                   <tbody>
+                  <?php $i = 1; ?>
                   <?php foreach ($data_pinjaman as $row): ?>
                     <tr>
+                    <td><?php echo $i; ?>
                     <td><?php echo $row->name ?></td>
                       <td>
                       <?php echo $row->nama_barang ?>
@@ -75,24 +78,28 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
                         <?php echo $row->tanggal_terpakai ?>
                       </td>
-                      <td><?php echo $row->alasan_pinjam ?></td>
                       <td><?php echo $row->status ?></td>
+                      <td><?php echo $row->alasan_pinjam ?></td>
                       <?php if (hasPermissions('pinjaman_edit')): ?>
                       <td>
-                            <div class="btn-group mt-1" role="group" aria-label="Button Group">
-                                <?php if (hasPermissions('pinjaman_edit')): ?>
+                      <div class="btn-group mt-1" role="group" aria-label="Button Group">
+                            <?php if (hasPermissions('pinjaman_edit')): ?>
+                                <?php if ($row->status !== 'Dikonfirmasi - Belum Dikembalikan'): ?>
                                     <a href="<?php echo url('datapinjaman/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_pinjaman') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                                <?php endif ?>
-                                </div>
-                                <div class="btn-group mt-1" role="group" aria-label="Button Group">
-                                <?php if (hasPermissions('pinjaman_delete')): ?>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
+                        <div class="btn-group mt-1" role="group" aria-label="Button Group">
+                            <?php if (hasPermissions('pinjaman_delete')): ?>
+                                <?php if ($row->status !== 'Dikonfirmasi - Belum Dikembalikan'): ?>
                                     <?php if ($row->id != 1 && logged('id') != $row->id): ?>
                                         <a href="<?php echo url('datapinjaman/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_pinjaman') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
                                     <?php else: ?>
                                         <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
-                                    <?php endif ?>
-                                <?php endif ?>
-                            </div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
 
                             <div class="btn-group mt-1" role="group" aria-label="Button Group">
                                 <?php if ($row->status === 'Dikonfirmasi - Belum Dikembalikan'): ?>
@@ -108,6 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         </td>
                         <?php endif ?>
                     </tr>
+                    <?php $i++; ?>
                   <?php endforeach ?>
                   </tbody>
                 </table>
@@ -126,5 +134,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <!-- /.content -->
  
  
- 
+<!-- ... Bagian-bagian sebelumnya ... -->
+
 <?php include viewPath('includes/footer'); ?>

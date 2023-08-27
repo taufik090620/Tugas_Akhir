@@ -122,13 +122,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <h3 class="card-title">Kondisi Alat Yang Dipasang</h3>
         </div>
         <div class="card-body">
+        <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Baik</label>
+            <input type="number" class="form-control" name="jumlah_baik" id="formClient-Name" required placeholder="jumlah alat baik" />
+          </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Rusak</label>
-            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" />
+            <input type="number" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" />
           </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Hilang</label>
-            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" />
+            <input type="number" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" />
           </div><br>
           <p><b>Keterangan :</b></p>
           <p>Jika alat tidak rusak dan hilang, isi kolom kondisi alat dengan angka 0</p>

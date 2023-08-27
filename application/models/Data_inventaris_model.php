@@ -201,4 +201,11 @@ class Data_inventaris_model extends MY_Model {
         $this->db->trans_complete(); // Complete the transaction
     }
     
+    public function getDipasangByNamaBarang($nama_barang)
+{
+    $this->db->select('dipasang');
+    $this->db->where('id', $nama_barang);
+    return $this->db->get('data_inventaris')->row()->dipasang;
+}
+
 }

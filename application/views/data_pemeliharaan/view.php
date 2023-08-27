@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>View Data Pemeliharaan</h1>
+            <h1>Detail Data Pemeliharaan Alat Dipasang</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </tr>
                                             <tr>
                                                 <td width="160"><strong>Jumlah Alat Baik</strong>:</td>
-                                                <td><?php echo $data_pemeliharaan->dipasang ?></td>
+                                                <td><?php echo $data_pemeliharaan->jumlah_baik ?></td>
                                             </tr>
                                             <tr>
                                                 <td width="160"><strong>Jumlah Alat Rusak</strong>:</td>

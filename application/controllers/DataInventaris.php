@@ -145,6 +145,5 @@ class DataInventaris extends MY_Controller {
 
     $this->load->view('print_inventaris', $data);
 	}
-
 	
 };

@@ -53,11 +53,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th>Jumlah Alat Hilang</th>
                     <th>Tahun Peredaran</th>
                     <th>Tanggal pemeliharaan</th>
-                    <?php if (hasPermissions('pemeliharaan_edit')): ?>
                     <th>
                       <?php echo lang('action') ?>
                     </th>
-                    <?php endif ?>
                   </tr>
                   </thead>
                   
@@ -71,12 +69,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php echo $row->kode_barang ?>
                       </td>
                       <td><?php echo $row->total_alat ?></td>
-                      <td><?php echo $row->dipasang ?></td>
+                      <td><?php echo $row->jumlah_baik ?></td>
                       <td><?php echo $row->jumlah_rusak?></td>
                       <td><?php echo $row->jumlah_hilang?></td>
                       <td><?php echo $row->tahun_peredaran ?></td>
                       <td><?php echo $row->tanggal_pemeliharaan ?></td>
-                      <?php if (hasPermissions('pemeliharaan_edit')): ?>
                         <td>
                           <div class="btn-group mt-1" role="group" aria-label="Button Group">
                             <?php if (hasPermissions('pemeliharaan_edit')): ?>
@@ -98,7 +95,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             <?php endif ?>
                           </div>
                         </td>
-                      <?php endif ?>
                     </tr>
                   <?php endforeach ?>
                   </tbody>

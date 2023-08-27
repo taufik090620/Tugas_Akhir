@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>View Data Inventaris</h1>
+            <h1>Detail Data Pengajuan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">

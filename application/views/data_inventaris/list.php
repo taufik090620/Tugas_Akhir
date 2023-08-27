@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th>Kode Alat</th>
+                    <th>No</th>
                     <th>Nama Alat</th>
                     <th>Merek</th>
                     <th>Jurusan</th>
@@ -94,9 +94,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </thead>
                   
                   <tbody>
+                  <?php $i = 1; ?>
                   <?php foreach ($inventaris as $row): ?>
                     <tr>
-                      <td width="60"><?php echo $row->kode_barang ?></td>
+                    <td><?php echo $i; ?>
                       <td >
                          <?php echo $row->nama_barang ?>
                       </td>
@@ -128,6 +129,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </td>
                       <?php endif ?>
                     </tr>
+                    <?php $i++; ?>
                   <?php endforeach ?>
                   </tbody>
                   

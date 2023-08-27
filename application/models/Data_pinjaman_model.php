@@ -12,7 +12,7 @@ class Data_pinjaman_model extends MY_Model {
 
     public function getPinjamanJoin()
 	{
-        $this->db->select('data_pinjam.id, data_pinjam.status, data_pinjam.nama_barang, data_pinjam.tanggal_terpakai, data_pinjam.kelas, data_pinjam.id_jurusan, data_pinjam.stock, data_pinjam.alasan_pinjam, data_inventaris.nama_barang, data_inventaris.kode_barang, users.name, jurusan.nama_jurusan, jurusan.singkatan_jurusan');    
+        $this->db->select('data_pinjam.id, data_pinjam.status, data_pinjam.nama_barang, data_pinjam.tanggal_terpakai, data_pinjam.kelas, data_pinjam.id_jurusan, data_pinjam.stock, data_pinjam.alasan_pinjam, data_inventaris.nama_barang, data_inventaris.kode_barang, users.name, jurusan.nama_jurusan, jurusan.singkatan_jurusan, data_inventaris.total_alat_pinjam');    
         $this->db->from('data_pinjam');
         $this->db->join('data_inventaris', 'data_pinjam.nama_barang = data_inventaris.nama_barang');
         $this->db->join('users', 'data_pinjam.id_pengguna = users.id');
@@ -24,7 +24,7 @@ class Data_pinjaman_model extends MY_Model {
 
     public function getPinjamanJoinByID($id)
 	{
-        $this->db->select('data_pinjam.id, data_pinjam.nama_barang, data_pinjam.stock, data_pinjam.alasan_pinjam, data_pinjam.tanggal_terpakai, data_inventaris.nama_barang, data_inventaris.kode_barang, users.name, data_pinjam.alasan_pinjam, jurusan.nama_jurusan, jurusan.singkatan_jurusan, data_inventaris.tahun_peredaran');    
+        $this->db->select('data_pinjam.id, data_pinjam.nama_barang, data_pinjam.stock, data_pinjam.alasan_pinjam, data_pinjam.tanggal_terpakai, data_inventaris.nama_barang, data_inventaris.kode_barang, users.name, data_pinjam.alasan_pinjam, jurusan.nama_jurusan, jurusan.singkatan_jurusan, data_inventaris.tahun_peredaran, data_inventaris.total_alat_pinjam');    
         $this->db->from('data_pinjam');
         $this->db->join('data_inventaris', 'data_pinjam.nama_barang = data_inventaris.id');
         $this->db->join('users', 'data_pinjam.id_pengguna = users.id');
@@ -84,15 +84,18 @@ class Data_pinjaman_model extends MY_Model {
         $available_stock = $this->getAvailableStock($nama_barang);
     
         if ($available_stock !== null) {
-            $updated_stock = $available_stock - $stock_borrowed;
-            if ($updated_stock >= 0) {
-                $this->db->set('stock', $updated_stock);
-                $this->db->where('nama_barang', $nama_barang);
-                $this->db->update('data_inventaris');
+            // Update stok hanya jika peminjaman telah dikonfirmasi
+            if ($this->db->where('nama_barang', $nama_barang)->where('status', 'Dikonfirmasi - Belum Dikembalikan')->get('data_pinjam')->num_rows() > 0) {
+                $updated_stock = $available_stock - $stock_borrowed;
+                if ($updated_stock >= 0) {
+                    $this->db->set('stock', $updated_stock);
+                    $this->db->where('nama_barang', $nama_barang);
+                    $this->db->update('data_inventaris');
+                }
             }
         }
     }
-    
+        
 public function updateInventoryStockOnDelete($nama_barang, $stock_returned)
 {
     $available_stock = $this->getAvailableStock($nama_barang);
@@ -157,5 +160,7 @@ public function getInventarisTidakDipasang()
             return null; // Return null if no data is found for the given ID
         }
     }
+
+    
 
 }

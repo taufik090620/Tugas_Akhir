@@ -37,7 +37,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="ion-navicon" style="top: -10px;  width: 60px;"></i>
               </div>
-              <a href="<?php echo url('/datainventaris') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <?php endif ?>
@@ -54,12 +53,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="ion-navicon" style="top: -10px;  width: 60px;"></i>
               </div>
-              <a href="<?php echo url('/datainventarispeminjam') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <?php endif ?>
           <!-- ./col -->
-          <?php if (hasPermissions('jurusan_dashboard')): ?>
+          <?php if (hasPermissions('pinjaman_dashboard')): ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
@@ -71,12 +69,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="nav-icon fas fa-university"></i>
               </div>
-              <a href="<?php echo url('/datajurusan') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <?php endif ?>
           <!-- ./col -->
-          <?php if (hasPermissions('ruangan_dashboard')): ?>
+          <?php if (hasPermissions('pinjaman_dashboard')): ?>
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
@@ -88,7 +85,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="nav-icon fas fa-university"></i>
               </div>
-              <a href="<?php echo url('/dataruangan') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <?php endif ?>
@@ -105,7 +101,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="icon">
                 <i class="ion-person" style="top: -10px;  width: 60px;"></i>
               </div>
-              <a href="<?php echo url('/datapinjaman') ?>" class="small-box-footer"><?php echo lang('dashboard_more_info');?><i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
@@ -142,35 +137,40 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <!-- Skrip untuk menginisialisasi dan menampilkan diagram batang menggunakan Chart.js -->
 <script>
-    // Ambil data tahun_pengajuan_acc dari PHP dan konversi menjadi objek JavaScript
     var tahun_pengajuan_data = <?php echo $tahun_pengajuan_acc_data; ?>;
+    var years = [];
 
-    // Data untuk diagram batang
+    for (var year = new Date().getFullYear(); year <= 2030; year++) {
+        years.push(year.toString());
+    }
+
     var data = {
-        labels: tahun_pengajuan_data.map(d => d.tahun_pengajuan), // Ambil hanya tahun dari data
+        labels: years,
         datasets: [{
             label: 'Diagram Pengajuan Alat Berdasarkan Tahun',
-            data: tahun_pengajuan_data.map(d => d.total),
+            data: years.map(year => {
+                var matchingYearData = tahun_pengajuan_data.find(data => data.tahun_pengajuan === year);
+                return matchingYearData ? matchingYearData.total : 0;
+            }),
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
             borderWidth: 1
         }]
     };
 
-    // Konfigurasi untuk diagram batang
     var options = {
-        responsive: true, // Diagram batang akan menyesuaikan ukuran responsif sesuai ukuran kontainer
-        maintainAspectRatio: false, // Menonaktifkan rasio aspek agar bisa mengatur ukuran diagram secara manual
-
-        // Pengaturan lain yang sesuai kebutuhan
+        responsive: true,
+        maintainAspectRatio: false,
         scales: {
+            x: {
+                beginAtZero: true
+            },
             y: {
                 beginAtZero: true
             }
         }
     };
 
-    // Membuat diagram batang menggunakan Chart.js
     var ctx = document.getElementById('tahun_pengajuan_chart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -178,20 +178,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         options: options
     });
 
-    // Fungsi untuk mengatur ulang ukuran diagram saat ukuran halaman berubah
     function resizeChart() {
         var canvas = document.getElementById('tahun_pengajuan_chart');
         var container = canvas.parentElement;
 
-        // Set ukuran canvas sesuai dengan ukuran container
         canvas.width = container.clientWidth;
         canvas.height = container.clientHeight;
 
-        // Perbarui chart saat ukuran diubah
         myChart.update();
     }
 
-    // Panggil fungsi resizeChart saat halaman dimuat dan saat ukuran halaman berubah
     window.addEventListener('DOMContentLoaded', resizeChart);
     window.addEventListener('resize', resizeChart);
 </script>
+

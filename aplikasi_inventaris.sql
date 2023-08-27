@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Agu 2023 pada 17.40
+-- Waktu pembuatan: 27 Agu 2023 pada 11.44
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -40,15 +40,6 @@ CREATE TABLE `acc_pengajuan` (
   `nama_alat_acc` varchar(55) NOT NULL,
   `tahun_pengajuan_acc` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `acc_pengajuan`
---
-
-INSERT INTO `acc_pengajuan` (`id`, `nama_pemohon`, `spesifikasi_acc`, `banyak_alat_acc`, `satuan_acc`, `harga_satuan_acc`, `link_beli_acc`, `jurusan`, `status_acc`, `nama_alat_acc`, `tahun_pengajuan_acc`) VALUES
-(6, 'Agus Rahmawan', 'Intel Core i3', 5, 'Unit', 'Rp. 5.000.000', 'https://shopee.co.id/LAPTOP-ASUS-x453-INTEL-CELERON-RAM-8GB-HDD-1TB-WINDOWS-10-i.421686648.9160623242?sp_atk=5b80bb5d-adec-4785-bb66-62dfbbc37e11&xptdk=5b80bb5d-adec-4785-bb66-62dfbbc37e11', 'RPL', 'Alat Sudah Di Approve', 'Laptop Acer', '2023-08-04'),
-(8, 'Agus Rahmawan', 'Intel core i7', 12, 'unit', 'Rp. 4.000.000', 'tokopedia.com', 'RPL', 'Alat Sudah Di Approve', 'Laptop Acer', '2023-08-06'),
-(9, 'Agus Rahmawan', 'ajhjd', 2, 'unit', 'Rp. 4.000.000', 'ahbkjds', 'RPL', 'Alat Sudah Di Approve', 'Laptop acer', '2024-01-06');
 
 -- --------------------------------------------------------
 
@@ -2051,7 +2042,630 @@ INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, 
 (1975, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-10 14:55:44', '0000-00-00 00:00:00'),
 (1976, 'Data Inventaris #26 Updated by User: #1', '1', '::1', '2023-08-10 14:56:18', '0000-00-00 00:00:00'),
 (1977, 'Data peminjam Ditambahkan 173 Created by User:Asep', '8', '::1', '2023-08-10 15:09:29', '0000-00-00 00:00:00'),
-(1978, 'Data peminjam #173 Updated by User: Asep', '8', '::1', '2023-08-10 15:09:56', '0000-00-00 00:00:00');
+(1978, 'Data peminjam #173 Updated by User: Asep', '8', '::1', '2023-08-10 15:09:56', '0000-00-00 00:00:00'),
+(1979, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-11 07:51:14', '0000-00-00 00:00:00'),
+(1980, 'Asep (asepp) Logged in', '8', '::1', '2023-08-11 07:51:37', '0000-00-00 00:00:00'),
+(1981, 'User: Asep Logged Out', '8', '::1', '2023-08-11 08:30:53', '0000-00-00 00:00:00'),
+(1982, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-11 08:30:59', '0000-00-00 00:00:00'),
+(1983, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-11 13:27:54', '0000-00-00 00:00:00'),
+(1984, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-11 13:36:55', '0000-00-00 00:00:00'),
+(1985, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-11 16:13:48', '0000-00-00 00:00:00'),
+(1986, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-11 16:13:54', '0000-00-00 00:00:00'),
+(1987, 'Data Pinjaman Inventaris #173 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-11 16:14:02', '0000-00-00 00:00:00'),
+(1988, 'Data Pinjaman Dikembalikan 173 Created by User:Taufik Hidayat', '5', '::1', '2023-08-11 16:14:14', '0000-00-00 00:00:00'),
+(1989, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-12 04:17:11', '0000-00-00 00:00:00'),
+(1990, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-12 04:21:53', '0000-00-00 00:00:00'),
+(1991, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-12 04:22:37', '0000-00-00 00:00:00'),
+(1992, 'Role #2 Updated by User: #1', '1', '::1', '2023-08-12 04:23:43', '0000-00-00 00:00:00'),
+(1993, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-12 04:23:59', '0000-00-00 00:00:00'),
+(1994, 'Agus Rahmawan (agus rahmawan) Logged in', '4', '::1', '2023-08-12 04:24:06', '0000-00-00 00:00:00'),
+(1995, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-12 07:52:46', '0000-00-00 00:00:00'),
+(1996, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-12 07:52:57', '0000-00-00 00:00:00'),
+(1997, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-13 09:51:42', '0000-00-00 00:00:00'),
+(1998, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-14 07:52:20', '0000-00-00 00:00:00'),
+(1999, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-16 03:41:53', '0000-00-00 00:00:00'),
+(2000, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-16 07:14:35', '0000-00-00 00:00:00'),
+(2001, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-16 07:14:40', '0000-00-00 00:00:00'),
+(2002, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-16 07:14:47', '0000-00-00 00:00:00'),
+(2003, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-16 15:23:18', '0000-00-00 00:00:00'),
+(2004, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-16 15:28:23', '0000-00-00 00:00:00'),
+(2005, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-16 15:28:31', '0000-00-00 00:00:00'),
+(2006, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-17 11:07:52', '0000-00-00 00:00:00'),
+(2007, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-17 11:21:23', '0000-00-00 00:00:00'),
+(2008, 'Asep (asepp) Logged in', '8', '::1', '2023-08-17 11:21:29', '0000-00-00 00:00:00'),
+(2009, 'Data peminjam Ditambahkan 174 Created by User:Asep', '8', '::1', '2023-08-17 11:22:04', '0000-00-00 00:00:00'),
+(2010, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-17 11:31:44', '0000-00-00 00:00:00'),
+(2011, 'Data Pinjaman Inventaris #174 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-17 11:31:51', '0000-00-00 00:00:00'),
+(2012, 'User: Asep Logged Out', '8', '::1', '2023-08-17 11:57:12', '0000-00-00 00:00:00'),
+(2013, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-17 11:57:18', '0000-00-00 00:00:00'),
+(2014, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-17 12:00:03', '0000-00-00 00:00:00'),
+(2015, 'Agus Rahmawan (agus rahmawan) Logged in', '4', '::1', '2023-08-17 12:00:11', '0000-00-00 00:00:00'),
+(2016, 'Data Pengajuan Ditambahkan 21 Created by User:Agus Rahmawan', '4', '::1', '2023-08-17 12:03:04', '0000-00-00 00:00:00'),
+(2017, 'User: Agus Rahmawan Logged Out', '4', '::1', '2023-08-17 12:06:22', '0000-00-00 00:00:00'),
+(2018, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-17 12:06:27', '0000-00-00 00:00:00'),
+(2019, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-17 12:06:46', '0000-00-00 00:00:00'),
+(2020, 'Agus Rahmawan (agus rahmawan) Logged in', '4', '::1', '2023-08-17 12:06:57', '0000-00-00 00:00:00'),
+(2021, 'User: Agus Rahmawan Logged Out', '4', '::1', '2023-08-17 12:20:23', '0000-00-00 00:00:00'),
+(2022, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-17 12:20:33', '0000-00-00 00:00:00'),
+(2023, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-18 00:19:45', '0000-00-00 00:00:00'),
+(2024, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-18 01:47:37', '0000-00-00 00:00:00'),
+(2025, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-18 01:47:48', '0000-00-00 00:00:00'),
+(2026, ' #153 Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-18 01:47:57', '0000-00-00 00:00:00'),
+(2027, 'Data Pemeliharaan Ditambahkan 156 Created by User:Taufik Hidayat', '5', '::1', '2023-08-18 01:48:32', '0000-00-00 00:00:00'),
+(2028, 'Data pemeliharaan #156 Updated by User: #5', '5', '::1', '2023-08-18 02:00:55', '0000-00-00 00:00:00'),
+(2029, ' #156 Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-18 02:01:08', '0000-00-00 00:00:00'),
+(2030, ' #142 Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-18 02:01:35', '0000-00-00 00:00:00'),
+(2031, 'Data Pemeliharaan Ditambahkan 157 Created by User:Taufik Hidayat', '5', '::1', '2023-08-18 02:02:43', '0000-00-00 00:00:00'),
+(2032, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:05:34', '0000-00-00 00:00:00'),
+(2033, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:07:13', '0000-00-00 00:00:00'),
+(2034, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:07:44', '0000-00-00 00:00:00'),
+(2035, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:08:45', '0000-00-00 00:00:00'),
+(2036, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:09:01', '0000-00-00 00:00:00'),
+(2037, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:09:23', '0000-00-00 00:00:00'),
+(2038, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:09:40', '0000-00-00 00:00:00'),
+(2039, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:11:43', '0000-00-00 00:00:00'),
+(2040, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:11:51', '0000-00-00 00:00:00'),
+(2041, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:13:41', '0000-00-00 00:00:00'),
+(2042, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:13:49', '0000-00-00 00:00:00'),
+(2043, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:13:55', '0000-00-00 00:00:00'),
+(2044, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:15:36', '0000-00-00 00:00:00'),
+(2045, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:15:43', '0000-00-00 00:00:00'),
+(2046, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:15:49', '0000-00-00 00:00:00'),
+(2047, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:16:01', '0000-00-00 00:00:00'),
+(2048, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:16:16', '0000-00-00 00:00:00'),
+(2049, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:16:27', '0000-00-00 00:00:00'),
+(2050, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:16:32', '0000-00-00 00:00:00'),
+(2051, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:20:38', '0000-00-00 00:00:00'),
+(2052, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:20:43', '0000-00-00 00:00:00'),
+(2053, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:25:55', '0000-00-00 00:00:00'),
+(2054, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 02:27:40', '0000-00-00 00:00:00'),
+(2055, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-18 03:19:21', '0000-00-00 00:00:00'),
+(2056, 'Data Pemeliharaan Ditambahkan 158 Created by User:Taufik Hidayat', '5', '::1', '2023-08-18 03:22:10', '0000-00-00 00:00:00'),
+(2057, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-19 01:06:25', '0000-00-00 00:00:00'),
+(2058, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-19 01:07:19', '0000-00-00 00:00:00'),
+(2059, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-19 01:08:30', '0000-00-00 00:00:00'),
+(2060, 'Asep (asepp) Logged in', '8', '::1', '2023-08-19 01:08:35', '0000-00-00 00:00:00'),
+(2061, '#174 Data peminjam Deleted by User:Asep', '8', '::1', '2023-08-19 01:09:00', '0000-00-00 00:00:00'),
+(2062, 'Data peminjam Ditambahkan 175 Created by User:Asep', '8', '::1', '2023-08-19 01:09:52', '0000-00-00 00:00:00'),
+(2063, 'Data peminjam #175 Updated by User: Asep', '8', '::1', '2023-08-19 01:10:09', '0000-00-00 00:00:00'),
+(2064, 'Data peminjam Ditambahkan 176 Created by User:Asep', '8', '::1', '2023-08-19 01:10:46', '0000-00-00 00:00:00'),
+(2065, 'User: Asep Logged Out', '8', '::1', '2023-08-19 01:11:53', '0000-00-00 00:00:00'),
+(2066, 'Wahyu Saepudin (wahyu) Logged in', '6', '::1', '2023-08-19 01:12:02', '0000-00-00 00:00:00'),
+(2067, 'User: Wahyu Saepudin Logged Out', '6', '::1', '2023-08-19 01:12:24', '0000-00-00 00:00:00'),
+(2068, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-19 01:12:29', '0000-00-00 00:00:00'),
+(2069, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-19 01:19:46', '0000-00-00 00:00:00'),
+(2070, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-19 01:19:54', '0000-00-00 00:00:00'),
+(2071, 'Asep (asepp) Logged in', '8', '::1', '2023-08-21 04:02:46', '0000-00-00 00:00:00'),
+(2072, 'Data Pinjaman #176 Updated by User: Asep', '8', '::1', '2023-08-21 04:08:01', '0000-00-00 00:00:00'),
+(2073, 'Data Pinjaman #175 Updated by User: Asep', '8', '::1', '2023-08-21 04:08:18', '0000-00-00 00:00:00'),
+(2074, 'Data peminjam Ditambahkan 177 Created by User:Asep', '8', '::1', '2023-08-21 04:10:57', '0000-00-00 00:00:00'),
+(2075, '#176 Data peminjam Deleted by User:Asep', '8', '::1', '2023-08-21 04:13:19', '0000-00-00 00:00:00'),
+(2076, '#177 Data peminjam Deleted by User:Asep', '8', '::1', '2023-08-21 04:13:24', '0000-00-00 00:00:00'),
+(2077, '#175 Data peminjam Deleted by User:Asep', '8', '::1', '2023-08-21 04:13:28', '0000-00-00 00:00:00'),
+(2078, 'Data peminjam Ditambahkan 178 Created by User:Asep', '8', '::1', '2023-08-21 04:13:52', '0000-00-00 00:00:00'),
+(2079, 'Data Pinjaman #178 Updated by User: Asep', '8', '::1', '2023-08-21 04:14:00', '0000-00-00 00:00:00'),
+(2080, 'Data Pinjaman #178 Updated by User: Asep', '8', '::1', '2023-08-21 04:14:22', '0000-00-00 00:00:00'),
+(2081, 'Data Pinjaman #178 Updated by User: Asep', '8', '::1', '2023-08-21 04:23:56', '0000-00-00 00:00:00'),
+(2082, 'Data Pinjaman #178 Updated by User: Asep', '8', '::1', '2023-08-21 04:24:10', '0000-00-00 00:00:00'),
+(2083, 'Data Pinjaman #178 Updated by User: Asep', '8', '::1', '2023-08-21 04:24:33', '0000-00-00 00:00:00'),
+(2084, '#178 Data peminjam Deleted by User:Asep', '8', '::1', '2023-08-21 04:24:46', '0000-00-00 00:00:00'),
+(2085, 'User: Asep Logged Out', '8', '::1', '2023-08-21 04:25:26', '0000-00-00 00:00:00'),
+(2086, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-21 04:25:34', '0000-00-00 00:00:00'),
+(2087, 'Data Pinjaman Ditambahkan 179 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 04:27:22', '0000-00-00 00:00:00'),
+(2088, 'Data Pinjaman #179 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-21 04:27:33', '0000-00-00 00:00:00'),
+(2089, 'Data Pinjaman #179 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-21 04:27:40', '0000-00-00 00:00:00'),
+(2090, '#179 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 04:28:58', '0000-00-00 00:00:00'),
+(2091, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-21 04:43:32', '0000-00-00 00:00:00'),
+(2092, 'Asep (asepp) Logged in', '8', '::1', '2023-08-21 04:43:38', '0000-00-00 00:00:00'),
+(2093, 'User: Asep Logged Out', '8', '::1', '2023-08-21 04:45:24', '0000-00-00 00:00:00'),
+(2094, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-21 04:45:30', '0000-00-00 00:00:00'),
+(2095, 'Asep (asepp) Logged in', '8', '::1', '2023-08-21 04:46:33', '0000-00-00 00:00:00'),
+(2096, 'Data Inventaris #26 Updated by User: #1', '1', '::1', '2023-08-21 04:51:09', '0000-00-00 00:00:00'),
+(2097, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-21 06:45:03', '0000-00-00 00:00:00'),
+(2098, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-21 06:45:56', '0000-00-00 00:00:00'),
+(2099, 'Data Pinjaman Ditambahkan 180 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 06:46:20', '0000-00-00 00:00:00'),
+(2100, 'Data Pinjaman Inventaris #180 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-21 06:47:02', '0000-00-00 00:00:00'),
+(2101, '#180 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 06:48:15', '0000-00-00 00:00:00'),
+(2102, 'Data Pinjaman Ditambahkan 181 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 06:48:35', '0000-00-00 00:00:00'),
+(2103, 'Data Pinjaman Inventaris #181 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-21 06:52:20', '0000-00-00 00:00:00'),
+(2104, '#181 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 07:40:24', '0000-00-00 00:00:00'),
+(2105, 'Data Pinjaman Ditambahkan 0 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 07:40:49', '0000-00-00 00:00:00'),
+(2106, 'Data Pinjaman Ditambahkan 182 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 07:45:23', '0000-00-00 00:00:00'),
+(2107, 'Data Pinjaman Inventaris #182 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-21 07:45:48', '0000-00-00 00:00:00'),
+(2108, '#182 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 07:46:01', '0000-00-00 00:00:00'),
+(2109, 'Data Pinjaman Ditambahkan 183 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 07:46:16', '0000-00-00 00:00:00'),
+(2110, 'Data Pinjaman Inventaris #183 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-21 07:46:23', '0000-00-00 00:00:00'),
+(2111, '#183 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 07:59:35', '0000-00-00 00:00:00'),
+(2112, 'Data Pinjaman Ditambahkan 184 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 07:59:56', '0000-00-00 00:00:00'),
+(2113, 'Data Pinjaman Inventaris #184 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-21 08:00:08', '0000-00-00 00:00:00'),
+(2114, '#184 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 08:00:27', '0000-00-00 00:00:00'),
+(2115, 'Data Pinjaman Ditambahkan 185 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 08:05:01', '0000-00-00 00:00:00'),
+(2116, 'Data Pinjaman Inventaris #185 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-21 08:07:02', '0000-00-00 00:00:00'),
+(2117, 'Data Pinjaman Ditambahkan 186 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 08:07:27', '0000-00-00 00:00:00'),
+(2118, 'Data Pinjaman Inventaris #186 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-21 08:07:39', '0000-00-00 00:00:00'),
+(2119, 'Data Pinjaman Ditambahkan 187 Created by User:Taufik Hidayat', '5', '::1', '2023-08-21 08:09:25', '0000-00-00 00:00:00'),
+(2120, 'Data Pinjaman Inventaris #187 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-21 08:09:44', '0000-00-00 00:00:00'),
+(2121, '#185 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 08:29:55', '0000-00-00 00:00:00'),
+(2122, '#187 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 08:30:00', '0000-00-00 00:00:00'),
+(2123, '#186 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-21 08:30:04', '0000-00-00 00:00:00'),
+(2124, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-22 01:23:40', '0000-00-00 00:00:00'),
+(2125, 'Data Pinjaman Ditambahkan 188 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 01:23:59', '0000-00-00 00:00:00'),
+(2126, 'Data Pinjaman Inventaris #188 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 01:24:10', '0000-00-00 00:00:00'),
+(2127, 'Data Pinjaman #188 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 01:26:19', '0000-00-00 00:00:00'),
+(2128, 'Data Pinjaman Inventaris #188 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 01:34:04', '0000-00-00 00:00:00'),
+(2129, 'Data Pinjaman #188 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 01:35:47', '0000-00-00 00:00:00'),
+(2130, 'Data Pinjaman Inventaris #188 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 01:35:58', '0000-00-00 00:00:00'),
+(2131, 'Data Pinjaman #188 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 01:36:12', '0000-00-00 00:00:00'),
+(2132, 'Data Pinjaman Inventaris #188 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 01:38:26', '0000-00-00 00:00:00'),
+(2133, '#188 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-22 01:38:47', '0000-00-00 00:00:00'),
+(2134, 'Data Pinjaman Ditambahkan 189 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 01:43:04', '0000-00-00 00:00:00'),
+(2135, 'Data Pinjaman Inventaris #189 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 01:43:13', '0000-00-00 00:00:00'),
+(2136, 'Data Pinjaman #189 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 01:44:31', '0000-00-00 00:00:00'),
+(2137, '#189 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-22 02:07:12', '0000-00-00 00:00:00'),
+(2138, 'Data Pinjaman Ditambahkan 190 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 02:07:28', '0000-00-00 00:00:00'),
+(2139, 'Data Pinjaman Inventaris #190 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:07:40', '0000-00-00 00:00:00'),
+(2140, 'Data Pinjaman #190 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:08:23', '0000-00-00 00:00:00'),
+(2141, 'Data Pinjaman Inventaris #190 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:08:32', '0000-00-00 00:00:00'),
+(2142, 'Data Pinjaman #190 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:08:48', '0000-00-00 00:00:00'),
+(2143, '#190 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-22 02:09:38', '0000-00-00 00:00:00'),
+(2144, 'Data Pinjaman Ditambahkan 191 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 02:10:27', '0000-00-00 00:00:00'),
+(2145, 'Data Pinjaman Inventaris #191 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:10:35', '0000-00-00 00:00:00'),
+(2146, 'Data Pinjaman #191 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:10:47', '0000-00-00 00:00:00'),
+(2147, 'Data Pinjaman Inventaris #191 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:10:57', '0000-00-00 00:00:00'),
+(2148, 'Data Pinjaman #191 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:15:18', '0000-00-00 00:00:00'),
+(2149, 'Data Pinjaman Inventaris #191 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:15:37', '0000-00-00 00:00:00'),
+(2150, 'Data Pinjaman #191 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:15:49', '0000-00-00 00:00:00'),
+(2151, '#191 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-22 02:16:42', '0000-00-00 00:00:00'),
+(2152, 'Data Pinjaman Ditambahkan 192 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 02:26:04', '0000-00-00 00:00:00'),
+(2153, 'Data Pinjaman Inventaris #192 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:26:13', '0000-00-00 00:00:00'),
+(2154, 'Data Pinjaman #192 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:34:26', '0000-00-00 00:00:00'),
+(2155, 'Data Pinjaman #192 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:34:58', '0000-00-00 00:00:00'),
+(2156, 'Data Pinjaman #192 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:35:24', '0000-00-00 00:00:00'),
+(2157, 'Data Pinjaman Inventaris #192 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:36:21', '0000-00-00 00:00:00'),
+(2158, 'Data Pinjaman #192 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:37:16', '0000-00-00 00:00:00'),
+(2159, '#192 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-22 02:39:45', '0000-00-00 00:00:00'),
+(2160, 'Data Pinjaman Ditambahkan 193 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 02:40:46', '0000-00-00 00:00:00'),
+(2161, 'Data Pinjaman Inventaris #193 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:40:55', '0000-00-00 00:00:00'),
+(2162, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:41:07', '0000-00-00 00:00:00'),
+(2163, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:46:20', '0000-00-00 00:00:00'),
+(2164, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:46:38', '0000-00-00 00:00:00'),
+(2165, 'Data Pinjaman Inventaris #193 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 02:50:35', '0000-00-00 00:00:00'),
+(2166, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:51:00', '0000-00-00 00:00:00'),
+(2167, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 02:51:13', '0000-00-00 00:00:00'),
+(2168, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 03:53:42', '0000-00-00 00:00:00'),
+(2169, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 03:54:08', '0000-00-00 00:00:00'),
+(2170, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 03:54:49', '0000-00-00 00:00:00'),
+(2171, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 03:54:58', '0000-00-00 00:00:00'),
+(2172, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 03:56:34', '0000-00-00 00:00:00'),
+(2173, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 03:56:45', '0000-00-00 00:00:00'),
+(2174, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 03:56:57', '0000-00-00 00:00:00'),
+(2175, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:00:59', '0000-00-00 00:00:00'),
+(2176, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:01:11', '0000-00-00 00:00:00'),
+(2177, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:01:30', '0000-00-00 00:00:00'),
+(2178, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:03:31', '0000-00-00 00:00:00'),
+(2179, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:03:46', '0000-00-00 00:00:00'),
+(2180, 'Data Pinjaman Inventaris #193 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 04:09:27', '0000-00-00 00:00:00'),
+(2181, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:09:40', '0000-00-00 00:00:00'),
+(2182, 'Data Pinjaman Inventaris #193 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 04:09:49', '0000-00-00 00:00:00'),
+(2183, 'Data Pinjaman #193 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:10:05', '0000-00-00 00:00:00'),
+(2184, '#193 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-22 04:10:14', '0000-00-00 00:00:00'),
+(2185, 'Data Pinjaman Ditambahkan 194 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 04:12:11', '0000-00-00 00:00:00'),
+(2186, 'Data Pinjaman Inventaris #194 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 04:12:19', '0000-00-00 00:00:00'),
+(2187, 'Data Pinjaman #194 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:12:32', '0000-00-00 00:00:00'),
+(2188, 'Data Pinjaman #194 Updated by User: Taufik Hidayat', '5', '::1', '2023-08-22 04:13:10', '0000-00-00 00:00:00'),
+(2189, '#194 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-22 04:13:20', '0000-00-00 00:00:00'),
+(2190, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-22 12:46:52', '0000-00-00 00:00:00'),
+(2191, 'Data Pinjaman Ditambahkan 195 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 12:47:15', '0000-00-00 00:00:00'),
+(2192, 'Data Pinjaman #195 Updated by User: #5', '5', '::1', '2023-08-22 12:47:29', '0000-00-00 00:00:00'),
+(2193, 'Data Pinjaman #195 Updated by User: #5', '5', '::1', '2023-08-22 12:49:19', '0000-00-00 00:00:00'),
+(2194, 'Data Pinjaman #195 Updated by User: #5', '5', '::1', '2023-08-22 12:49:47', '0000-00-00 00:00:00'),
+(2195, 'Data Pinjaman #195 Updated by User: #5', '5', '::1', '2023-08-22 12:50:18', '0000-00-00 00:00:00'),
+(2196, 'Data Pinjaman #195 Updated by User: #5', '5', '::1', '2023-08-22 12:50:32', '0000-00-00 00:00:00'),
+(2197, 'Data Pinjaman Inventaris #195 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 12:50:40', '0000-00-00 00:00:00'),
+(2198, 'Data Pinjaman Dikembalikan 195 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 12:51:06', '0000-00-00 00:00:00'),
+(2199, 'Data Pinjaman Ditambahkan 196 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 12:51:33', '0000-00-00 00:00:00'),
+(2200, 'Data Pinjaman #196 Updated by User: #5', '5', '::1', '2023-08-22 14:08:51', '0000-00-00 00:00:00'),
+(2201, 'Data Pinjaman #196 Updated by User: #5', '5', '::1', '2023-08-22 14:09:07', '0000-00-00 00:00:00'),
+(2202, 'Data Pinjaman Inventaris #196 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 14:09:16', '0000-00-00 00:00:00'),
+(2203, '#196 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-22 14:09:35', '0000-00-00 00:00:00'),
+(2204, 'Data Pinjaman Ditambahkan 197 Created by User:Taufik Hidayat', '5', '::1', '2023-08-22 15:06:45', '0000-00-00 00:00:00'),
+(2205, 'Data Pinjaman Inventaris #197 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-22 15:12:01', '0000-00-00 00:00:00'),
+(2206, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-23 02:52:07', '0000-00-00 00:00:00'),
+(2207, 'Status Kode Alat Diubah oleh User: #1', '1', '::1', '2023-08-23 05:56:06', '0000-00-00 00:00:00'),
+(2208, 'Status Kode Alat Diubah oleh User: #1', '1', '::1', '2023-08-23 05:56:29', '0000-00-00 00:00:00'),
+(2209, 'Status Kode Alat Diubah oleh User: #1', '1', '::1', '2023-08-23 05:59:44', '0000-00-00 00:00:00'),
+(2210, 'Status Kode Alat Diubah oleh User: #1', '1', '::1', '2023-08-23 06:02:21', '0000-00-00 00:00:00'),
+(2211, 'Status Kode Alat Diubah oleh User: #1', '1', '::1', '2023-08-23 06:04:43', '0000-00-00 00:00:00'),
+(2212, 'Status Kode Alat Diubah oleh User: #1', '1', '::1', '2023-08-23 06:05:02', '0000-00-00 00:00:00'),
+(2213, 'Status Kode Alat Diubah oleh User: #1', '1', '::1', '2023-08-23 06:05:29', '0000-00-00 00:00:00'),
+(2214, 'Data Inventaris #36 Updated by User: #1', '1', '::1', '2023-08-23 06:18:29', '0000-00-00 00:00:00'),
+(2215, 'Data Inventaris #36 Updated by User: #1', '1', '::1', '2023-08-23 06:19:50', '0000-00-00 00:00:00'),
+(2216, 'Data Inventaris #36 Updated by User: #1', '1', '::1', '2023-08-23 06:23:25', '0000-00-00 00:00:00'),
+(2217, 'Data Inventaris #36 Updated by User: #1', '1', '::1', '2023-08-23 06:24:21', '0000-00-00 00:00:00'),
+(2218, 'Data Inventaris #36 Updated by User: #1', '1', '::1', '2023-08-23 06:28:04', '0000-00-00 00:00:00'),
+(2219, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-23 13:26:37', '0000-00-00 00:00:00'),
+(2220, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-24 00:44:51', '0000-00-00 00:00:00'),
+(2221, 'Data Inventaris Dipindahkan Ke Ruangan # Updated by User: #1', '1', '::1', '2023-08-24 01:38:05', '0000-00-00 00:00:00'),
+(2222, 'Data Pengajuan Sudah Di Approve 21 Created by User:Admin Sarana', '1', '::1', '2023-08-24 01:43:20', '0000-00-00 00:00:00'),
+(2223, 'Data Inventaris Ditambahkan 41 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:15:15', '0000-00-00 00:00:00');
+INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, `updated_at`) VALUES
+(2224, ' #1 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 05:18:34', '0000-00-00 00:00:00'),
+(2225, 'Data Inventaris Ditambahkan 42 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:19:16', '0000-00-00 00:00:00'),
+(2226, ' #42 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 05:21:42', '0000-00-00 00:00:00'),
+(2227, 'Data Inventaris #26 Updated by User: #1', '1', '::1', '2023-08-24 05:22:11', '0000-00-00 00:00:00'),
+(2228, 'Data Inventaris #26 Updated by User: #1', '1', '::1', '2023-08-24 05:24:54', '0000-00-00 00:00:00'),
+(2229, 'Data Inventaris Ditambahkan 43 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:25:35', '0000-00-00 00:00:00'),
+(2230, 'Data Inventaris #43 Updated by User: #1', '1', '::1', '2023-08-24 05:26:26', '0000-00-00 00:00:00'),
+(2231, ' #43 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 05:31:51', '0000-00-00 00:00:00'),
+(2232, 'Data Inventaris Ditambahkan 44 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:32:54', '0000-00-00 00:00:00'),
+(2233, 'Data Inventaris Ditambahkan 45 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:32:54', '0000-00-00 00:00:00'),
+(2234, 'Data Inventaris Ditambahkan 46 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:32:54', '0000-00-00 00:00:00'),
+(2235, 'Data Inventaris Ditambahkan 47 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:32:54', '0000-00-00 00:00:00'),
+(2236, 'Data Inventaris Ditambahkan 48 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:32:54', '0000-00-00 00:00:00'),
+(2237, 'Data Inventaris Ditambahkan 49 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:36:53', '0000-00-00 00:00:00'),
+(2238, ' #49 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 05:42:28', '0000-00-00 00:00:00'),
+(2239, 'Data Inventaris Ditambahkan 50 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:43:07', '0000-00-00 00:00:00'),
+(2240, ' #50 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 05:46:20', '0000-00-00 00:00:00'),
+(2241, 'Data Inventaris Ditambahkan 51 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:47:16', '0000-00-00 00:00:00'),
+(2242, ' #51 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 05:51:35', '0000-00-00 00:00:00'),
+(2243, 'Data Inventaris Ditambahkan 52 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:52:09', '0000-00-00 00:00:00'),
+(2244, ' #52 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 05:59:05', '0000-00-00 00:00:00'),
+(2245, 'Data Inventaris Ditambahkan 53 Created by User:Admin Sarana', '1', '::1', '2023-08-24 05:59:51', '0000-00-00 00:00:00'),
+(2246, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:07:24', '0000-00-00 00:00:00'),
+(2247, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:10:27', '0000-00-00 00:00:00'),
+(2248, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:17:55', '0000-00-00 00:00:00'),
+(2249, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:18:22', '0000-00-00 00:00:00'),
+(2250, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:22:11', '0000-00-00 00:00:00'),
+(2251, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:22:43', '0000-00-00 00:00:00'),
+(2252, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:23:49', '0000-00-00 00:00:00'),
+(2253, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:26:51', '0000-00-00 00:00:00'),
+(2254, 'Data Inventaris #53 Updated by User: #1', '1', '::1', '2023-08-24 06:28:41', '0000-00-00 00:00:00'),
+(2255, ' #53 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 06:29:03', '0000-00-00 00:00:00'),
+(2256, 'Data Inventaris Ditambahkan 54 Created by User:Admin Sarana', '1', '::1', '2023-08-24 06:29:48', '0000-00-00 00:00:00'),
+(2257, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:30:02', '0000-00-00 00:00:00'),
+(2258, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:31:06', '0000-00-00 00:00:00'),
+(2259, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:32:49', '0000-00-00 00:00:00'),
+(2260, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:32:59', '0000-00-00 00:00:00'),
+(2261, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:34:39', '0000-00-00 00:00:00'),
+(2262, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:34:54', '0000-00-00 00:00:00'),
+(2263, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:35:06', '0000-00-00 00:00:00'),
+(2264, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:35:25', '0000-00-00 00:00:00'),
+(2265, 'Data Inventaris #54 Updated by User: #1', '1', '::1', '2023-08-24 06:36:06', '0000-00-00 00:00:00'),
+(2266, 'Data Inventaris Ditambahkan 55 Created by User:Admin Sarana', '1', '::1', '2023-08-24 06:50:27', '0000-00-00 00:00:00'),
+(2267, ' #55 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 06:50:48', '0000-00-00 00:00:00'),
+(2268, 'Data Inventaris Ditambahkan 56 Created by User:Admin Sarana', '1', '::1', '2023-08-24 06:52:13', '0000-00-00 00:00:00'),
+(2269, ' #56 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 06:52:23', '0000-00-00 00:00:00'),
+(2270, ' #54 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 06:53:35', '0000-00-00 00:00:00'),
+(2271, 'Data Inventaris Ditambahkan 57 Created by User:Admin Sarana', '1', '::1', '2023-08-24 06:55:22', '0000-00-00 00:00:00'),
+(2272, ' #57 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 06:58:06', '0000-00-00 00:00:00'),
+(2273, 'Data Inventaris Ditambahkan 58 Created by User:Admin Sarana', '1', '::1', '2023-08-24 06:58:42', '0000-00-00 00:00:00'),
+(2274, 'Data Inventaris Ditambahkan 59 Created by User:Admin Sarana', '1', '::1', '2023-08-24 07:00:51', '0000-00-00 00:00:00'),
+(2275, ' #58 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:01:11', '0000-00-00 00:00:00'),
+(2276, ' #59 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:01:17', '0000-00-00 00:00:00'),
+(2277, 'Data Inventaris Ditambahkan 60 Created by User:Admin Sarana', '1', '::1', '2023-08-24 07:07:09', '0000-00-00 00:00:00'),
+(2278, ' #60 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:07:20', '0000-00-00 00:00:00'),
+(2279, 'Data Inventaris Ditambahkan 61 Created by User:Admin Sarana', '1', '::1', '2023-08-24 07:09:11', '0000-00-00 00:00:00'),
+(2280, 'Data with nama_barang \'61\' Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:09:36', '0000-00-00 00:00:00'),
+(2281, 'Data with nama_barang \'61\' Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:09:54', '0000-00-00 00:00:00'),
+(2282, 'Data with nama_barang \'61\' Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:10:04', '0000-00-00 00:00:00'),
+(2283, 'Data with nama_barang \'61\' Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:11:42', '0000-00-00 00:00:00'),
+(2284, 'Data with nama_barang \'61\' Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:25:14', '0000-00-00 00:00:00'),
+(2285, ' #61 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:26:01', '0000-00-00 00:00:00'),
+(2286, 'Data Inventaris Ditambahkan 62 Created by User:Admin Sarana', '1', '::1', '2023-08-24 07:31:55', '0000-00-00 00:00:00'),
+(2287, ' #62 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 07:32:06', '0000-00-00 00:00:00'),
+(2288, 'Data Inventaris Ditambahkan 63 Created by User:Admin Sarana', '1', '::1', '2023-08-24 07:58:15', '0000-00-00 00:00:00'),
+(2289, ' #1 Deleted by User:Admin Sarana', '1', '::1', '2023-08-24 08:02:52', '0000-00-00 00:00:00'),
+(2290, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-24 08:26:39', '0000-00-00 00:00:00'),
+(2291, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-24 08:26:49', '0000-00-00 00:00:00'),
+(2292, 'Data Pinjaman Ditambahkan 198 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 08:27:32', '0000-00-00 00:00:00'),
+(2293, 'Data Pinjaman Inventaris #198 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 08:29:21', '0000-00-00 00:00:00'),
+(2294, 'Data Pinjaman Ditambahkan 199 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 08:30:17', '0000-00-00 00:00:00'),
+(2295, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-24 12:26:31', '0000-00-00 00:00:00'),
+(2296, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-24 12:29:35', '0000-00-00 00:00:00'),
+(2297, 'Data Pinjaman Inventaris #199 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 12:30:41', '0000-00-00 00:00:00'),
+(2298, 'Data Pinjaman Dikembalikan 198 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 12:30:55', '0000-00-00 00:00:00'),
+(2299, 'Data Pinjaman Dikembalikan 199 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 12:31:05', '0000-00-00 00:00:00'),
+(2300, 'Data Pinjaman Dikembalikan 197 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 12:31:16', '0000-00-00 00:00:00'),
+(2301, 'Data Pinjaman Ditambahkan 200 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 13:04:48', '0000-00-00 00:00:00'),
+(2302, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-24 13:45:21', '0000-00-00 00:00:00'),
+(2303, 'Data Pinjaman Inventaris #200 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 13:55:32', '0000-00-00 00:00:00'),
+(2304, 'Data Pinjaman Dikembalikan 200 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 13:57:32', '0000-00-00 00:00:00'),
+(2305, 'Data Pinjaman Ditambahkan 201 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 13:57:48', '0000-00-00 00:00:00'),
+(2306, 'Data Pinjaman Inventaris #201 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 14:24:51', '0000-00-00 00:00:00'),
+(2307, 'Data Pinjaman Ditambahkan 202 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:29:40', '0000-00-00 00:00:00'),
+(2308, 'Data Pinjaman Inventaris #202 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 14:29:50', '0000-00-00 00:00:00'),
+(2309, 'Data Pinjaman Ditambahkan 203 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:35:35', '0000-00-00 00:00:00'),
+(2310, 'Data Pinjaman Inventaris #203 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 14:36:20', '0000-00-00 00:00:00'),
+(2311, 'Data Pinjaman Dikembalikan 203 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:36:38', '0000-00-00 00:00:00'),
+(2312, 'Data Pinjaman Ditambahkan 204 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:37:26', '0000-00-00 00:00:00'),
+(2313, 'Data Pinjaman Inventaris #204 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 14:37:35', '0000-00-00 00:00:00'),
+(2314, 'Data Pinjaman Dikembalikan 204 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:37:51', '0000-00-00 00:00:00'),
+(2315, 'Data Pinjaman Ditambahkan 205 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:38:32', '0000-00-00 00:00:00'),
+(2316, 'Data Pinjaman Inventaris #205 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 14:38:40', '0000-00-00 00:00:00'),
+(2317, 'Data Pinjaman Dikembalikan 205 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:38:55', '0000-00-00 00:00:00'),
+(2318, 'Data Pinjaman Ditambahkan 206 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:41:14', '0000-00-00 00:00:00'),
+(2319, 'Data Pinjaman Inventaris #206 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 14:41:36', '0000-00-00 00:00:00'),
+(2320, 'Data Pinjaman Dikembalikan 206 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:41:52', '0000-00-00 00:00:00'),
+(2321, 'Data Pinjaman Ditambahkan 207 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 14:56:12', '0000-00-00 00:00:00'),
+(2322, 'Data Pinjaman Inventaris #207 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 15:07:41', '0000-00-00 00:00:00'),
+(2323, 'Data Pinjaman Dikembalikan 207 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:08:07', '0000-00-00 00:00:00'),
+(2324, 'Data Pinjaman Ditambahkan 208 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:12:18', '0000-00-00 00:00:00'),
+(2325, 'Data Pinjaman Inventaris #208 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 15:19:31', '0000-00-00 00:00:00'),
+(2326, 'Data Pinjaman Ditambahkan 209 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:20:00', '0000-00-00 00:00:00'),
+(2327, 'Data Pinjaman Inventaris #209 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 15:20:07', '0000-00-00 00:00:00'),
+(2328, 'Data Pinjaman Dikembalikan 209 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:25:37', '0000-00-00 00:00:00'),
+(2329, 'Data Pinjaman Dikembalikan 208 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:25:52', '0000-00-00 00:00:00'),
+(2330, 'Data Pinjaman Ditambahkan 210 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:26:18', '0000-00-00 00:00:00'),
+(2331, 'Data Pinjaman Inventaris #210 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 15:26:25', '0000-00-00 00:00:00'),
+(2332, 'Data Pinjaman Ditambahkan 211 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:32:57', '0000-00-00 00:00:00'),
+(2333, 'Data Pinjaman Inventaris #211 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 15:37:11', '0000-00-00 00:00:00'),
+(2334, 'Data Pinjaman Dikembalikan 210 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:38:10', '0000-00-00 00:00:00'),
+(2335, 'Data Pinjaman Dikembalikan 211 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:38:24', '0000-00-00 00:00:00'),
+(2336, 'Data Pinjaman Ditambahkan 212 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:38:47', '0000-00-00 00:00:00'),
+(2337, 'Data Pinjaman Inventaris #212 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 15:38:54', '0000-00-00 00:00:00'),
+(2338, 'Data Pinjaman Dikembalikan 212 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 15:39:04', '0000-00-00 00:00:00'),
+(2339, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-24 21:10:15', '0000-00-00 00:00:00'),
+(2340, 'Data Pinjaman Ditambahkan 213 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:15:36', '0000-00-00 00:00:00'),
+(2341, 'Data Pinjaman Inventaris #213 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:18:23', '0000-00-00 00:00:00'),
+(2342, 'Data Pinjaman Dikembalikan 213 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:19:02', '0000-00-00 00:00:00'),
+(2343, 'Data Pinjaman Ditambahkan 214 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:19:30', '0000-00-00 00:00:00'),
+(2344, 'Data Pinjaman Inventaris #214 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:19:48', '0000-00-00 00:00:00'),
+(2345, 'Data Pinjaman Dikembalikan 214 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:21:58', '0000-00-00 00:00:00'),
+(2346, 'Data Pinjaman Ditambahkan 215 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:22:19', '0000-00-00 00:00:00'),
+(2347, 'Data Pinjaman Inventaris #215 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:22:28', '0000-00-00 00:00:00'),
+(2348, 'Data Pinjaman Dikembalikan 215 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:25:20', '0000-00-00 00:00:00'),
+(2349, 'Data Pinjaman Ditambahkan 216 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:25:41', '0000-00-00 00:00:00'),
+(2350, 'Data Pinjaman Inventaris #216 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:25:48', '0000-00-00 00:00:00'),
+(2351, 'Data Pinjaman Dikembalikan 216 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:26:11', '0000-00-00 00:00:00'),
+(2352, 'Data Pinjaman Ditambahkan 217 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:26:43', '0000-00-00 00:00:00'),
+(2353, 'Data Pinjaman Inventaris #217 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:26:51', '0000-00-00 00:00:00'),
+(2354, 'Data Pinjaman Dikembalikan 217 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:28:55', '0000-00-00 00:00:00'),
+(2355, 'Data Pinjaman Ditambahkan 218 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:29:13', '0000-00-00 00:00:00'),
+(2356, 'Data Pinjaman Inventaris #218 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:29:24', '0000-00-00 00:00:00'),
+(2357, 'Data Pinjaman Dikembalikan 218 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:30:31', '0000-00-00 00:00:00'),
+(2358, 'Data Pinjaman Ditambahkan 219 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:30:47', '0000-00-00 00:00:00'),
+(2359, 'Data Pinjaman Inventaris #219 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:45:29', '0000-00-00 00:00:00'),
+(2360, 'Data Pinjaman Dikembalikan 219 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:47:07', '0000-00-00 00:00:00'),
+(2361, 'Data Pinjaman Ditambahkan 220 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:47:25', '0000-00-00 00:00:00'),
+(2362, 'Data Pinjaman Inventaris #220 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:50:21', '0000-00-00 00:00:00'),
+(2363, 'Data Pinjaman Ditambahkan 221 Created by User:Taufik Hidayat', '5', '::1', '2023-08-24 21:50:46', '0000-00-00 00:00:00'),
+(2364, 'Data Pinjaman Inventaris #221 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-24 21:50:53', '0000-00-00 00:00:00'),
+(2365, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-25 01:16:18', '0000-00-00 00:00:00'),
+(2366, 'Data Pinjaman Dikembalikan 220 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:16:36', '0000-00-00 00:00:00'),
+(2367, 'Data Pinjaman Dikembalikan 221 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:16:46', '0000-00-00 00:00:00'),
+(2368, 'Data Pinjaman Ditambahkan 222 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:17:33', '0000-00-00 00:00:00'),
+(2369, 'Data Pinjaman Inventaris #222 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 01:17:42', '0000-00-00 00:00:00'),
+(2370, 'Data Pinjaman Dikembalikan 222 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:17:58', '0000-00-00 00:00:00'),
+(2371, 'Data Pinjaman Ditambahkan 223 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:20:34', '0000-00-00 00:00:00'),
+(2372, 'Data Pinjaman Inventaris #223 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 01:26:34', '0000-00-00 00:00:00'),
+(2373, 'Data Pinjaman Dikembalikan 223 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:26:55', '0000-00-00 00:00:00'),
+(2374, 'Data Pinjaman Ditambahkan 224 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:39:43', '0000-00-00 00:00:00'),
+(2375, 'Data Pinjaman Inventaris #224 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 01:39:52', '0000-00-00 00:00:00'),
+(2376, 'Data Pinjaman Ditambahkan 225 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:40:11', '0000-00-00 00:00:00'),
+(2377, 'Data Pinjaman Inventaris #225 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 01:41:55', '0000-00-00 00:00:00'),
+(2378, 'Data Pinjaman Ditambahkan 226 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:42:13', '0000-00-00 00:00:00'),
+(2379, 'Data Pinjaman Dikembalikan 224 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:43:56', '0000-00-00 00:00:00'),
+(2380, 'Data Pinjaman Dikembalikan 225 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:44:06', '0000-00-00 00:00:00'),
+(2381, 'Data Pinjaman Inventaris #226 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 01:44:19', '0000-00-00 00:00:00'),
+(2382, 'Data Pinjaman Ditambahkan 227 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:45:10', '0000-00-00 00:00:00'),
+(2383, 'Data Pinjaman Inventaris #227 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 01:45:29', '0000-00-00 00:00:00'),
+(2384, 'Data Pinjaman Dikembalikan 226 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:45:38', '0000-00-00 00:00:00'),
+(2385, 'Data Pinjaman Dikembalikan 227 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:45:47', '0000-00-00 00:00:00'),
+(2386, 'Data Pinjaman Ditambahkan 228 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 01:51:02', '0000-00-00 00:00:00'),
+(2387, 'Data Pinjaman Inventaris #228 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 02:11:25', '0000-00-00 00:00:00'),
+(2388, 'Data Pinjaman Ditambahkan 229 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 02:12:07', '0000-00-00 00:00:00'),
+(2389, 'Data Pinjaman Inventaris #229 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 02:12:22', '0000-00-00 00:00:00'),
+(2390, 'Data Pinjaman Dikembalikan 228 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 02:12:42', '0000-00-00 00:00:00'),
+(2391, 'Data Pinjaman Dikembalikan 229 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 02:12:54', '0000-00-00 00:00:00'),
+(2392, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-25 05:54:48', '0000-00-00 00:00:00'),
+(2393, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-25 08:16:12', '0000-00-00 00:00:00'),
+(2394, 'Data Pinjaman Ditambahkan 230 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 08:16:39', '0000-00-00 00:00:00'),
+(2395, 'Data Pinjaman Inventaris #230 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 08:25:28', '0000-00-00 00:00:00'),
+(2396, 'Data Pinjaman Dikembalikan 230 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 08:26:21', '0000-00-00 00:00:00'),
+(2397, 'Data Pinjaman Ditambahkan 231 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 08:31:30', '0000-00-00 00:00:00'),
+(2398, 'Data Pinjaman Inventaris #231 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 08:31:41', '0000-00-00 00:00:00'),
+(2399, 'Data Pinjaman Dikembalikan 231 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 08:41:33', '0000-00-00 00:00:00'),
+(2400, 'Data Pinjaman Ditambahkan 232 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 08:41:57', '0000-00-00 00:00:00'),
+(2401, 'Data Pinjaman Inventaris #232 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 08:42:11', '0000-00-00 00:00:00'),
+(2402, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-25 13:35:06', '0000-00-00 00:00:00'),
+(2403, 'Data Pinjaman Dikembalikan 232 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 13:39:07', '0000-00-00 00:00:00'),
+(2404, 'Data Pinjaman Ditambahkan 233 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 13:40:24', '0000-00-00 00:00:00'),
+(2405, 'Data Pinjaman Inventaris #233 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 13:40:33', '0000-00-00 00:00:00'),
+(2406, 'Data Pinjaman Ditambahkan 234 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 13:40:53', '0000-00-00 00:00:00'),
+(2407, 'Data Pinjaman Inventaris #234 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-25 13:41:02', '0000-00-00 00:00:00'),
+(2408, 'Data Pinjaman Dikembalikan 233 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 13:44:37', '0000-00-00 00:00:00'),
+(2409, 'Data Pinjaman Dikembalikan 234 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 13:44:49', '0000-00-00 00:00:00'),
+(2410, 'Data Pinjaman Ditambahkan 235 Created by User:Taufik Hidayat', '5', '::1', '2023-08-25 13:45:17', '0000-00-00 00:00:00'),
+(2411, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-26 08:55:41', '0000-00-00 00:00:00'),
+(2412, 'Data Pinjaman Inventaris #235 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-26 08:56:00', '0000-00-00 00:00:00'),
+(2413, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-26 11:01:02', '0000-00-00 00:00:00'),
+(2414, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-26 11:03:14', '0000-00-00 00:00:00'),
+(2415, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-26 11:03:20', '0000-00-00 00:00:00'),
+(2416, 'Data Pinjaman Dikembalikan 235 Created by User:Taufik Hidayat', '5', '::1', '2023-08-26 11:03:42', '0000-00-00 00:00:00'),
+(2417, 'Data Pinjaman Ditambahkan 236 Created by User:Taufik Hidayat', '5', '::1', '2023-08-26 11:04:11', '0000-00-00 00:00:00'),
+(2418, 'Data Pinjaman Inventaris #236 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-26 11:04:32', '0000-00-00 00:00:00'),
+(2419, 'Data Pinjaman Dikembalikan 236 Created by User:Taufik Hidayat', '5', '::1', '2023-08-26 11:04:48', '0000-00-00 00:00:00'),
+(2420, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-27 02:49:18', '0000-00-00 00:00:00'),
+(2421, 'Data Pinjaman Ditambahkan 237 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 02:52:32', '0000-00-00 00:00:00'),
+(2422, 'Data Pinjaman Inventaris #237 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 02:52:53', '0000-00-00 00:00:00'),
+(2423, 'Data Pinjaman Dikembalikan 237 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 02:53:11', '0000-00-00 00:00:00'),
+(2424, 'Data Pinjaman Ditambahkan 238 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:03:47', '0000-00-00 00:00:00'),
+(2425, 'Data Pinjaman Inventaris #238 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:03:57', '0000-00-00 00:00:00'),
+(2426, 'Data Pinjaman Ditambahkan 239 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:04:18', '0000-00-00 00:00:00'),
+(2427, 'Data Pinjaman Inventaris #239 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:04:33', '0000-00-00 00:00:00'),
+(2428, 'Data Pinjaman Dikembalikan 239 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:04:43', '0000-00-00 00:00:00'),
+(2429, 'Data Pinjaman Dikembalikan 238 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:04:52', '0000-00-00 00:00:00'),
+(2430, 'Data Pinjaman Ditambahkan 240 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:10:16', '0000-00-00 00:00:00'),
+(2431, 'Data Pinjaman Inventaris #240 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:10:25', '0000-00-00 00:00:00'),
+(2432, 'Data Pinjaman Ditambahkan 241 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:10:43', '0000-00-00 00:00:00'),
+(2433, 'Data Pinjaman Inventaris #241 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:10:59', '0000-00-00 00:00:00'),
+(2434, 'Data Pinjaman Dikembalikan 241 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:11:09', '0000-00-00 00:00:00'),
+(2435, 'Data Pinjaman Dikembalikan 240 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:11:18', '0000-00-00 00:00:00'),
+(2436, 'Data Pinjaman Ditambahkan 242 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:15:49', '0000-00-00 00:00:00'),
+(2437, 'Data Pinjaman Inventaris #242 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:15:57', '0000-00-00 00:00:00'),
+(2438, 'Data Pinjaman Ditambahkan 243 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:16:16', '0000-00-00 00:00:00'),
+(2439, 'Data Pinjaman Inventaris #243 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:16:36', '0000-00-00 00:00:00'),
+(2440, 'Data Pinjaman Dikembalikan 243 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:16:47', '0000-00-00 00:00:00'),
+(2441, 'Data Pinjaman Dikembalikan 242 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:16:56', '0000-00-00 00:00:00'),
+(2442, 'Data Pinjaman Ditambahkan 244 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:20:10', '0000-00-00 00:00:00'),
+(2443, 'Data Pinjaman Inventaris #244 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:20:19', '0000-00-00 00:00:00'),
+(2444, 'Data Pinjaman Ditambahkan 245 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:20:41', '0000-00-00 00:00:00'),
+(2445, 'Data Pinjaman Inventaris #245 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:20:59', '0000-00-00 00:00:00'),
+(2446, 'Data Pinjaman Dikembalikan 244 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:21:09', '0000-00-00 00:00:00'),
+(2447, 'Data Pinjaman Dikembalikan 245 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:21:18', '0000-00-00 00:00:00'),
+(2448, 'Data Pinjaman Ditambahkan 246 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:23:58', '0000-00-00 00:00:00'),
+(2449, 'Data Pinjaman Inventaris #246 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:25:57', '0000-00-00 00:00:00'),
+(2450, 'Data Pinjaman Dikembalikan 246 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:26:30', '0000-00-00 00:00:00'),
+(2451, 'Data Pinjaman Ditambahkan 247 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:32:11', '0000-00-00 00:00:00'),
+(2452, 'Data Pinjaman Inventaris #247 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:32:18', '0000-00-00 00:00:00'),
+(2453, 'Data Pinjaman Ditambahkan 248 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:32:37', '0000-00-00 00:00:00'),
+(2454, 'Data Pinjaman Inventaris #248 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:32:58', '0000-00-00 00:00:00'),
+(2455, 'Data Pinjaman Dikembalikan 248 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:33:08', '0000-00-00 00:00:00'),
+(2456, 'Data Pinjaman Dikembalikan 247 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:33:16', '0000-00-00 00:00:00'),
+(2457, 'Data Pinjaman Ditambahkan 249 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:40:43', '0000-00-00 00:00:00'),
+(2458, 'Data Pinjaman Inventaris #249 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:40:56', '0000-00-00 00:00:00'),
+(2459, 'Data Pinjaman Ditambahkan 250 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:41:17', '0000-00-00 00:00:00'),
+(2460, 'Data Pinjaman Ditambahkan 251 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:41:42', '0000-00-00 00:00:00'),
+(2461, 'Data Pinjaman Inventaris #251 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:42:10', '0000-00-00 00:00:00'),
+(2462, 'Data Pinjaman Inventaris #250 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 03:42:17', '0000-00-00 00:00:00'),
+(2463, 'Data Pinjaman Dikembalikan 251 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:42:26', '0000-00-00 00:00:00'),
+(2464, 'Data Pinjaman Dikembalikan 250 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:42:34', '0000-00-00 00:00:00'),
+(2465, 'Data Pinjaman Dikembalikan 249 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:42:42', '0000-00-00 00:00:00'),
+(2466, 'Data Pinjaman Ditambahkan 252 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 03:57:43', '0000-00-00 00:00:00'),
+(2467, 'Data Pinjaman Inventaris #252 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:00:47', '0000-00-00 00:00:00'),
+(2468, 'Data Pinjaman Ditambahkan 253 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:01:10', '0000-00-00 00:00:00'),
+(2469, 'Data Pinjaman Inventaris #253 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:01:17', '0000-00-00 00:00:00'),
+(2470, 'Data Pinjaman Ditambahkan 254 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:01:39', '0000-00-00 00:00:00'),
+(2471, 'Data Pinjaman Inventaris #254 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:01:49', '0000-00-00 00:00:00'),
+(2472, 'Data Pinjaman Dikembalikan 253 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:04:35', '0000-00-00 00:00:00'),
+(2473, 'Data Pinjaman Dikembalikan 252 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:04:43', '0000-00-00 00:00:00'),
+(2474, 'Data Pinjaman Dikembalikan 254 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:04:52', '0000-00-00 00:00:00'),
+(2475, 'Data Pinjaman Ditambahkan 255 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:05:09', '0000-00-00 00:00:00'),
+(2476, 'Data Pinjaman Ditambahkan 256 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:05:27', '0000-00-00 00:00:00'),
+(2477, 'Data Pinjaman Inventaris #255 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:05:37', '0000-00-00 00:00:00'),
+(2478, 'Data Pinjaman Inventaris #256 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:05:48', '0000-00-00 00:00:00'),
+(2479, 'Data Pinjaman Dikembalikan 255 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:06:51', '0000-00-00 00:00:00'),
+(2480, 'Data Pinjaman Dikembalikan 256 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:07:01', '0000-00-00 00:00:00'),
+(2481, 'Data Pinjaman Ditambahkan 257 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:07:18', '0000-00-00 00:00:00'),
+(2482, 'Data Pinjaman Inventaris #257 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:07:27', '0000-00-00 00:00:00'),
+(2483, 'Data Pinjaman Ditambahkan 258 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:07:43', '0000-00-00 00:00:00'),
+(2484, 'Data Pinjaman Inventaris #258 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:21:03', '0000-00-00 00:00:00'),
+(2485, 'Data Pinjaman Ditambahkan 259 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:21:23', '0000-00-00 00:00:00'),
+(2486, 'Data Pinjaman Inventaris #259 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:21:32', '0000-00-00 00:00:00'),
+(2487, 'Data Pinjaman Ditambahkan 260 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:21:50', '0000-00-00 00:00:00'),
+(2488, 'Data Pinjaman Inventaris #260 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:21:59', '0000-00-00 00:00:00'),
+(2489, 'Data Pinjaman Dikembalikan 260 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:22:08', '0000-00-00 00:00:00'),
+(2490, 'Data Pinjaman Ditambahkan 261 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:27:02', '0000-00-00 00:00:00'),
+(2491, 'Data Pinjaman Inventaris #261 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:27:11', '0000-00-00 00:00:00'),
+(2492, 'Data Pinjaman Ditambahkan 262 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:27:30', '0000-00-00 00:00:00'),
+(2493, 'Data Pinjaman Inventaris #262 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:27:38', '0000-00-00 00:00:00'),
+(2494, 'Data Pinjaman Dikembalikan 261 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:29:37', '0000-00-00 00:00:00'),
+(2495, 'Data Pinjaman Dikembalikan 262 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:29:44', '0000-00-00 00:00:00'),
+(2496, 'Data Pinjaman Ditambahkan 263 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:30:01', '0000-00-00 00:00:00'),
+(2497, 'Data Pinjaman Inventaris #263 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:30:09', '0000-00-00 00:00:00'),
+(2498, 'Data Pinjaman Ditambahkan 264 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:30:23', '0000-00-00 00:00:00'),
+(2499, 'Data Pinjaman Inventaris #264 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:30:55', '0000-00-00 00:00:00'),
+(2500, 'Data Pinjaman Dikembalikan 263 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:34:02', '0000-00-00 00:00:00'),
+(2501, 'Data Pinjaman Dikembalikan 264 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:34:11', '0000-00-00 00:00:00'),
+(2502, 'Data Pinjaman Ditambahkan 265 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:34:31', '0000-00-00 00:00:00'),
+(2503, 'Data Pinjaman Ditambahkan 266 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:34:48', '0000-00-00 00:00:00'),
+(2504, 'Data Pinjaman Inventaris #265 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:34:56', '0000-00-00 00:00:00'),
+(2505, 'Data Pinjaman Inventaris #266 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:35:18', '0000-00-00 00:00:00'),
+(2506, 'Data Pinjaman Dikembalikan 265 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:35:30', '0000-00-00 00:00:00'),
+(2507, 'Data Pinjaman Dikembalikan 266 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:35:39', '0000-00-00 00:00:00'),
+(2508, 'Data Pinjaman Ditambahkan 267 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:37:21', '0000-00-00 00:00:00'),
+(2509, 'Data Pinjaman Inventaris #267 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:37:29', '0000-00-00 00:00:00'),
+(2510, 'Data Pinjaman Ditambahkan 268 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:37:45', '0000-00-00 00:00:00'),
+(2511, 'Data Pinjaman Inventaris #268 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:37:55', '0000-00-00 00:00:00'),
+(2512, 'Data Pinjaman Dikembalikan 267 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:52:09', '0000-00-00 00:00:00'),
+(2513, 'Data Pinjaman Dikembalikan 268 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:52:20', '0000-00-00 00:00:00'),
+(2514, 'Data Pinjaman Ditambahkan 269 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:52:42', '0000-00-00 00:00:00'),
+(2515, 'Data Pinjaman Inventaris #269 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:52:49', '0000-00-00 00:00:00'),
+(2516, 'Data Pinjaman Ditambahkan 270 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:53:09', '0000-00-00 00:00:00'),
+(2517, '#270 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:53:19', '0000-00-00 00:00:00'),
+(2518, 'Data Pinjaman Ditambahkan 271 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:53:38', '0000-00-00 00:00:00'),
+(2519, 'Data Pinjaman Inventaris #271 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:53:45', '0000-00-00 00:00:00'),
+(2520, 'Data Pinjaman Dikembalikan 271 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:53:56', '0000-00-00 00:00:00'),
+(2521, 'Data Pinjaman Dikembalikan 269 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:54:08', '0000-00-00 00:00:00'),
+(2522, 'Data Pinjaman Ditambahkan 272 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:59:14', '0000-00-00 00:00:00'),
+(2523, 'Data Pinjaman Inventaris #272 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:59:20', '0000-00-00 00:00:00'),
+(2524, 'Data Pinjaman Ditambahkan 273 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 04:59:39', '0000-00-00 00:00:00'),
+(2525, 'Data Pinjaman Inventaris #273 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 04:59:47', '0000-00-00 00:00:00'),
+(2526, 'Data Pinjaman Dikembalikan 272 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 05:10:24', '0000-00-00 00:00:00'),
+(2527, 'Data Pinjaman Dikembalikan 273 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 05:10:34', '0000-00-00 00:00:00'),
+(2528, 'Data Pinjaman Ditambahkan 274 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 05:22:03', '0000-00-00 00:00:00'),
+(2529, 'Data Pinjaman Inventaris #274 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 05:22:11', '0000-00-00 00:00:00'),
+(2530, 'Data Pinjaman Ditambahkan 275 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 05:22:29', '0000-00-00 00:00:00'),
+(2531, 'Data Pinjaman Inventaris #275 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 05:22:38', '0000-00-00 00:00:00'),
+(2532, 'Data Pinjaman Dikembalikan 274 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 06:29:48', '0000-00-00 00:00:00'),
+(2533, 'Data Pinjaman Dikembalikan 275 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 06:29:57', '0000-00-00 00:00:00'),
+(2534, 'Data Pinjaman Ditambahkan 276 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 06:31:03', '0000-00-00 00:00:00'),
+(2535, 'Data Pinjaman Inventaris #276 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 06:31:19', '0000-00-00 00:00:00'),
+(2536, 'Data Pinjaman Ditambahkan 277 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 06:31:45', '0000-00-00 00:00:00'),
+(2537, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-27 06:33:20', '0000-00-00 00:00:00'),
+(2538, 'Data Inventaris Ditambahkan 64 Created by User:Admin Sarana', '1', '::1', '2023-08-27 06:35:07', '0000-00-00 00:00:00'),
+(2539, 'Data Pinjaman Inventaris #277 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 06:37:18', '0000-00-00 00:00:00'),
+(2540, 'Data Pinjaman Ditambahkan 278 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:04:52', '0000-00-00 00:00:00'),
+(2541, 'Data Pinjaman Inventaris #278 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:05:20', '0000-00-00 00:00:00'),
+(2542, 'Data Pinjaman Dikembalikan 278 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:05:39', '0000-00-00 00:00:00'),
+(2543, 'Data Pinjaman Ditambahkan 279 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:07:56', '0000-00-00 00:00:00'),
+(2544, 'Data Pinjaman Inventaris #279 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:08:23', '0000-00-00 00:00:00'),
+(2545, 'Data Pinjaman Ditambahkan 280 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:08:58', '0000-00-00 00:00:00'),
+(2546, 'Data Pinjaman Inventaris #280 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:14:40', '0000-00-00 00:00:00'),
+(2547, 'Data Pinjaman Ditambahkan 281 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:15:01', '0000-00-00 00:00:00'),
+(2548, 'Data Pinjaman Inventaris #281 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:16:01', '0000-00-00 00:00:00'),
+(2549, 'Data Pinjaman Ditambahkan 282 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:16:21', '0000-00-00 00:00:00'),
+(2550, 'Data Pinjaman Dikembalikan 279 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:16:41', '0000-00-00 00:00:00'),
+(2551, 'Data Pinjaman Dikembalikan 280 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:16:50', '0000-00-00 00:00:00'),
+(2552, 'Data Pinjaman Dikembalikan 281 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:16:57', '0000-00-00 00:00:00'),
+(2553, '#282 Data Pinjaman Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:17:04', '0000-00-00 00:00:00'),
+(2554, 'Data Pinjaman Ditambahkan 283 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:17:52', '0000-00-00 00:00:00'),
+(2555, 'Data Pinjaman Inventaris #283 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:18:32', '0000-00-00 00:00:00'),
+(2556, 'Data Pinjaman Ditambahkan 284 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:18:57', '0000-00-00 00:00:00'),
+(2557, 'Data Pinjaman Inventaris #284 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:19:07', '0000-00-00 00:00:00'),
+(2558, 'Data Pinjaman Ditambahkan 285 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:19:34', '0000-00-00 00:00:00'),
+(2559, 'Data Pinjaman Inventaris #285 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:19:43', '0000-00-00 00:00:00'),
+(2560, 'Data Pinjaman Dikembalikan 285 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:20:14', '0000-00-00 00:00:00'),
+(2561, 'Data Pinjaman Dikembalikan 283 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:20:33', '0000-00-00 00:00:00'),
+(2562, 'Data Pinjaman Dikembalikan 284 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:20:47', '0000-00-00 00:00:00'),
+(2563, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-27 08:34:38', '0000-00-00 00:00:00'),
+(2564, 'Asep (asepp) Logged in', '8', '::1', '2023-08-27 08:34:52', '0000-00-00 00:00:00'),
+(2565, 'Data Pinjaman Ditambahkan 286 Created by User:Asep', '8', '::1', '2023-08-27 08:41:58', '0000-00-00 00:00:00'),
+(2566, '#286 Data Pinjaman Deleted by User:Asep', '8', '::1', '2023-08-27 08:42:28', '0000-00-00 00:00:00'),
+(2567, 'Data Pinjaman Ditambahkan 287 Created by User:Asep', '8', '::1', '2023-08-27 08:43:08', '0000-00-00 00:00:00'),
+(2568, '#287 Data Pinjaman Deleted by User:Asep', '8', '::1', '2023-08-27 08:43:21', '0000-00-00 00:00:00'),
+(2569, 'Data Pinjaman Ditambahkan 288 Created by User:Asep', '8', '::1', '2023-08-27 08:43:43', '0000-00-00 00:00:00'),
+(2570, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-08-27 08:43:58', '0000-00-00 00:00:00'),
+(2571, 'Data Pinjaman Inventaris #288 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:44:04', '0000-00-00 00:00:00'),
+(2572, 'Data Pinjaman Dikembalikan 288 Created by User:Asep', '8', '::1', '2023-08-27 08:44:44', '0000-00-00 00:00:00'),
+(2573, 'Data Pinjaman Ditambahkan 289 Created by User:Asep', '8', '::1', '2023-08-27 08:46:44', '0000-00-00 00:00:00'),
+(2574, 'Data Pinjaman #289 Updated by User: #8', '8', '::1', '2023-08-27 08:48:17', '0000-00-00 00:00:00'),
+(2575, 'Data Pinjaman Inventaris #289 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:48:40', '0000-00-00 00:00:00'),
+(2576, 'Data Pinjaman Ditambahkan 290 Created by User:Asep', '8', '::1', '2023-08-27 08:49:12', '0000-00-00 00:00:00'),
+(2577, 'Data Pinjaman Ditambahkan 291 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:50:09', '0000-00-00 00:00:00'),
+(2578, 'Data Pinjaman Inventaris #290 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:50:36', '0000-00-00 00:00:00'),
+(2579, 'Data Pinjaman Inventaris #291 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-08-27 08:50:47', '0000-00-00 00:00:00'),
+(2580, 'Data Pinjaman Dikembalikan 290 Created by User:Asep', '8', '::1', '2023-08-27 08:51:11', '0000-00-00 00:00:00'),
+(2581, 'Data Pinjaman Dikembalikan 289 Created by User:Asep', '8', '::1', '2023-08-27 08:51:21', '0000-00-00 00:00:00'),
+(2582, 'Data Laporan Sudah Dicek 26 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:53:17', '0000-00-00 00:00:00'),
+(2583, 'Data pemeliharaan #158 Updated by User: #5', '5', '::1', '2023-08-27 08:54:26', '0000-00-00 00:00:00'),
+(2584, 'Data pemeliharaan #158 Updated by User: #5', '5', '::1', '2023-08-27 08:55:16', '0000-00-00 00:00:00'),
+(2585, 'Data pemeliharaan #158 Updated by User: #5', '5', '::1', '2023-08-27 08:55:31', '0000-00-00 00:00:00'),
+(2586, ' #158 Deleted by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:56:17', '0000-00-00 00:00:00'),
+(2587, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-27 08:56:35', '0000-00-00 00:00:00'),
+(2588, 'Data Pemeliharaan Ditambahkan 159 Created by User:Taufik Hidayat', '5', '::1', '2023-08-27 08:59:58', '0000-00-00 00:00:00'),
+(2589, 'Data pemeliharaan #159 Updated by User: #5', '5', '::1', '2023-08-27 09:00:14', '0000-00-00 00:00:00'),
+(2590, 'Data pemeliharaan #159 Updated by User: #5', '5', '::1', '2023-08-27 09:01:12', '0000-00-00 00:00:00'),
+(2591, 'Data pemeliharaan #157 Updated by User: #5', '5', '::1', '2023-08-27 09:02:06', '0000-00-00 00:00:00'),
+(2592, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-08-27 09:06:34', '0000-00-00 00:00:00'),
+(2593, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-27 09:06:40', '0000-00-00 00:00:00'),
+(2594, 'User: Admin Sarana Logged Out', '1', '::1', '2023-08-27 09:32:09', '0000-00-00 00:00:00'),
+(2595, 'User: Asep Logged Out', '8', '::1', '2023-08-27 09:32:45', '0000-00-00 00:00:00'),
+(2596, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-08-27 09:33:29', '0000-00-00 00:00:00'),
+(2597, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-27 09:34:25', '0000-00-00 00:00:00'),
+(2598, 'Agus Rahmawan (agus rahmawan) Logged in', '4', '::1', '2023-08-27 09:39:07', '0000-00-00 00:00:00'),
+(2599, 'Data Pengajuan Ditambahkan 22 Created by User:Agus Rahmawan', '4', '::1', '2023-08-27 09:40:03', '0000-00-00 00:00:00'),
+(2600, 'Data Pengajuan Sudah Di Approve 22 Created by User:Admin Sarana', '1', '::1', '2023-08-27 09:41:53', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -2083,9 +2697,9 @@ CREATE TABLE `data_inventaris` (
 --
 
 INSERT INTO `data_inventaris` (`id`, `kode_barang`, `nama_barang`, `merek`, `asal_usul`, `tahun_peredaran`, `harga_barang`, `keterangan`, `masa_hidup_alat`, `kategori`, `id_jurusan`, `id_ruangan`, `stock`, `total_alat`, `dipasang`, `total_alat_pinjam`) VALUES
-(26, '222.333.444', 'PC All In One', 'Acer', 'BOPD', '2023-07-16', 'Rp. 7.000.000', 'PC SIJA', '1 Tahun', 'furniture kelas', '2', '4', 27, 28, 2, 28),
-(36, '111.222.333', 'Laptop Asus', 'Asus', 'BOPD', '2023-07-23', 'Rp. 5.000.000', 'laptop RPL', '1 Tahun', 'furniture kelas', '1', '3', 12, 12, 0, 12),
-(37, '666.777.888', 'Proyektor', 'Samsung', 'BOPD', '2023-07-29', 'Rp. 1.000.000', 'Proyektor Lab', '1 Tahun', 'elektronik', '2', '4', 3, 8, 5, 2);
+(26, '222.333.444', 'PC All In One', 'Acer', 'BOPD', '2023-07-16', 'Rp. 7.000.000', 'PC SIJA', '1 Tahun', 'furniture kelas', '2', '4', 26, 28, 2, 26),
+(36, '111.222.333', 'laptop asus', 'Asus', 'BOPD', '2023-08-23', 'Rp. 600.000', 'bn', '1 Tahun', 'furniture kelas', '1', '4', 12, 12, 0, 12),
+(37, '666.777.888', 'Proyektor', 'Samsung', 'BOPD', '2023-07-29', 'Rp. 1.000.000', 'Proyektor Lab', '1 Tahun', 'elektronik', '2', '4', 5, 8, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -2130,7 +2744,7 @@ CREATE TABLE `data_pinjam` (
 --
 
 INSERT INTO `data_pinjam` (`id`, `nama_barang`, `id_jurusan`, `tanggal_terpakai`, `id_pengguna`, `kelas`, `stock`, `status`, `alasan_pinjam`) VALUES
-(173, 'PC All In One', '1', '2023-08-10', 8, 'x-a', 1, 'Menunggu Konfirmasi', 'cvbn');
+(291, 'laptop asus', '1', '2023-08-27', 6, 'x-a', 1, 'Dikonfirmasi - Belum Dikembalikan', 'hcvbj');
 
 -- --------------------------------------------------------
 
@@ -2171,23 +2785,6 @@ CREATE TABLE `historys` (
   `statuss` varchar(50) NOT NULL,
   `kelas` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `historys`
---
-
-INSERT INTO `historys` (`id_history`, `nama_barang`, `kode_barang`, `tanggal_masuk`, `tanggal_keluar`, `nama_pemindah_barang`, `jurusan`, `kondisi_barang`, `statuss`, `kelas`) VALUES
-(32, 'PC All In One', '222.333.444', '2023-07-30', '2023-07-30', 'Wahyu Saepudin', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-b'),
-(33, 'PC All In One', '222.333.444', '2023-07-30', '2023-07-30', 'Wahyu Saepudin', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(34, 'Laptop Asus', '111.222.333', '2023-08-01', '2023-08-01', 'Wahyu Saepudin', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(35, 'PC All In One', '222.333.444', '2023-08-04', '2023-08-04', 'Wahyu Saepudin', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(36, 'PC All In One', '222.333.444', '2023-08-10', '2023-08-10', 'Asep', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(37, 'Laptop Asus', '111.222.333', '2023-08-10', '2023-08-10', 'Asep', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(38, 'Laptop Asus', '111.222.333', '2023-08-10', '2023-08-10', 'Wahyu Saepudin', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(39, 'PC All In One', '222.333.444', '2023-08-10', '2023-08-10', 'Asep', 'SIJA', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(40, 'Laptop Asus', '111.222.333', '2023-08-10', '2023-08-10', 'Asep', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(41, 'PC All In One', '222.333.444', '2023-08-10', '2023-08-10', 'Asep', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a'),
-(42, 'Proyektor', '666.777.888', '2023-08-10', '2023-08-10', 'Asep', 'RPL', 'baik', 'Sudah Dikembalikan', 'x-a');
 
 -- --------------------------------------------------------
 
@@ -2232,6 +2829,26 @@ INSERT INTO `kategori_inventaris` (`id_kategori`, `jenis_barang`, `keterangan`) 
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `kode_barang`
+--
+
+CREATE TABLE `kode_barang` (
+  `id` int(11) NOT NULL,
+  `nama_barang` varchar(55) NOT NULL,
+  `kode_barang` varchar(55) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kode_barang`
+--
+
+INSERT INTO `kode_barang` (`id`, `nama_barang`, `kode_barang`) VALUES
+(256, '123', 'as-1'),
+(257, '123', 'as-2');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `lapor_kerusakan`
 --
 
@@ -2250,8 +2867,7 @@ CREATE TABLE `lapor_kerusakan` (
 --
 
 INSERT INTO `lapor_kerusakan` (`id`, `nama_barang`, `tingkat_kerusakan`, `keterangan`, `status`, `id_pengguna`, `tanggal_laporan`) VALUES
-(24, '26', 'Komponen Alat Rusak', 'ahfkj', 'Menunggu Di Cek Oleh Teknisi', 6, '2023-08-02'),
-(26, '26', 'Komponen Alat Rusak', 'hdfbnj', 'Menunggu Di Cek Oleh Teknisi', 8, '2023-08-02');
+(24, '26', 'Komponen Alat Rusak', 'ahfkj', 'Menunggu Di Cek Oleh Teknisi', 6, '2023-08-02');
 
 -- --------------------------------------------------------
 
@@ -2266,17 +2882,17 @@ CREATE TABLE `pemeliharaan` (
   `keterangan` text NOT NULL,
   `jumlah_rusak` int(55) NOT NULL,
   `jumlah_hilang` int(55) NOT NULL,
-  `status_alat` varchar(55) NOT NULL
+  `status_alat` varchar(55) NOT NULL,
+  `jumlah_baik` int(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `pemeliharaan`
 --
 
-INSERT INTO `pemeliharaan` (`id`, `nama_barang`, `tanggal_pemeliharaan`, `keterangan`, `jumlah_rusak`, `jumlah_hilang`, `status_alat`) VALUES
-(142, '37', '2023-08-09', 'Proyektor labkom 2 rusak', 0, 0, 'Dipasang'),
-(153, '26', '2023-08-10', 'xcvbnm', 0, 0, 'Dipasang'),
-(155, '26', '2023-08-10', 'hgvbhnj', 0, 0, 'Alat Untuk Dipinjam');
+INSERT INTO `pemeliharaan` (`id`, `nama_barang`, `tanggal_pemeliharaan`, `keterangan`, `jumlah_rusak`, `jumlah_hilang`, `status_alat`, `jumlah_baik`) VALUES
+(157, '37', '2023-08-18', 'Proyektor Labkom 01 Rusak', 0, 0, 'Dipasang', 3),
+(159, '37', '2023-08-27', 'wee', 0, 0, 'Alat Untuk Dipinjam', 5);
 
 -- --------------------------------------------------------
 
@@ -2300,7 +2916,8 @@ CREATE TABLE `perbaikan` (
 --
 
 INSERT INTO `perbaikan` (`id_konfirmasi`, `nama_barang`, `tingkat_kerusakan`, `keterangan`, `statuss`, `nama_pelapor`, `tanggal_laporan`, `keterangan_perbaikan`) VALUES
-(3, 'PC All In One', 'Mati Total', 'jknlkm', 'Sudah Dicek Oleh Teknisi', 'Asep', '2023-08-02', 'Sudah Diperbaiki');
+(3, 'PC All In One', 'Mati Total', 'jknlkm', 'Sudah Dicek Oleh Teknisi', 'Asep', '2023-08-02', 'Sudah Diperbaiki'),
+(4, 'PC All In One', 'Komponen Alat Rusak', 'hdfbnj', 'Sudah Dicek Oleh Teknisi', 'Asep', '2023-08-02', 'gwhjefk');
 
 -- --------------------------------------------------------
 
@@ -2420,7 +3037,7 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `title`) VALUES
-(1, 'Sarana'),
+(1, 'Admin'),
 (2, 'Kajur'),
 (3, 'Teknisi'),
 (4, 'Siswa');
@@ -2567,7 +3184,8 @@ INSERT INTO `role_permissions` (`id`, `role`, `permission`) VALUES
 (231, 1, 'ruangan_dashboard'),
 (232, 2, 'ruangan_dashboard'),
 (233, 3, 'ruangan_dashboard'),
-(234, 1, 'pengajuan_delete');
+(234, 1, 'pengajuan_delete'),
+(237, 1, 'pemeliharaan_view');
 
 -- --------------------------------------------------------
 
@@ -2648,11 +3266,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`, `last_login`, `role`, `reset_token`, `status`, `img_type`, `created_at`, `updated_at`) VALUES
-(1, 'Admin Sarana', 'admin', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '081312589637', 'Cibodas Campaka', '2023-08-10 13:08:25', 1, '', 1, 'jpg', '2018-06-27 06:00:16', '0000-00-00 00:00:00'),
-(4, 'Agus Rahmawan', 'agus rahmawan', 'kajur@gmail.com', '1baedd25059490937a8f7a52dbaf5a7c168bc49f5bac0d7bc48bd6b58a84a421', '081312589637', 'cimahi', '2023-08-06 10:08:50', 2, '', 1, 'png', '2023-05-03 01:46:07', '0000-00-00 00:00:00'),
-(5, 'Taufik Hidayat', 'taufik', 'taufik78964@gmail.com', '96eab8aec7841ecc477465c904f0ddcf5a556c95701f12de82b227aa81af5209', '081312589637', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-10 13:08:12', 3, '', 1, 'png', '2023-05-03 01:47:29', '0000-00-00 00:00:00'),
-(6, 'Wahyu Saepudin', 'wahyu', 'wahyu123@gmail.com', 'b36c0e9c1331c8ec00d7ddb7a798fed43a9f845503a009cdc0b9280c08329220', '08765361568', 'cimahi', '2023-08-07 00:08:51', 4, '$2y$10$2VWBvggnlzfFcVLapqFKgOb0zaJVHDb6NbVyDLs18pilh9d72AXne', 1, 'png', '2023-05-03 01:48:36', '0000-00-00 00:00:00'),
-(8, 'Asep', 'asepp', 'asep@gmail.com', 'bc9122817c69bad28db7c97f5ee45e2ea94108fd95f00463352f81053ae0311b', '0895422526', 'cimahi', '2023-08-10 12:08:52', 4, '', 1, 'jpg', '2023-07-16 01:26:36', '0000-00-00 00:00:00'),
+(1, 'Admin Sarana', 'admin', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '081312589637', 'Cibodas Campaka', '2023-08-27 08:08:03', 1, '', 1, 'jpg', '2018-06-27 06:00:16', '0000-00-00 00:00:00'),
+(4, 'Agus Rahmawan', 'agus rahmawan', 'kajur@gmail.com', '1baedd25059490937a8f7a52dbaf5a7c168bc49f5bac0d7bc48bd6b58a84a421', '081312589637', 'cimahi', '2023-08-27 08:08:09', 2, '', 1, 'png', '2023-05-03 01:46:07', '0000-00-00 00:00:00'),
+(5, 'Taufik Hidayat', 'taufik', 'taufik78964@gmail.com', '96eab8aec7841ecc477465c904f0ddcf5a556c95701f12de82b227aa81af5209', '081312589637', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-27 07:08:13', 3, '', 1, 'png', '2023-05-03 01:47:29', '0000-00-00 00:00:00'),
+(6, 'Wahyu Saepudin', 'wahyu', 'wahyu123@gmail.com', 'b36c0e9c1331c8ec00d7ddb7a798fed43a9f845503a009cdc0b9280c08329220', '08765361568', 'cimahi', '2023-08-18 23:08:42', 4, '$2y$10$2VWBvggnlzfFcVLapqFKgOb0zaJVHDb6NbVyDLs18pilh9d72AXne', 1, 'png', '2023-05-03 01:48:36', '0000-00-00 00:00:00'),
+(8, 'Asep', 'asepp', 'asep@gmail.com', 'bc9122817c69bad28db7c97f5ee45e2ea94108fd95f00463352f81053ae0311b', '0895422526', 'cimahi', '2023-08-27 07:08:04', 4, '', 1, 'jpg', '2023-07-16 01:26:36', '0000-00-00 00:00:00'),
 (9, 'Rifki', 'rifki', 'rifki@gmail.com', 'def5969afd6d4ac89feff40b68c9c6dde08c010ab9ed4a990c24de3e635b8adc', '08921273912819', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-01 02:08:10', 3, '', 1, 'png', '2023-08-01 03:39:46', '0000-00-00 00:00:00'),
 (10, 'Muhidin', 'muhidin', 'muhidin@gmail', '07b5c1e12bf7c84d7a3f10cd6cdac72cf5ee1801fc17d1067b4368ff933964b2', '08976546970', 'SMKN 1 CIMAHI, Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-03 12:20:05', 2, '', 1, 'png', '2023-08-03 12:20:05', '0000-00-00 00:00:00');
 
@@ -2713,6 +3331,12 @@ ALTER TABLE `jurusan`
 --
 ALTER TABLE `kategori_inventaris`
   ADD PRIMARY KEY (`id_kategori`);
+
+--
+-- Indeks untuk tabel `kode_barang`
+--
+ALTER TABLE `kode_barang`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `lapor_kerusakan`
@@ -2776,31 +3400,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `acc_pengajuan`
 --
 ALTER TABLE `acc_pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1979;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2601;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_inventaris`
 --
 ALTER TABLE `data_inventaris`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_pengajuan`
 --
 ALTER TABLE `data_pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_pinjam`
 --
 ALTER TABLE `data_pinjam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=292;
 
 --
 -- AUTO_INCREMENT untuk tabel `email_templates`
@@ -2812,13 +3436,19 @@ ALTER TABLE `email_templates`
 -- AUTO_INCREMENT untuk tabel `historys`
 --
 ALTER TABLE `historys`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
 
 --
 -- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `kode_barang`
+--
+ALTER TABLE `kode_barang`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
 
 --
 -- AUTO_INCREMENT untuk tabel `lapor_kerusakan`
@@ -2830,13 +3460,13 @@ ALTER TABLE `lapor_kerusakan`
 -- AUTO_INCREMENT untuk tabel `pemeliharaan`
 --
 ALTER TABLE `pemeliharaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 
 --
 -- AUTO_INCREMENT untuk tabel `perbaikan`
 --
 ALTER TABLE `perbaikan`
-  MODIFY `id_konfirmasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_konfirmasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `permissions`
@@ -2854,7 +3484,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT untuk tabel `role_permissions`
 --
 ALTER TABLE `role_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
 
 --
 -- AUTO_INCREMENT untuk tabel `ruangan`

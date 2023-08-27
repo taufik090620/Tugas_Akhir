@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>View Data Inventaris</h1>
+            <h1>Detail Data Pengajuan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -31,10 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <!-- Custom Tabs -->
             <div class="card">
               <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">View Data Inventaris</h3>
+                <h3 class="card-title p-3">Detail Data Pengajuan</h3>
                 <ul class="nav nav-pills ml-auto p-2">
 
-					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab"><?php echo lang('overview') ?></a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">

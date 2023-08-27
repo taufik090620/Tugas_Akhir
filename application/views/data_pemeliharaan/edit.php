@@ -8,13 +8,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tambah Data Pemeliharaan</h1>
+            <h1>Edit Data Pemeliharaan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="<?php echo url('/dashboard') ?>"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/datapemeliharaan') ?>"><?php echo lang('edit_pemeliharaan') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('tambah_pemeliharaan') ?></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/datapemeliharaan') ?>"><?php echo lang('data_pemeliharaan_dipasang') ?></a></li>
+              <li class="breadcrumb-item active"><?php echo lang('edit_pemeliharaan') ?></li>
             </ol>
           </div>
         </div>
@@ -122,13 +122,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <h3 class="card-title">Kondisi</h3>
         </div>
         <div class="card-body">
+        <div class="form-group">
+            <label for="formClient-Name">Jumlah Alat Baik</label>
+            <input type="number" class="form-control" name="jumlah_baik" id="formClient-Name" required placeholder="jumlah alat baik" required value="<?php echo $data_pemeliharaan->jumlah_baik ?>">
+          </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Rusak</label>
-            <input type="text" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" required value="<?php echo $data_pemeliharaan->jumlah_rusak ?>">
+            <input type="number" class="form-control" name="jumlah_rusak" id="formClient-Name" required placeholder="jumlah alat rusak" required value="<?php echo $data_pemeliharaan->jumlah_rusak ?>">
           </div>
           <div class="form-group">
             <label for="formClient-Name">Jumlah Alat Hilang</label>
-            <input type="text" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" required value="<?php echo $data_pemeliharaan->jumlah_hilang ?>">
+            <input type="number" class="form-control" name="jumlah_hilang" id="formClient-Name" required placeholder="jumlah alat hilang" required value="<?php echo $data_pemeliharaan->jumlah_hilang ?>">
           </div><br>
           <p><b>Keterangan :</b></p>
           <p>Jika alat tidak rusak dan hilang, isi kolom kondisi alat dengan angka 0</p>

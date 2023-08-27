@@ -44,6 +44,7 @@ class DataPemeliharaan extends MY_Controller
 		postAllowed();
 	
 		$nama_barang = post('nama_barang');
+		$jumlah_baik = post('jumlah_baik');
 		$jumlah_rusak = post('jumlah_rusak');
 		$jumlah_hilang = post('jumlah_hilang');
 		$tanggal_pemeliharaan = post('tanggal_pemeliharaan');
@@ -66,6 +67,7 @@ class DataPemeliharaan extends MY_Controller
 		// Menyimpan data pemeliharaan baru
 		$id = $this->data_pemeliharaan_model->create([
 			'nama_barang' => $nama_barang,
+			'jumlah_baik' => $jumlah_baik,
 			'jumlah_rusak' => $jumlah_rusak,
 			'jumlah_hilang' => $jumlah_hilang,
 			'tanggal_pemeliharaan' => $tanggal_pemeliharaan,
@@ -138,6 +140,7 @@ class DataPemeliharaan extends MY_Controller
 	
 		$data = [
 			'nama_barang' => $this->input->post('nama_barang'),
+			'jumlah_baik' => $this->input->post('jumlah_baik'),
 			'jumlah_rusak' => $this->input->post('jumlah_rusak'),
 			'jumlah_hilang' => $this->input->post('jumlah_hilang'),
 			'tanggal_pemeliharaan' => $this->input->post('tanggal_pemeliharaan'),

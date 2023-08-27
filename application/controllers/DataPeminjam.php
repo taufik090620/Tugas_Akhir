@@ -38,8 +38,7 @@ class DataPeminjam extends MY_Controller {
 	{
 		ifPermissions('peminjam_add');
 		postAllowed();
-	
-		// Extract data from the POST request and create a new peminjam entry in the database
+
 		$id_pengguna = post('id_pengguna');
 		$nama_barang = post('nama_barang');
 		$stock_barang = post('stock_barang');
@@ -48,24 +47,21 @@ class DataPeminjam extends MY_Controller {
 		$kelas = post('kelas');
 		$alasan_pinjam = post('alasan_pinjam');
 	
-			// Validate the 'stock_barang' field
 			if (empty($stock_barang) || $stock_barang == 0) {
 				$this->session->set_flashdata('alert-type', 'danger');
 				$this->session->set_flashdata('alert', 'Jumlah pinjam tidak boleh kosong atau 0.');
 				redirect('datapeminjam/add');
 				return;
 			}
-			    // Check if the item exists in 'data_inventaris' table
+
 				$available_stock = $this->data_peminjam_model->getAvailableStock($nama_barang);
 				if ($available_stock === null || $available_stock < $stock_barang) {
-					// Show an error message if the requested stock exceeds the available stock
 					$this->session->set_flashdata('alert-type', 'danger');
 					$this->session->set_flashdata('alert', 'Maaf Stock Alat Habis Atau Stock Alat Kurang.');
 					redirect('datapeminjam/add');
 					return;
 				}
 	
-		// Create a new entry in 'data_pinjam' table
 		$peminjam_id = $this->data_peminjam_model->create([
 			'id_pengguna' => logged('id'),
 			'nama_barang' => $nama_barang,
@@ -77,14 +73,9 @@ class DataPeminjam extends MY_Controller {
 			'status' => 'Menunggu Konfirmasi'
 		]);
 	
-		// Update the stock in 'data_inventaris' table
-		$this->data_peminjam_model->updateInventoryStock($nama_barang, $stock_barang);
-	
-		// Log the activity and set success flashdata before redirecting to 'datapeminjam' page.
-		// Note: The 'activity_model' and other helper functions (ifPermissions, postAllowed) are not shown in the provided code.
-		$this->activity_model->add('Data peminjam Ditambahkan ' . $peminjam_id . ' Created by User:' . logged('name'), logged('id'));
+		$this->activity_model->add('Data Pinjaman Ditambahkan ' . $peminjam_id . ' Created by User:' . logged('name'), logged('id'));
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data peminjam Created Successfully');
+		$this->session->set_flashdata('alert', 'Data Pinjaman Created Successfully');
 		redirect('datapeminjam');
 	}
 	
@@ -135,24 +126,17 @@ class DataPeminjam extends MY_Controller {
 	{
 		ifPermissions('peminjam_delete');
 	
-		// Get the data_pinjam entry to be deleted
 		$peminjam_entry = $this->data_peminjam_model->getById($id);
 		if (!$peminjam_entry) {
-			// If the data_pinjam entry doesn't exist, show an error message and redirect
 			$this->session->set_flashdata('alert-type', 'danger');
-			$this->session->set_flashdata('alert', 'Data peminjam not found.');
+			$this->session->set_flashdata('alert', 'Data Pinjaman not found.');
 			redirect('datapeminjam');
 			return;
 		}
 	
-		// Restore the stock in 'data_inventaris' table
-		$this->data_peminjam_model->updateInventoryStockOnDelete($peminjam_entry->nama_barang, $peminjam_entry->stock);
-	
-		// Delete the data_pinjam entry from the database
+
 		$this->data_peminjam_model->delete($id);
-	
-		// Log the activity and set success flashdata before redirecting to 'datapeminjam' page.
-		$this->activity_model->add("#$id Data peminjam Deleted by User:" . logged('name'));
+		$this->activity_model->add("#$id Data Pinjaman Deleted by User:" . logged('name'));
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Data Inventaris has been Deleted Successfully');
 		redirect('datapeminjam');
@@ -183,61 +167,50 @@ class DataPeminjam extends MY_Controller {
 		ifPermissions('peminjam_edit');
 
 		$this->page_data['data_peminjam'] = $this->data_peminjam_model->getById($id);
-		// Get users with role ID 4 (ganti 4 dengan ID peran yang diinginkan)
 		$this->load->model('users_model');
 		$this->page_data['users_list'] = $this->users_model->getUsersByRole(4);
+		 $this->load->model('data_peminjam_model');
+		 $this->page_data['inventaris_list'] = $this->data_peminjam_model->getInventarisTidakDipasang();
 		$this->load->view('peminjam/edit', $this->page_data);
 
 	}
 
 	
 	public function update($id)
-{
-    ifPermissions('peminjam_edit');
-    postAllowed();
-
-    // Get the existing peminjam entry from the database
-    $existing_peminjam = $this->data_peminjam_model->getById($id);
-
-    if (!$existing_peminjam) {
-        $this->session->set_flashdata('alert-type', 'danger');
-        $this->session->set_flashdata('alert', 'Data peminjam not found.');
-        redirect('datapeminjam');
-        return;
-    }
-
-    // Extract data from the POST request
-    $data = [
-        'id_pengguna' => logged('id'),
-        'nama_barang' => post('nama_barang'),
-        'id_jurusan' => post('id_jurusan'),
-        'tanggal_terpakai' => post('tanggal_terpakai'),
-        'kelas' => post('kelas'),
-        'status' => 'Menunggu Konfirmasi'
-    ];
-
-    // Extract the stock from the POST request
-    $new_stock = post('stock_barang');
-
-    // Compare the new stock with the existing stock
-    if ($new_stock < $existing_peminjam->stock) {
-        // Calculate the difference in stock
-        $stock_difference = $existing_peminjam->stock - $new_stock;
-
-        // Restore the stock in 'data_inventaris' table
-        $this->data_peminjam_model->updateInventoryStockOnDelete($existing_peminjam->nama_barang, $stock_difference);
-    }
-
-    // Update the entry in 'data_pinjam' table
-    $data['stock'] = $new_stock;
-    $this->data_peminjam_model->update($id, $data);
-
-    // Log the activity and set success flashdata before redirecting to 'datapeminjam' page.
-    $this->activity_model->add("Data peminjam #$id Updated by User: " . logged('name'), logged('id'));
-    $this->session->set_flashdata('alert-type', 'success');
-    $this->session->set_flashdata('alert', 'peminjam has been Updated Successfully');
-    redirect('datapeminjam');
-}
+	{
+		postAllowed();
+	
+		ifPermissions('peminjam_edit');
+	
+		$data = [
+			'id_pengguna' => logged('id'),
+			'nama_barang' => $this->input->post('nama_barang'),
+			'stock' => $this->input->post('stock_barang'),
+			'id_jurusan' => $this->input->post('id_jurusan'),
+			'tanggal_terpakai' => $this->input->post('tanggal_terpakai'),
+			'kelas' => $this->input->post('kelas'),
+			'alasan_pinjam' => $this->input->post('alasan_pinjam'),
+		];
+	
+		// Check if the updated stock exceeds available stock
+		$available_stock = $this->data_peminjam_model->getAvailableStock($data['nama_barang']);
+		if ($available_stock === null || $data['stock'] > $available_stock) {
+			$this->session->set_flashdata('alert-type', 'danger');
+			$this->session->set_flashdata('alert', 'Maaf Stock Alat Habis Atau Stock Alat Kurang.');
+			redirect('datapeminjam/edit/' . $id); // Redirect back to the edit page
+			return;
+		}
+	
+		$permission = $this->data_peminjam_model->update($id, $data);
+	
+		$this->activity_model->add("Data Pinjaman #$id Updated by User: #" . logged('id'));
+	
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Pinjaman has been Updated Successfully');
+	
+		redirect('datapeminjam');
+	}
+	
 
 	public function getStockByNamaBarang()
 	{
