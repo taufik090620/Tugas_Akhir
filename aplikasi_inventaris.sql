@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Agu 2023 pada 11.44
+-- Waktu pembuatan: 07 Sep 2023 pada 10.51
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -40,6 +40,13 @@ CREATE TABLE `acc_pengajuan` (
   `nama_alat_acc` varchar(55) NOT NULL,
   `tahun_pengajuan_acc` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `acc_pengajuan`
+--
+
+INSERT INTO `acc_pengajuan` (`id`, `nama_pemohon`, `spesifikasi_acc`, `banyak_alat_acc`, `satuan_acc`, `harga_satuan_acc`, `link_beli_acc`, `jurusan`, `status_acc`, `nama_alat_acc`, `tahun_pengajuan_acc`) VALUES
+(12, 'Agus Rahmawan', 'test', 5, 'unit', 'Rp. 5.000.000', 'test', 'RPL', 'Alat Sudah Di Approve', 'test', '2023-09-07');
 
 -- --------------------------------------------------------
 
@@ -2665,7 +2672,118 @@ INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, 
 (2597, 'Role #1 Updated by User: #1', '1', '::1', '2023-08-27 09:34:25', '0000-00-00 00:00:00'),
 (2598, 'Agus Rahmawan (agus rahmawan) Logged in', '4', '::1', '2023-08-27 09:39:07', '0000-00-00 00:00:00'),
 (2599, 'Data Pengajuan Ditambahkan 22 Created by User:Agus Rahmawan', '4', '::1', '2023-08-27 09:40:03', '0000-00-00 00:00:00'),
-(2600, 'Data Pengajuan Sudah Di Approve 22 Created by User:Admin Sarana', '1', '::1', '2023-08-27 09:41:53', '0000-00-00 00:00:00');
+(2600, 'Data Pengajuan Sudah Di Approve 22 Created by User:Admin Sarana', '1', '::1', '2023-08-27 09:41:53', '0000-00-00 00:00:00'),
+(2601, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-09-02 14:44:46', '0000-00-00 00:00:00'),
+(2602, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-09-07 03:56:30', '0000-00-00 00:00:00'),
+(2603, ' #1 Deleted by User:Admin Sarana', '1', '::1', '2023-09-07 03:56:38', '0000-00-00 00:00:00'),
+(2604, ' #1 Deleted by User:Admin Sarana', '1', '::1', '2023-09-07 03:56:42', '0000-00-00 00:00:00'),
+(2605, ' #1 Deleted by User:Admin Sarana', '1', '::1', '2023-09-07 03:56:48', '0000-00-00 00:00:00'),
+(2606, 'Data Inventaris Ditambahkan 65 Created by User:Admin Sarana', '1', '::1', '2023-09-07 03:59:43', '0000-00-00 00:00:00'),
+(2607, 'Data Inventaris Ditambahkan 66 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:05:57', '0000-00-00 00:00:00'),
+(2608, 'Data Inventaris Ditambahkan 67 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:10:08', '0000-00-00 00:00:00'),
+(2609, 'Data Inventaris Ditambahkan 68 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:14:11', '0000-00-00 00:00:00'),
+(2610, 'Data Inventaris #65 Updated by User: #1', '1', '::1', '2023-09-07 04:15:43', '0000-00-00 00:00:00'),
+(2611, 'Data Jurusan #1 Deleted by User:Admin Sarana', '1', '::1', '2023-09-07 04:16:15', '0000-00-00 00:00:00'),
+(2612, 'Data Jurusan Ditambahkan 4 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:18:14', '0000-00-00 00:00:00'),
+(2613, 'Data Jurusan Ditambahkan 5 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:18:27', '0000-00-00 00:00:00'),
+(2614, 'Data Jurusan Ditambahkan 6 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:18:43', '0000-00-00 00:00:00'),
+(2615, 'Data Jurusan Ditambahkan 7 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:19:11', '0000-00-00 00:00:00'),
+(2616, 'Data Jurusan Ditambahkan 8 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:19:35', '0000-00-00 00:00:00'),
+(2617, 'Data Jurusan Ditambahkan 9 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:19:56', '0000-00-00 00:00:00'),
+(2618, 'Data Inventaris Ditambahkan 69 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:25:16', '0000-00-00 00:00:00'),
+(2619, 'Data Inventaris Ditambahkan 70 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:29:41', '0000-00-00 00:00:00'),
+(2620, 'Data Inventaris Ditambahkan 71 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:32:54', '0000-00-00 00:00:00'),
+(2621, 'Data Inventaris Ditambahkan 72 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:41:45', '0000-00-00 00:00:00');
+INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, `updated_at`) VALUES
+(2622, 'Data Inventaris Ditambahkan 73 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:44:02', '0000-00-00 00:00:00'),
+(2623, 'Data Inventaris Ditambahkan 74 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:46:13', '0000-00-00 00:00:00'),
+(2624, 'Data Inventaris Ditambahkan 75 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:47:44', '0000-00-00 00:00:00'),
+(2625, 'Data Inventaris Ditambahkan 76 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:49:58', '0000-00-00 00:00:00'),
+(2626, 'Data Inventaris Ditambahkan 77 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:52:30', '0000-00-00 00:00:00'),
+(2627, 'Data Inventaris Ditambahkan 78 Created by User:Admin Sarana', '1', '::1', '2023-09-07 04:53:59', '0000-00-00 00:00:00'),
+(2628, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-09-07 04:55:45', '0000-00-00 00:00:00'),
+(2629, 'Data Pemeliharaan Ditambahkan 160 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 04:56:13', '0000-00-00 00:00:00'),
+(2630, ' #160 Deleted by User:Taufik Hidayat', '5', '::1', '2023-09-07 04:56:48', '0000-00-00 00:00:00'),
+(2631, 'Data Pemeliharaan Ditambahkan 161 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 04:57:55', '0000-00-00 00:00:00'),
+(2632, 'Data pemeliharaan #161 Updated by User: #5', '5', '::1', '2023-09-07 04:58:11', '0000-00-00 00:00:00'),
+(2633, ' #161 Deleted by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:00:41', '0000-00-00 00:00:00'),
+(2634, 'Data Pemeliharaan Ditambahkan 162 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:04:14', '0000-00-00 00:00:00'),
+(2635, ' #162 Deleted by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:05:04', '0000-00-00 00:00:00'),
+(2636, 'Data Pemeliharaan Ditambahkan 163 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:12:36', '0000-00-00 00:00:00'),
+(2637, 'Data Pemeliharaan Ditambahkan 164 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:13:33', '0000-00-00 00:00:00'),
+(2638, 'Data Pemeliharaan Ditambahkan 165 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:14:12', '0000-00-00 00:00:00'),
+(2639, 'Data Pemeliharaan Ditambahkan 166 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:14:57', '0000-00-00 00:00:00'),
+(2640, 'Data Pemeliharaan Ditambahkan 167 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:15:17', '0000-00-00 00:00:00'),
+(2641, 'Data Pemeliharaan Ditambahkan 168 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 05:15:35', '0000-00-00 00:00:00'),
+(2642, 'New User $11 Created by User:Admin Sarana', '1', '::1', '2023-09-07 05:22:34', '0000-00-00 00:00:00'),
+(2643, 'User #11 Updated by User:Admin Sarana', '1', '::1', '2023-09-07 05:22:46', '0000-00-00 00:00:00'),
+(2644, 'User #1 Deleted by User:Admin Sarana', '1', '::1', '2023-09-07 05:22:52', '0000-00-00 00:00:00'),
+(2645, 'New User $12 Created by User:Admin Sarana', '1', '::1', '2023-09-07 05:50:49', '0000-00-00 00:00:00'),
+(2646, 'New User $13 Created by User:Admin Sarana', '1', '::1', '2023-09-07 05:54:02', '0000-00-00 00:00:00'),
+(2647, 'User: Admin Sarana Logged Out', '1', '::1', '2023-09-07 05:58:35', '0000-00-00 00:00:00'),
+(2648, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-09-07 06:08:03', '0000-00-00 00:00:00'),
+(2649, 'Wahyu Saepudin (wahyu) Logged in', '6', '::1', '2023-09-07 06:09:01', '0000-00-00 00:00:00'),
+(2650, 'Data Pinjaman Ditambahkan 292 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 06:09:49', '0000-00-00 00:00:00'),
+(2651, 'Data Pinjaman Inventaris #292 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-09-07 06:10:14', '0000-00-00 00:00:00'),
+(2652, 'Data Pinjaman Dikembalikan 292 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 06:13:05', '0000-00-00 00:00:00'),
+(2653, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-09-07 06:14:28', '0000-00-00 00:00:00'),
+(2654, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-09-07 06:14:36', '0000-00-00 00:00:00'),
+(2655, 'Data Pinjaman Ditambahkan 293 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 06:16:38', '0000-00-00 00:00:00'),
+(2656, 'User: Admin Sarana Logged Out', '1', '::1', '2023-09-07 06:16:47', '0000-00-00 00:00:00'),
+(2657, 'Taufik Hidayat (taufik) Logged in', '5', '::1', '2023-09-07 06:16:53', '0000-00-00 00:00:00'),
+(2658, 'Data Pinjaman #293 Updated by User: #6', '6', '::1', '2023-09-07 06:17:10', '0000-00-00 00:00:00'),
+(2659, '#293 Data Pinjaman Deleted by User:Wahyu Saepudin', '6', '::1', '2023-09-07 06:17:19', '0000-00-00 00:00:00'),
+(2660, 'Data Pinjaman Ditambahkan 294 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 06:17:50', '0000-00-00 00:00:00'),
+(2661, 'Data Pinjaman Inventaris #294 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-09-07 06:18:01', '0000-00-00 00:00:00'),
+(2662, 'Data Pinjaman Dikembalikan 294 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 06:18:13', '0000-00-00 00:00:00'),
+(2663, 'Data Pinjaman Ditambahkan 295 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:06:23', '0000-00-00 00:00:00'),
+(2664, 'Data Pinjaman Inventaris #295 Dikonfirmasi Oleh Operator :Taufik Hidayat', '5', '::1', '2023-09-07 08:06:37', '0000-00-00 00:00:00'),
+(2665, 'Data Pinjaman Dikembalikan 295 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:07:03', '0000-00-00 00:00:00'),
+(2666, 'Data Laporan Kerusakan Ditambahkan 27 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:10:58', '0000-00-00 00:00:00'),
+(2667, 'Data Laporan Sudah Dicek 27 Created by User:Taufik Hidayat', '5', '::1', '2023-09-07 08:11:21', '0000-00-00 00:00:00'),
+(2668, 'Data Laporan Kerusakan Ditambahkan 28 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:12:26', '0000-00-00 00:00:00'),
+(2669, ' #1 Deleted by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:12:29', '0000-00-00 00:00:00'),
+(2670, 'Data Laporan Kerusakan Ditambahkan 29 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:12:48', '0000-00-00 00:00:00'),
+(2671, ' #1 Deleted by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:13:40', '0000-00-00 00:00:00'),
+(2672, 'Data Laporan Kerusakan Ditambahkan 30 Created by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:13:51', '0000-00-00 00:00:00'),
+(2673, ' #1 Deleted by User:Wahyu Saepudin', '6', '::1', '2023-09-07 08:13:55', '0000-00-00 00:00:00'),
+(2674, 'User: Taufik Hidayat Logged Out', '5', '::1', '2023-09-07 08:17:21', '0000-00-00 00:00:00'),
+(2675, 'Admin Sarana (admin) Logged in', '1', '::1', '2023-09-07 08:18:24', '0000-00-00 00:00:00'),
+(2676, 'Data Ruangan #1 Updated by User: #1', '1', '::1', '2023-09-07 08:18:41', '0000-00-00 00:00:00'),
+(2677, 'Data Ruangan #3 Updated by User: #1', '1', '::1', '2023-09-07 08:18:48', '0000-00-00 00:00:00'),
+(2678, 'Data Ruangan #4 Updated by User: #1', '1', '::1', '2023-09-07 08:19:34', '0000-00-00 00:00:00'),
+(2679, 'Data Ruangan Ditambahkan 6 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:19:59', '0000-00-00 00:00:00'),
+(2680, 'Data Ruangan #6 Updated by User: #1', '1', '::1', '2023-09-07 08:20:05', '0000-00-00 00:00:00'),
+(2681, 'Data Ruangan Ditambahkan 7 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:20:31', '0000-00-00 00:00:00'),
+(2682, 'Data Inventaris #67 Updated by User: #1', '1', '::1', '2023-09-07 08:20:49', '0000-00-00 00:00:00'),
+(2683, 'Data Inventaris #68 Updated by User: #1', '1', '::1', '2023-09-07 08:21:02', '0000-00-00 00:00:00'),
+(2684, ' #1 Deleted by User:Admin Sarana', '1', '::1', '2023-09-07 08:21:22', '0000-00-00 00:00:00'),
+(2685, 'Data Ruangan Ditambahkan 8 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:27:11', '0000-00-00 00:00:00'),
+(2686, 'Data Ruangan Ditambahkan 9 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:27:35', '0000-00-00 00:00:00'),
+(2687, 'Data Ruangan #9 Updated by User: #1', '1', '::1', '2023-09-07 08:27:46', '0000-00-00 00:00:00'),
+(2688, 'Data Ruangan #8 Updated by User: #1', '1', '::1', '2023-09-07 08:27:53', '0000-00-00 00:00:00'),
+(2689, 'Data Ruangan #6 Updated by User: #1', '1', '::1', '2023-09-07 08:28:07', '0000-00-00 00:00:00'),
+(2690, 'Data Ruangan #7 Updated by User: #1', '1', '::1', '2023-09-07 08:28:14', '0000-00-00 00:00:00'),
+(2691, 'Data Ruangan Ditambahkan 10 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:30:42', '0000-00-00 00:00:00'),
+(2692, 'Data Ruangan #10 Updated by User: #1', '1', '::1', '2023-09-07 08:30:59', '0000-00-00 00:00:00'),
+(2693, 'Data Inventaris #70 Updated by User: #1', '1', '::1', '2023-09-07 08:31:24', '0000-00-00 00:00:00'),
+(2694, 'Data Inventaris #71 Updated by User: #1', '1', '::1', '2023-09-07 08:31:43', '0000-00-00 00:00:00'),
+(2695, 'Data Ruangan Ditambahkan 11 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:34:40', '0000-00-00 00:00:00'),
+(2696, 'Data Ruangan Ditambahkan 12 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:36:17', '0000-00-00 00:00:00'),
+(2697, 'Data Ruangan Ditambahkan 13 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:36:42', '0000-00-00 00:00:00'),
+(2698, 'Data Ruangan #13 Updated by User: #1', '1', '::1', '2023-09-07 08:37:03', '0000-00-00 00:00:00'),
+(2699, 'Data Ruangan #12 Updated by User: #1', '1', '::1', '2023-09-07 08:37:10', '0000-00-00 00:00:00'),
+(2700, 'Data Ruangan #11 Updated by User: #1', '1', '::1', '2023-09-07 08:37:18', '0000-00-00 00:00:00'),
+(2701, 'Data Inventaris #72 Updated by User: #1', '1', '::1', '2023-09-07 08:37:40', '0000-00-00 00:00:00'),
+(2702, 'Data Inventaris #73 Updated by User: #1', '1', '::1', '2023-09-07 08:37:52', '0000-00-00 00:00:00'),
+(2703, 'Data Ruangan Ditambahkan 14 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:41:06', '0000-00-00 00:00:00'),
+(2704, 'Data Ruangan Ditambahkan 15 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:41:44', '0000-00-00 00:00:00'),
+(2705, 'Data Inventaris #74 Updated by User: #1', '1', '::1', '2023-09-07 08:42:04', '0000-00-00 00:00:00'),
+(2706, 'Data Inventaris #75 Updated by User: #1', '1', '::1', '2023-09-07 08:42:21', '0000-00-00 00:00:00'),
+(2707, 'User: Wahyu Saepudin Logged Out', '6', '::1', '2023-09-07 08:47:02', '0000-00-00 00:00:00'),
+(2708, 'Agus Rahmawan (agus rahmawan) Logged in', '4', '::1', '2023-09-07 08:47:09', '0000-00-00 00:00:00'),
+(2709, 'Data Pengajuan Ditambahkan 23 Created by User:Agus Rahmawan', '4', '::1', '2023-09-07 08:47:45', '0000-00-00 00:00:00'),
+(2710, 'Data Pengajuan Sudah Di Approve 23 Created by User:Admin Sarana', '1', '::1', '2023-09-07 08:47:55', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -2697,9 +2815,19 @@ CREATE TABLE `data_inventaris` (
 --
 
 INSERT INTO `data_inventaris` (`id`, `kode_barang`, `nama_barang`, `merek`, `asal_usul`, `tahun_peredaran`, `harga_barang`, `keterangan`, `masa_hidup_alat`, `kategori`, `id_jurusan`, `id_ruangan`, `stock`, `total_alat`, `dipasang`, `total_alat_pinjam`) VALUES
-(26, '222.333.444', 'PC All In One', 'Acer', 'BOPD', '2023-07-16', 'Rp. 7.000.000', 'PC SIJA', '1 Tahun', 'furniture kelas', '2', '4', 26, 28, 2, 26),
-(36, '111.222.333', 'laptop asus', 'Asus', 'BOPD', '2023-08-23', 'Rp. 600.000', 'bn', '1 Tahun', 'furniture kelas', '1', '4', 12, 12, 0, 12),
-(37, '666.777.888', 'Proyektor', 'Samsung', 'BOPD', '2023-07-29', 'Rp. 1.000.000', 'Proyektor Lab', '1 Tahun', 'elektronik', '2', '4', 5, 8, 3, 5);
+(65, '111.222.333', 'Laptop Asus', 'asus x450jn-wx022d', 'BOPD', '2023-09-07', 'Rp. 5.000.000', 'Laptop Asus RPL', '1 Tahun', 'furniture kelas', '1', '1', 20, 20, 0, 20),
+(66, '222.555.789', 'Obeng Amerika', 'Amerika Obeng', 'BOPD', '2023-09-07', 'Rp. 50.000', 'Obeng Praktek', '5 Tahun', 'perkakas', '1', '1', 30, 30, 0, 30),
+(67, '556.774.265', 'Monitor', 'LG', 'BOPD', '2023-09-07', 'Rp. 200.000', 'Monitor Lab dan Monitor Pinjam', '1 Tahun', 'furniture kelas', '2', '7', 20, 50, 25, 20),
+(68, '875.097.345', 'UPS', 'Prolink 850S', 'BOPD', '2023-09-07', 'Rp. 600.000', 'UPS Labkom 3 SIJA', '1 Tahun', 'furniture kelas', '2', '6', 0, 2, 2, 0),
+(69, '467.083.076', 'Arduino', 'Arduino UNO R3', 'BOPD', '2023-09-07', 'Rp. 120.000', 'Arduino Uno R3 Praktek', '5 Tahun', 'elektronik', '1', '4', 10, 10, 0, 10),
+(70, '233.482.087', 'Kompresor Angin', 'Kompresor Ryu', 'BOPD', '2023-09-07', 'Rp. 3.500.000', 'Kompresor Praktek', '1 Tahun', 'furniture kelas', '4', '9', 5, 5, 0, 5),
+(71, '423.111.432', 'utonics Photoelectric Sensors', 'Type BJX Series BJX10M-TDT-C-P 1pc', 'BOPD', '2023-09-07', 'Rp. 631.000', 'Sistem Sensor', '1 Tahun', 'furniture kelas', '4', '8', 20, 20, 0, 20),
+(72, '314.583.392', 'Kamera Cannon', 'Cannon EOS 200D II', 'BOPD', '2023-09-07', 'Rp. 15.417.900', 'Kamera PSPT Untuk Praktek', '1 Tahun', 'furniture kelas', '9', '11', 2, 2, 0, 2),
+(73, '345.121.546', 'Kamera Cannon', 'EOS 3000D Kit', 'BOPD', '2023-01-02', 'Rp. 8.158.500', 'Kamera PSPT Untuk Praktek', '1 Tahun', 'furniture kelas', '9', '11', 2, 2, 0, 2),
+(74, '623.042.045', 'Solder', 'MASKO Solder Super 40W', 'BOPD', '2019-02-07', 'Rp. 132.090', 'Solder Listrik', '1 Tahun', 'furniture kelas', '5', '14', 30, 30, 0, 30),
+(75, '253.562.134', 'Goot Solder Elektrik', 'goot Solder Elektrik TQ77 2063', 'BOPD', '2023-09-07', 'Rp. 450.000', 'Solder Listrik', '1 Tahun', 'furniture kelas', '5', '14', 20, 20, 0, 20),
+(76, '200.339.013', 'PC All In One', 'Asus V222 All In One', 'BOPD', '2023-09-07', 'Rp. 5.199.000', 'All In One Labkom RPL', '5 Tahun', 'elektronik', '1', '3', 0, 10, 10, 0),
+(77, '220.394.212', 'Acer Aspire', 'Acer Aspire C24-1650', 'BOPD', '2023-01-11', 'Rp. 8.149.000', 'All In One Labkom RPL', '5 Tahun', 'elektronik', '1', '4', 0, 5, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -2738,13 +2866,6 @@ CREATE TABLE `data_pinjam` (
   `status` varchar(50) NOT NULL,
   `alasan_pinjam` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `data_pinjam`
---
-
-INSERT INTO `data_pinjam` (`id`, `nama_barang`, `id_jurusan`, `tanggal_terpakai`, `id_pengguna`, `kelas`, `stock`, `status`, `alasan_pinjam`) VALUES
-(291, 'laptop asus', '1', '2023-08-27', 6, 'x-a', 1, 'Dikonfirmasi - Belum Dikembalikan', 'hcvbj');
 
 -- --------------------------------------------------------
 
@@ -2786,6 +2907,13 @@ CREATE TABLE `historys` (
   `kelas` varchar(55) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `historys`
+--
+
+INSERT INTO `historys` (`id_history`, `nama_barang`, `kode_barang`, `tanggal_masuk`, `tanggal_keluar`, `nama_pemindah_barang`, `jurusan`, `kondisi_barang`, `statuss`, `kelas`) VALUES
+(130, 'Monitor', '556.774.265', '2023-09-07', '2023-09-07', 'Wahyu Saepudin', 'SIJA', 'baik', 'Sudah Dikembalikan', 'x-b');
+
 -- --------------------------------------------------------
 
 --
@@ -2805,7 +2933,12 @@ CREATE TABLE `jurusan` (
 INSERT INTO `jurusan` (`id`, `nama_jurusan`, `singkatan_jurusan`) VALUES
 (1, 'Rekayasa Perangkat Lunak', 'RPL'),
 (2, 'Sistem Informasi Jaringan Dasar', 'SIJA'),
-(3, 'Teknik Komputer Jaringan', 'TKJ');
+(4, 'Teknik Mekatronika', 'MEKA'),
+(5, ' Teknik Elektronika Industri', 'TEI'),
+(6, 'Teknik Otomasi Industri', 'TOI'),
+(7, ' Instrumentasi dan Otomatisasi Proses', 'IOP'),
+(8, 'Teknik Pemanasan, Tata Udara, dan Pendinginan', 'TPTU'),
+(9, 'Produksi dan Siaran Program Televisi', 'PSPT');
 
 -- --------------------------------------------------------
 
@@ -2892,7 +3025,13 @@ CREATE TABLE `pemeliharaan` (
 
 INSERT INTO `pemeliharaan` (`id`, `nama_barang`, `tanggal_pemeliharaan`, `keterangan`, `jumlah_rusak`, `jumlah_hilang`, `status_alat`, `jumlah_baik`) VALUES
 (157, '37', '2023-08-18', 'Proyektor Labkom 01 Rusak', 0, 0, 'Dipasang', 3),
-(159, '37', '2023-08-27', 'wee', 0, 0, 'Alat Untuk Dipinjam', 5);
+(159, '37', '2023-08-27', 'wee', 0, 0, 'Alat Untuk Dipinjam', 5),
+(163, '67', '2023-09-07', 'Monitor Labkom', 3, 2, 'Dipasang', 25),
+(164, '68', '2023-09-07', 'UPS Labkom', 0, 0, 'Dipasang', 2),
+(165, '77', '2023-09-07', 'All in one labkom', 0, 0, 'Dipasang', 5),
+(166, '70', '2023-09-07', 'Tidak ada yang bermasalah', 0, 0, 'Alat Untuk Dipinjam', 5),
+(167, '67', '2023-09-07', 'Tidak ada yang bermasalah', 0, 0, 'Alat Untuk Dipinjam', 20),
+(168, '72', '2023-09-07', 'Tidak ada yang bermasalah', 0, 0, 'Alat Untuk Dipinjam', 2);
 
 -- --------------------------------------------------------
 
@@ -2917,7 +3056,8 @@ CREATE TABLE `perbaikan` (
 
 INSERT INTO `perbaikan` (`id_konfirmasi`, `nama_barang`, `tingkat_kerusakan`, `keterangan`, `statuss`, `nama_pelapor`, `tanggal_laporan`, `keterangan_perbaikan`) VALUES
 (3, 'PC All In One', 'Mati Total', 'jknlkm', 'Sudah Dicek Oleh Teknisi', 'Asep', '2023-08-02', 'Sudah Diperbaiki'),
-(4, 'PC All In One', 'Komponen Alat Rusak', 'hdfbnj', 'Sudah Dicek Oleh Teknisi', 'Asep', '2023-08-02', 'gwhjefk');
+(4, 'PC All In One', 'Komponen Alat Rusak', 'hdfbnj', 'Sudah Dicek Oleh Teknisi', 'Asep', '2023-08-02', 'gwhjefk'),
+(5, 'Monitor', 'Komponen Alat Rusak', 'Layar Bergaris', 'Sudah Dicek Oleh Teknisi', 'Wahyu Saepudin', '2023-09-07', 'Sudah Diperbaiki');
 
 -- --------------------------------------------------------
 
@@ -3204,9 +3344,19 @@ CREATE TABLE `ruangan` (
 --
 
 INSERT INTO `ruangan` (`id`, `nama_ruangan`, `kapasitas_ruangan`) VALUES
-(1, 'Labkom 1', '10 Orang'),
-(3, 'LabKom 2', '40 Orang'),
-(4, 'Labkom 3', '40 Orang');
+(1, 'Labkom 1-RPL', '10 Orang'),
+(3, 'LabKom 2-RPL', '40 Orang'),
+(4, 'Labkom 3-RPL', '40 Orang'),
+(6, 'Labkom 1-SIJA', '30 Orang'),
+(7, 'Labkom 2-SIJA', '30 Orang'),
+(8, 'Lab CNC-MEKA', '30 Orang'),
+(9, 'Lab Bubut-MEKA', '40 Orang'),
+(10, 'Lab Mikrotik-MEKA', '40 Orang'),
+(11, 'Lab Rekaman-PSPT', '15 Orang'),
+(12, 'Lab Editing-PSPT', '15 Orang'),
+(13, 'Lab Dubbing-PSPT', '10 Orang'),
+(14, 'Lab Robotik-TEI', '30'),
+(15, 'Lab Elektro Dasar-TEI', '20');
 
 -- --------------------------------------------------------
 
@@ -3266,13 +3416,15 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`, `last_login`, `role`, `reset_token`, `status`, `img_type`, `created_at`, `updated_at`) VALUES
-(1, 'Admin Sarana', 'admin', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '081312589637', 'Cibodas Campaka', '2023-08-27 08:08:03', 1, '', 1, 'jpg', '2018-06-27 06:00:16', '0000-00-00 00:00:00'),
-(4, 'Agus Rahmawan', 'agus rahmawan', 'kajur@gmail.com', '1baedd25059490937a8f7a52dbaf5a7c168bc49f5bac0d7bc48bd6b58a84a421', '081312589637', 'cimahi', '2023-08-27 08:08:09', 2, '', 1, 'png', '2023-05-03 01:46:07', '0000-00-00 00:00:00'),
-(5, 'Taufik Hidayat', 'taufik', 'taufik78964@gmail.com', '96eab8aec7841ecc477465c904f0ddcf5a556c95701f12de82b227aa81af5209', '081312589637', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-27 07:08:13', 3, '', 1, 'png', '2023-05-03 01:47:29', '0000-00-00 00:00:00'),
-(6, 'Wahyu Saepudin', 'wahyu', 'wahyu123@gmail.com', 'b36c0e9c1331c8ec00d7ddb7a798fed43a9f845503a009cdc0b9280c08329220', '08765361568', 'cimahi', '2023-08-18 23:08:42', 4, '$2y$10$2VWBvggnlzfFcVLapqFKgOb0zaJVHDb6NbVyDLs18pilh9d72AXne', 1, 'png', '2023-05-03 01:48:36', '0000-00-00 00:00:00'),
-(8, 'Asep', 'asepp', 'asep@gmail.com', 'bc9122817c69bad28db7c97f5ee45e2ea94108fd95f00463352f81053ae0311b', '0895422526', 'cimahi', '2023-08-27 07:08:04', 4, '', 1, 'jpg', '2023-07-16 01:26:36', '0000-00-00 00:00:00'),
+(1, 'Admin Sarana', 'admin', 'admin@gmail.com', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '081312589637', 'Cibodas Campaka', '2023-09-07 06:09:48', 1, '', 1, 'jpg', '2018-06-27 06:00:16', '0000-00-00 00:00:00'),
+(4, 'Agus Rahmawan', 'agus rahmawan', 'kajur@gmail.com', '1baedd25059490937a8f7a52dbaf5a7c168bc49f5bac0d7bc48bd6b58a84a421', '081312589637', 'cimahi', '2023-09-07 07:09:17', 2, '', 1, 'png', '2023-05-03 01:46:07', '0000-00-00 00:00:00'),
+(5, 'Taufik Hidayat', 'taufik', 'taufik78964@gmail.com', '96eab8aec7841ecc477465c904f0ddcf5a556c95701f12de82b227aa81af5209', '081312589637', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-09-07 04:09:46', 3, '', 1, 'png', '2023-05-03 01:47:29', '0000-00-00 00:00:00'),
+(6, 'Wahyu Saepudin', 'wahyu', 'wahyu123@gmail.com', 'b36c0e9c1331c8ec00d7ddb7a798fed43a9f845503a009cdc0b9280c08329220', '08765361568', 'cimahi', '2023-09-07 04:09:39', 4, '$2y$10$2VWBvggnlzfFcVLapqFKgOb0zaJVHDb6NbVyDLs18pilh9d72AXne', 1, 'png', '2023-05-03 01:48:36', '0000-00-00 00:00:00'),
+(8, 'Asep', 'asepp', 'asep@gmail.com', 'bc9122817c69bad28db7c97f5ee45e2ea94108fd95f00463352f81053ae0311b', '0895422526', 'cimahi', '2023-09-07 05:58:32', 4, '', 0, 'jpg', '2023-07-16 01:26:36', '0000-00-00 00:00:00'),
 (9, 'Rifki', 'rifki', 'rifki@gmail.com', 'def5969afd6d4ac89feff40b68c9c6dde08c010ab9ed4a990c24de3e635b8adc', '08921273912819', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-01 02:08:10', 3, '', 1, 'png', '2023-08-01 03:39:46', '0000-00-00 00:00:00'),
-(10, 'Muhidin', 'muhidin', 'muhidin@gmail', '07b5c1e12bf7c84d7a3f10cd6cdac72cf5ee1801fc17d1067b4368ff933964b2', '08976546970', 'SMKN 1 CIMAHI, Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-03 12:20:05', 2, '', 1, 'png', '2023-08-03 12:20:05', '0000-00-00 00:00:00');
+(10, 'Muhidin', 'muhidin', 'muhidin@gmail', '07b5c1e12bf7c84d7a3f10cd6cdac72cf5ee1801fc17d1067b4368ff933964b2', '08976546970', 'SMKN 1 CIMAHI, Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-08-03 12:20:05', 2, '', 1, 'png', '2023-08-03 12:20:05', '0000-00-00 00:00:00'),
+(12, 'Miftahul Kholik', 'miftahul_kholik', 'mif678@gmail.com', '3f43478537894c08756ff2e6845ec4535c3ee956ad469bcbefa012d8d5b139d9', '083100712129', 'Jl. Mancong, RT.05/RW14, Kel.Utama, Kec.Cimahi Selatan', '2023-09-07 05:50:49', 4, '', 1, 'png', '2023-09-07 05:50:49', '0000-00-00 00:00:00'),
+(13, 'Rizal Zaenudin', 'rizal_zaenudin', 'riz124@gmail.com', '7eca9a9c4e1b9c8f7a3de29392d7d2944a92e13c7c712664d512fef571bc8877', '089629949757', 'Jl. Mahar Martanegara No.48, Utama, Kec. Cimahi Sel., Kota Cimahi, Jawa Barat 40521', '2023-09-07 05:54:02', 4, '', 1, 'png', '2023-09-07 05:54:02', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -3400,31 +3552,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `acc_pengajuan`
 --
 ALTER TABLE `acc_pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2601;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2711;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_inventaris`
 --
 ALTER TABLE `data_inventaris`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_pengajuan`
 --
 ALTER TABLE `data_pengajuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT untuk tabel `data_pinjam`
 --
 ALTER TABLE `data_pinjam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=292;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=296;
 
 --
 -- AUTO_INCREMENT untuk tabel `email_templates`
@@ -3436,13 +3588,13 @@ ALTER TABLE `email_templates`
 -- AUTO_INCREMENT untuk tabel `historys`
 --
 ALTER TABLE `historys`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=128;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT untuk tabel `jurusan`
 --
 ALTER TABLE `jurusan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `kode_barang`
@@ -3454,19 +3606,19 @@ ALTER TABLE `kode_barang`
 -- AUTO_INCREMENT untuk tabel `lapor_kerusakan`
 --
 ALTER TABLE `lapor_kerusakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemeliharaan`
 --
 ALTER TABLE `pemeliharaan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
 
 --
 -- AUTO_INCREMENT untuk tabel `perbaikan`
 --
 ALTER TABLE `perbaikan`
-  MODIFY `id_konfirmasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_konfirmasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `permissions`
@@ -3490,7 +3642,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT untuk tabel `ruangan`
 --
 ALTER TABLE `ruangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `settings`
@@ -3502,7 +3654,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
