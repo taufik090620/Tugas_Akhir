@@ -38,7 +38,7 @@ class DataRuangan extends MY_Controller
 		$this->activity_model->add('Data Ruangan Ditambahkan ' . $id . ' Created by User:' . logged('name'), logged('id'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Ruangan Created Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Tambah Data Ruangan');
 
 		redirect('dataruangan');
 	}
@@ -79,7 +79,7 @@ class DataRuangan extends MY_Controller
 		$this->activity_model->add("Data Ruangan #$id Updated by User: #" . logged('id'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Ruangan has been Updated Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Update Data Ruangan');
 
 		redirect('dataruangan');
 	}
@@ -93,7 +93,7 @@ class DataRuangan extends MY_Controller
 		$this->activity_model->add("Data Inventaris #$id Deleted by User:" . logged('name'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Inventaris has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Hapus Data Ruangan');
 		redirect('dataruangan');
 	}
 

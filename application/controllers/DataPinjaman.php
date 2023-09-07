@@ -73,7 +73,7 @@ class DataPinjaman extends MY_Controller {
 	
 		$this->activity_model->add('Data Pinjaman Ditambahkan ' . $pinjaman_id . ' Created by User:' . logged('name'), logged('id'));
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Pinjaman Created Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Tambah Data Pinjam Alat');
 		redirect('datapinjaman');
 	}
 	
@@ -136,7 +136,7 @@ class DataPinjaman extends MY_Controller {
 		$this->data_pinjaman_model->delete($id);
 		$this->activity_model->add("#$id Data Pinjaman Deleted by User:" . logged('name'));
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Inventaris has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Hapus Data Pinjam Alat');
 		redirect('datapinjaman');
 	}
 	
@@ -158,7 +158,7 @@ class DataPinjaman extends MY_Controller {
 		$this->activity_model->add("Data Pinjaman Inventaris #$id Dikonfirmasi Oleh Operator :" . logged('name'));
 	
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Operator menngkonfirmasi peminjaman barang inventaris');
+		$this->session->set_flashdata('alert', 'Pinjaman Berhasil Dikonfirmasi');
 	
 		redirect('datapinjaman');
 	}
@@ -210,7 +210,7 @@ class DataPinjaman extends MY_Controller {
 		$this->activity_model->add("Data Pinjaman #$id Updated by User: #" . logged('id'));
 	
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Pinjaman has been Updated Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Update Data Pinjam Alat');
 	
 		redirect('datapinjaman');
 	}

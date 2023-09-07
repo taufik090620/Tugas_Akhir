@@ -63,7 +63,7 @@ class Users extends MY_Controller {
 		$this->activity_model->add('New User $'.$id.' Created by User:'.logged('name'), logged('id'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'New User Created Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Tambah Data User');
 		
 		redirect('users');
 
@@ -140,7 +140,7 @@ class Users extends MY_Controller {
 		$this->activity_model->add("User #$id Updated by User:".logged('name'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Client Profile has been Updated Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Update Data User');
 		
 		redirect('users');
 
@@ -182,7 +182,7 @@ class Users extends MY_Controller {
 		$this->activity_model->add("User #$id Deleted by User:".logged('name'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'User has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Hapus Data User');
 		
 		redirect('users');
 

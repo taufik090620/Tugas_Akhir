@@ -83,7 +83,7 @@ class DataPemeliharaan extends MY_Controller
 		// Catat aktivitas dan set pesan flash
 		$this->activity_model->add('Data Pemeliharaan Ditambahkan ' . $id . ' Created by User:' . logged('name'), logged('id'));
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Pemeliharaan Created Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Tambah Data Pemeliharaan Alat Dipasang');
 	
 		redirect('datapemeliharaan');
 	}
@@ -115,7 +115,7 @@ class DataPemeliharaan extends MY_Controller
 		$this->activity_model->add(" #$id Deleted by User:".logged('name'));
 	
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Laporkan Kerusakan has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Hapus Data Pemeliharaan Alat Dipasang');
 		
 		redirect('datapemeliharaan');
 	}
@@ -192,7 +192,7 @@ class DataPemeliharaan extends MY_Controller
 		$this->activity_model->add("Data pemeliharaan #$id Updated by User: #" . logged('id'));
 	
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'pemeliharaan has been Updated Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Update Data Pemeliharaan Dipasang');
 	
 		redirect('datapemeliharaan');
 	}

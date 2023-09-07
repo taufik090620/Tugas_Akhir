@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tr>
                     <th>Nama Alat</th>
                     <th>Kode Alat</th>
-                    <th>Total Alat</th>
                     <th>Jumlah Alat Baik</th>
                     <th>Jumlah Alat Rusak</th>
                     <th>Jumlah Alat Hilang</th>
@@ -68,7 +67,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
                       <?php echo $row->kode_barang ?>
                       </td>
-                      <td><?php echo $row->total_alat ?></td>
                       <td><?php echo $row->jumlah_baik ?></td>
                       <td><?php echo $row->jumlah_rusak?></td>
                       <td><?php echo $row->jumlah_hilang?></td>

@@ -38,7 +38,7 @@ class DataJurusan extends MY_Controller
 		$this->activity_model->add('Data Jurusan Ditambahkan ' . $id . ' Created by User:' . logged('name'), logged('id'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Jurusan Created Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Tambah Data Jurusan');
 
 		redirect('datajurusan');
 	}
@@ -79,7 +79,7 @@ class DataJurusan extends MY_Controller
 		$this->activity_model->add("Data Jurusan #$id Updated by User: #" . logged('id'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Jurusan has been Updated Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Update Data Jurusan');
 
 		redirect('datajurusan');
 	}
@@ -93,7 +93,7 @@ class DataJurusan extends MY_Controller
 		$this->activity_model->add("Data Jurusan #$id Deleted by User:" . logged('name'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Jurusan has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Hapus Data Jurusan');
 		redirect('datajurusan');
 	}
 

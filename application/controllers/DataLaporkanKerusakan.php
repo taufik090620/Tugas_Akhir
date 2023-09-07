@@ -44,8 +44,8 @@ class DataLaporkanKerusakan extends MY_Controller
 
 		$this->activity_model->add('Data Laporan Kerusakan Ditambahkan ' . $id . ' Created by User:' . logged('name'), logged('id'));
 
-		$this->session->set_flashdata('alert-tyPe', 'success');
-		$this->session->set_flashdata('alert', 'Data Laporan Kerusakan Created Successfully');
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Berhasil Tambah Data Lapor Kerusakan');
 
 		redirect('datalaporkankerusakan');
 	}
@@ -60,7 +60,7 @@ class DataLaporkanKerusakan extends MY_Controller
 		$this->activity_model->add(" #$id Deleted by User:".logged('name'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Laporkan Kerusakan has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Hapus Data Lapor Kerusakan');
 		
 		redirect('datalaporkankerusakan');
 
@@ -107,7 +107,7 @@ class DataLaporkanKerusakan extends MY_Controller
 		$this->activity_model->add("Data Laporkan Kerusakan #$id Updated by User: #" . logged('id'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'laporan kerusakan has been Updated Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Update Data Lapor Kerusakan');
 
 		redirect('datalaporkankerusakan');
 	}

@@ -83,6 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th>Jurusan</th>
                     <th>Ruangan</th>
                     <th>Asal Usul</th>
+                    <th>Harga</th>
                     <th>Tahun Peredaran</th>
                     <th>Total Alat</th>
                     <th>Alat Dipasang</th>
@@ -107,6 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td><?php echo $row->singkatan_jurusan ?></td>
                       <td><?php echo $row->nama_ruangan ?></td>
                       <td><?php echo $row->asal_usul ?></td>
+                      <td><?php echo $row->harga_barang ?></td>
                       <td><?php echo $row->tahun_peredaran ?></td>
                       <td><?php echo $row->total_alat?></td>
                       <td><?php echo $row->dipasang?></td>

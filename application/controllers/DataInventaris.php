@@ -51,7 +51,7 @@ class DataInventaris extends MY_Controller {
 		$this->activity_model->add('Data Inventaris Ditambahkan '.$id.' Created by User:'.logged('name'), logged('id'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Inventaris Created Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Tambah Data Inventaris');
 		
 		redirect('datainventaris');
 
@@ -68,7 +68,7 @@ class DataInventaris extends MY_Controller {
 		$this->activity_model->add(" #$id Deleted by User:".logged('name'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Data Inventaris has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Hapus Data Inventaris');
 		
 		redirect('datainventaris');
 
@@ -124,7 +124,7 @@ class DataInventaris extends MY_Controller {
 		$this->activity_model->add("Data Inventaris #$id Updated by User: #" . logged('id'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Inventaris has been Updated Successfully');
+		$this->session->set_flashdata('alert', 'Berhasil Update Data Inventaris');
 
 		redirect('datainventaris');
 	}

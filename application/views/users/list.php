@@ -41,7 +41,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th><?php echo lang('id') ?></th>
                     <th><?php echo lang('user_image') ?></th>
                     <th><?php echo lang('user_name') ?></th>
                     <th><?php echo lang('user_email') ?></th>
@@ -54,7 +53,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tbody>
                   <?php foreach ($users as $row): ?>
                     <tr>
-                      <td width="60"><?php echo $row->id ?></td>
                       <td width="50" class="text-center">
                         <img src="<?php echo userProfile($row->id) ?>" width="40" height="40" alt="" class="img-avtar">
 
